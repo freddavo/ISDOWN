@@ -5,10 +5,10 @@
 
 ## Milestone 1
 
-### Goal:
+**Goal:**
 Presentation of the lifecycle objectives and calendar for the project
 
-**Sprint 1 (1 semana)**
+### Sprint 1 (1 semana)
 
 1.Gestão das Tarefas
 2.Objetivos
