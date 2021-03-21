@@ -5,7 +5,7 @@
 
 ## Milestone 1
 
-###Goal:
+### Goal:
 Presentation of the lifecycle objectives and calendar for the project
 
 **Sprint 1 (1 semana)**
