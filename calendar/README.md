@@ -10,7 +10,7 @@ Presentation of the lifecycle objectives and calendar for the project
 
 **Sprint 1 (1 semana)**
 
-.Gestão das Tarefas
+.Gestão das Tarefas\n
 .Objetivos
 .Criação do calendário
 
