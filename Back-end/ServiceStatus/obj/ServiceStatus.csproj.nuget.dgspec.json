@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/eleandrog/Desktop/PI/code/ServiceStatus/ServiceStatus/ServiceStatus.csproj": {}
+    "/Users/eleandrog/Desktop/PI/ISDOWN/Back-end/ServiceStatus/ServiceStatus.csproj": {}
   },
   "projects": {
-    "/Users/eleandrog/Desktop/PI/code/ServiceStatus/ServiceStatus/ServiceStatus.csproj": {
+    "/Users/eleandrog/Desktop/PI/ISDOWN/Back-end/ServiceStatus/ServiceStatus.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/eleandrog/Desktop/PI/code/ServiceStatus/ServiceStatus/ServiceStatus.csproj",
+        "projectUniqueName": "/Users/eleandrog/Desktop/PI/ISDOWN/Back-end/ServiceStatus/ServiceStatus.csproj",
         "projectName": "ServiceStatus",
-        "projectPath": "/Users/eleandrog/Desktop/PI/code/ServiceStatus/ServiceStatus/ServiceStatus.csproj",
+        "projectPath": "/Users/eleandrog/Desktop/PI/ISDOWN/Back-end/ServiceStatus/ServiceStatus.csproj",
         "packagesPath": "/Users/eleandrog/.nuget/packages/",
-        "outputPath": "/Users/eleandrog/Desktop/PI/code/ServiceStatus/ServiceStatus/obj/",
+        "outputPath": "/Users/eleandrog/Desktop/PI/ISDOWN/Back-end/ServiceStatus/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/eleandrog/.config/NuGet/NuGet.Config"

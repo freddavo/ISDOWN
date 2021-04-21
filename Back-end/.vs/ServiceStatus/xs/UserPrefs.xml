@@ -10,7 +10,7 @@
             <Node name="ServiceStatus" expanded="True">
               <Node name="Controllers" expanded="True" />
               <Node name="Model" expanded="True">
-                <Node name="Servico.cs" selected="True" />
+                <Node name="Person.cs" selected="True" />
               </Node>
               <Node name="Properties" expanded="True" />
               <Node name="Service" expanded="True">
