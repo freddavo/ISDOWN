@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ServiceStatus.Model
@@ -11,8 +10,6 @@ namespace ServiceStatus.Model
         public long Id { get; set; }
         [Column("service_name")]
         public string Name { get; set; }
-        [Column("location")]
-        public string Location { get; set; }
         [Column("status")]
         public string Status { get; set; }
     }

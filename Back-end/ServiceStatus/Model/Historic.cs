@@ -10,6 +10,8 @@ namespace ServiceStatus.Model
         public DateTime Date { get; set; }
         [Column("service_name")]
         public Servico Service { get; set; }
+        [Column("failure")]
+        public Failure Failure { get; set; }
         [Column("description")]
         public string Description { get; set; }
         [Column("status")]

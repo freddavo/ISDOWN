@@ -3,8 +3,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ServiceStatus.Model
 {
-    [Table("fails")]
-    public class Fails
+    [Table("failure")]
+    public class Failure
     {
         [Column("date")]
         public DateTime Date { get; set; }
