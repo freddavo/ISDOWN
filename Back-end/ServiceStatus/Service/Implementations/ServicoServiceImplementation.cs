@@ -37,7 +37,6 @@ namespace ServiceStatus.Service.Implementations
             {
                 Id = 1,
                 Name = "PACO",
-                Location = "Europa",
                 Status = "OK",
             };
         }
@@ -54,7 +53,6 @@ namespace ServiceStatus.Service.Implementations
             {
                 Id = i,
                 Name = "Service Name" + i,
-                Location = "Service Location" + i,
                 Status = "OK | NOT OK",
             };
         }

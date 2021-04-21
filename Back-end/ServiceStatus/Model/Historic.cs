@@ -6,6 +6,8 @@ namespace ServiceStatus.Model
     [Table("historic")]
     public class Historic
     {
+        [Column("id")]
+        public long Id { get; set; }
         [Column("date")]
         public DateTime Date { get; set; }
         [Column("service_name")]
