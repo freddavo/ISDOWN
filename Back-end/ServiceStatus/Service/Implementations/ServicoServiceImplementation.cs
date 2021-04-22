@@ -20,6 +20,15 @@ namespace ServiceStatus.Service.Implementations
         //Create a Service
         public Servico Create(Servico service)
         {
+            try
+            {
+                _context.Add(service);
+                _context.SaveChanges();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
             return service;
         }
 
@@ -33,25 +42,55 @@ namespace ServiceStatus.Service.Implementations
         //Find a Service by ID
         public Servico FindById(long id)
         {
-            return new Servico
-            {
-                Id = 1,
-                Name = "PACO",
-                Status = "OK",
-            };
+            return _context.Servicos.SingleOrDefault(s => s.Id.Equals(id));
         }
 
         //Update services
         public Servico Update(Servico service)
         {
-            //no futuro, ir a base de dados e retornar o serviço updated
+            if (!Exists(service.Id)) return new Servico();
+
+            var result = _context.Servicos.SingleOrDefault(s => s.Id.Equals(service.Id));
+
+            if (result != null)
+            {
+                try
+                {
+                    _context.Entry(result).CurrentValues.SetValues(service);
+                    _context.SaveChanges();
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+            }
+       
             return service;
         }
 
         //Delete a Service
         public void Delete(long id)
         {
-            //não retorna nada por enquanto
+            var result = _context.Servicos.SingleOrDefault(s => s.Id.Equals(id));
+
+            if (result != null)
+            {
+                try
+                {
+                    _context.Servicos.Remove(result);
+                    _context.SaveChanges();
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+            }
+        }
+
+        //Checks if a service exists by his ID
+        private bool Exists(long id)
+        {
+            return _context.Servicos.Any(s => s.Id.Equals(id));
         }
     }
 }
