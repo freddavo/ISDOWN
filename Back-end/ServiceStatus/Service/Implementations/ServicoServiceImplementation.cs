@@ -1,36 +1,36 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Threading;
+using System.Linq;
+
 using ServiceStatus.Model;
+using ServiceStatus.Model.Context;
+
 namespace ServiceStatus.Service.Implementations
 {
     public class ServicoServiceImplementation : ServicoService
     {
 
-        private volatile int count;
+        private MySQLContext _context;
 
+        public ServicoServiceImplementation(MySQLContext context)
+        {
+            _context = context;
+        }
+
+        //Create a Service
         public Servico Create(Servico service)
         {
             return service;
         }
 
-        public void Delete(long id)
-        {
-            //não retorna nada por enquanto
-        }
 
+        //List all Services
         public List<Servico> FindAll()
         {
-            List<Servico> services = new List<Servico>();
-            for (int i = 0; i < 10; i++)
-            {
-                Servico service = MockService(i);
-                services.Add(service);
-
-            }
-            return services;
+            return _context.Servicos.ToList();
         }
 
+        //Find a Service by ID
         public Servico FindById(long id)
         {
             return new Servico
@@ -41,25 +41,17 @@ namespace ServiceStatus.Service.Implementations
             };
         }
 
+        //Update services
         public Servico Update(Servico service)
         {
             //no futuro, ir a base de dados e retornar o serviço updated
             return service;
         }
 
-        private Servico MockService(int i)
+        //Delete a Service
+        public void Delete(long id)
         {
-            return new Servico
-            {
-                Id = i,
-                Name = "Service Name" + i,
-                Status = "OK | NOT OK",
-            };
-        }
-
-        private object IncrementGet()
-        {
-            return Interlocked.Increment(ref count);
+            //não retorna nada por enquanto
         }
     }
 }

@@ -6,11 +6,13 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using ServiceStatus.Model.Context;
 using ServiceStatus.Service;
 using ServiceStatus.Service.Implementations;
 
@@ -31,7 +33,11 @@ namespace ServiceStatus
 
             services.AddControllers();
 
-            //Mudanças feitas por mim
+            //
+            var connection = Configuration["MySQLConnection:MySQLConnectionString"];
+            services.AddDbContext<MySQLContext>(options => options.UseMySql(connection));
+
+
             //Injecão de dependência
             services.AddScoped<ServicoService, ServicoServiceImplementation>();
 

@@ -54,3 +54,12 @@
 /Users/eleandrog/Desktop/PI/ISDOWN/Back-end/ServiceStatus/obj/Debug/net5.0/ref/ServiceStatus.dll
 /Users/eleandrog/Desktop/PI/ISDOWN/Back-end/ServiceStatus/obj/Debug/net5.0/ServiceStatus.pdb
 /Users/eleandrog/Desktop/PI/ISDOWN/Back-end/ServiceStatus/obj/Debug/net5.0/ServiceStatus.genruntimeconfig.cache
+/Users/eleandrog/Desktop/PI/ISDOWN/Back-end/ServiceStatus/bin/Debug/net5.0/Microsoft.Bcl.AsyncInterfaces.dll
+/Users/eleandrog/Desktop/PI/ISDOWN/Back-end/ServiceStatus/bin/Debug/net5.0/Microsoft.Bcl.HashCode.dll
+/Users/eleandrog/Desktop/PI/ISDOWN/Back-end/ServiceStatus/bin/Debug/net5.0/Microsoft.EntityFrameworkCore.dll
+/Users/eleandrog/Desktop/PI/ISDOWN/Back-end/ServiceStatus/bin/Debug/net5.0/Microsoft.EntityFrameworkCore.Abstractions.dll
+/Users/eleandrog/Desktop/PI/ISDOWN/Back-end/ServiceStatus/bin/Debug/net5.0/Microsoft.EntityFrameworkCore.Relational.dll
+/Users/eleandrog/Desktop/PI/ISDOWN/Back-end/ServiceStatus/bin/Debug/net5.0/MySqlConnector.dll
+/Users/eleandrog/Desktop/PI/ISDOWN/Back-end/ServiceStatus/bin/Debug/net5.0/Newtonsoft.Json.dll
+/Users/eleandrog/Desktop/PI/ISDOWN/Back-end/ServiceStatus/bin/Debug/net5.0/Pomelo.EntityFrameworkCore.MySql.dll
+/Users/eleandrog/Desktop/PI/ISDOWN/Back-end/ServiceStatus/bin/Debug/net5.0/Pomelo.JsonObject.dll
