@@ -5,8 +5,9 @@ using ServiceStatus.Model;
 
 namespace ServiceStatus.Controllers
 {
+    [ApiVersion("1")]
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("api/servico/v{version:apiVersion}")]
     public class ServicoController : ControllerBase
     {
         private readonly ILogger<ServicoController> _logger;

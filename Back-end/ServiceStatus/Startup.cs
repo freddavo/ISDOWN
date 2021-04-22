@@ -37,6 +37,9 @@ namespace ServiceStatus
             var connection = Configuration["MySQLConnection:MySQLConnectionString"];
             services.AddDbContext<MySQLContext>(options => options.UseMySql(connection));
 
+            //Versioning
+            services.AddApiVersioning();
+
 
             //Injecão de dependência
             services.AddScoped<ServicoService, ServicoServiceImplementation>();

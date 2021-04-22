@@ -1,26 +1,25 @@
 ﻿<Properties StartupConfiguration="{52E52DAD-EB9D-46B3-9EE7-A7D9B5DC840B}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="ServiceStatus/Service/Implementations/ServicoServiceImplementation.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="ServiceStatus/Controllers/ServicoController.cs">
     <Files>
-      <File FileName="ServiceStatus/Model/Servico.cs" Line="1" Column="1" />
-      <File FileName="ServiceStatus/Model/Historic.cs" Line="7" Column="26" />
-      <File FileName="ServiceStatus/Model/Failure.cs" Line="1" Column="1" />
-      <File FileName="ServiceStatus/Model/Context/MySQLContext.cs" Line="20" Column="2" />
-      <File FileName="ServiceStatus/Service/Implementations/ServicoServiceImplementation.cs" Line="81" Column="44" />
+      <File FileName="ServiceStatus/appsettings.json" Line="1" Column="1" />
+      <File FileName="ServiceStatus/Properties/launchSettings.json" Line="24" Column="36" />
+      <File FileName="ServiceStatus/Startup.cs" Line="37" Column="85" />
+      <File FileName="ServiceStatus/Controllers/ServicoController.cs" Line="8" Column="6" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="ServiceStatus" expanded="True">
             <Node name="ServiceStatus" expanded="True">
-              <Node name="Controllers" expanded="True" />
+              <Node name="Controllers" expanded="True">
+                <Node name="ServicoController.cs" selected="True" />
+              </Node>
               <Node name="Model" expanded="True">
                 <Node name="Context" expanded="True" />
               </Node>
               <Node name="Properties" expanded="True" />
               <Node name="Service" expanded="True">
-                <Node name="Implementations" expanded="True">
-                  <Node name="ServicoServiceImplementation.cs" selected="True" />
-                </Node>
+                <Node name="Implementations" expanded="True" />
               </Node>
             </Node>
           </Node>

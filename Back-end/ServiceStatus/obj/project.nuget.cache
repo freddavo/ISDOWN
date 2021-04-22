@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "78A3epP1E2DLHUSg+SvwgFFGGfU3Vw/+Xef6qaeTuOgkez6ZJuIMgJie6MuBOb0bzteCkGFNcPzc+dygkBcaaA==",
+  "dgSpecHash": "LWbcnhJLP3baaOqKl8Q+AKhFI1zqEfndTc9mRq2H6pkKsKhump6KknRPipNBK9DciAidd2gTHsW/0gtBnyVvyA==",
   "success": true,
   "projectFilePath": "/Users/eleandrog/Desktop/PI/ISDOWN/Back-end/ServiceStatus/ServiceStatus.csproj",
   "expectedPackageFiles": [
+    "/Users/eleandrog/.nuget/packages/microsoft.aspnetcore.mvc.versioning/5.0.0/microsoft.aspnetcore.mvc.versioning.5.0.0.nupkg.sha512",
     "/Users/eleandrog/.nuget/packages/microsoft.bcl.asyncinterfaces/1.1.1/microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "/Users/eleandrog/.nuget/packages/microsoft.bcl.hashcode/1.1.1/microsoft.bcl.hashcode.1.1.1.nupkg.sha512",
     "/Users/eleandrog/.nuget/packages/microsoft.csharp/4.5.0/microsoft.csharp.4.5.0.nupkg.sha512",
