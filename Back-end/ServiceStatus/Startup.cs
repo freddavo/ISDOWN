@@ -13,6 +13,8 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using ServiceStatus.Model.Context;
+using ServiceStatus.Repository;
+using ServiceStatus.Repository.Implementations;
 using ServiceStatus.Service;
 using ServiceStatus.Service.Implementations;
 
@@ -43,6 +45,7 @@ namespace ServiceStatus
 
             //Injecão de dependência
             services.AddScoped<ServicoService, ServicoServiceImplementation>();
+            services.AddScoped<ServicoRepository, ServicoRepositoryImplementation>();
 
             services.AddSwaggerGen(c =>
             {

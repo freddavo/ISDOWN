@@ -15,5 +15,7 @@
     <Folder Include="Service\" />
     <Folder Include="Service\Implementations\" />
     <Folder Include="Model\Context\" />
+    <Folder Include="Repository\" />
+    <Folder Include="Repository\Implementations\" />
   </ItemGroup>
 </Project>

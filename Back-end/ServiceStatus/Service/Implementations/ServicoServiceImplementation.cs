@@ -4,93 +4,50 @@ using System.Linq;
 
 using ServiceStatus.Model;
 using ServiceStatus.Model.Context;
+using ServiceStatus.Repository;
 
 namespace ServiceStatus.Service.Implementations
 {
     public class ServicoServiceImplementation : ServicoService
     {
+         
+        //Deixou-se de aceder diretamente ao context da DB e agora usa-se o Repository
+        private readonly ServicoRepository _repository;
 
-        private MySQLContext _context;
-
-        public ServicoServiceImplementation(MySQLContext context)
+        public ServicoServiceImplementation(ServicoRepository repository)
         {
-            _context = context;
+            _repository = repository;
         }
 
         //Create a Service
         public Servico Create(Servico service)
         {
-            try
-            {
-                _context.Add(service);
-                _context.SaveChanges();
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-            return service;
+            return _repository.Create(service);
         }
 
 
         //List all Services
         public List<Servico> FindAll()
         {
-            return _context.Servicos.ToList();
+            return _repository.FindAll();
         }
 
         //Find a Service by ID
         public Servico FindById(long id)
         {
-            return _context.Servicos.SingleOrDefault(s => s.Id.Equals(id));
+            return _repository.FindById(id);
         }
 
         //Update services
         public Servico Update(Servico service)
         {
-            if (!Exists(service.Id)) return new Servico();
-
-            var result = _context.Servicos.SingleOrDefault(s => s.Id.Equals(service.Id));
-
-            if (result != null)
-            {
-                try
-                {
-                    _context.Entry(result).CurrentValues.SetValues(service);
-                    _context.SaveChanges();
-                }
-                catch (Exception)
-                {
-                    throw;
-                }
-            }
-       
-            return service;
+            return _repository.Update(service);
         }
 
         //Delete a Service
         public void Delete(long id)
         {
-            var result = _context.Servicos.SingleOrDefault(s => s.Id.Equals(id));
-
-            if (result != null)
-            {
-                try
-                {
-                    _context.Servicos.Remove(result);
-                    _context.SaveChanges();
-                }
-                catch (Exception)
-                {
-                    throw;
-                }
-            }
-        }
-
-        //Checks if a service exists by his ID
-        private bool Exists(long id)
-        {
-            return _context.Servicos.Any(s => s.Id.Equals(id));
+            _repository.Delete(id);
         }
     }
-}
+} 

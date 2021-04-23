@@ -1,14 +1,15 @@
-﻿ using System;
+﻿using System;
 using System.Collections.Generic;
 using ServiceStatus.Model;
-namespace ServiceStatus.Service
+namespace ServiceStatus.Repository
 {
-    public interface ServicoService
+    public interface ServicoRepository
     {
         Servico Create(Servico service);
         Servico FindById(long id);
         List<Servico> FindAll();
         Servico Update(Servico service);
         void Delete(long id);
+        bool Exists(long id);
     }
 }
