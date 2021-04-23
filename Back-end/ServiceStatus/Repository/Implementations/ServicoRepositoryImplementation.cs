@@ -50,7 +50,7 @@ namespace ServiceStatus.Repository.Implementations
         {
             //Check if a service exists in the database
             //If it does not, return a empty instance
-            if (!Exists(service.Id)) return new Servico();
+            if (!Exists(service.Id)) return null;
 
             //Current status of the record in the database
             var result = _context.Servicos.SingleOrDefault(s => s.Id.Equals(service.Id));
