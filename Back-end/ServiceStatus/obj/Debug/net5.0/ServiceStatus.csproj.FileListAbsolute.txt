@@ -64,3 +64,15 @@
 /Users/eleandrog/Desktop/PI/ISDOWN/Back-end/ServiceStatus/bin/Debug/net5.0/Pomelo.EntityFrameworkCore.MySql.dll
 /Users/eleandrog/Desktop/PI/ISDOWN/Back-end/ServiceStatus/bin/Debug/net5.0/Pomelo.JsonObject.dll
 /Users/eleandrog/Desktop/PI/ISDOWN/Back-end/ServiceStatus/bin/Debug/net5.0/Microsoft.AspNetCore.Mvc.Versioning.dll
+/Users/eleandrog/Desktop/PI/ISDOWN/Back-end/ServiceStatus/bin/Debug/net5.0/Evolve.dll
+/Users/eleandrog/Desktop/PI/ISDOWN/Back-end/ServiceStatus/bin/Debug/net5.0/Microsoft.DotNet.PlatformAbstractions.dll
+/Users/eleandrog/Desktop/PI/ISDOWN/Back-end/ServiceStatus/bin/Debug/net5.0/Microsoft.Extensions.DependencyModel.dll
+/Users/eleandrog/Desktop/PI/ISDOWN/Back-end/ServiceStatus/bin/Debug/net5.0/Serilog.dll
+/Users/eleandrog/Desktop/PI/ISDOWN/Back-end/ServiceStatus/bin/Debug/net5.0/Serilog.AspNetCore.dll
+/Users/eleandrog/Desktop/PI/ISDOWN/Back-end/ServiceStatus/bin/Debug/net5.0/Serilog.Extensions.Hosting.dll
+/Users/eleandrog/Desktop/PI/ISDOWN/Back-end/ServiceStatus/bin/Debug/net5.0/Serilog.Extensions.Logging.dll
+/Users/eleandrog/Desktop/PI/ISDOWN/Back-end/ServiceStatus/bin/Debug/net5.0/Serilog.Formatting.Compact.dll
+/Users/eleandrog/Desktop/PI/ISDOWN/Back-end/ServiceStatus/bin/Debug/net5.0/Serilog.Settings.Configuration.dll
+/Users/eleandrog/Desktop/PI/ISDOWN/Back-end/ServiceStatus/bin/Debug/net5.0/Serilog.Sinks.Console.dll
+/Users/eleandrog/Desktop/PI/ISDOWN/Back-end/ServiceStatus/bin/Debug/net5.0/Serilog.Sinks.Debug.dll
+/Users/eleandrog/Desktop/PI/ISDOWN/Back-end/ServiceStatus/bin/Debug/net5.0/Serilog.Sinks.File.dll

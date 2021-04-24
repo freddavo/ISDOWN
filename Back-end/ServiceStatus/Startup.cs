@@ -12,6 +12,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using Serilog;
 using ServiceStatus.Model.Context;
 using ServiceStatus.Repository;
 using ServiceStatus.Repository.Implementations;
@@ -22,12 +23,17 @@ namespace ServiceStatus
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
-        {
-            Configuration = configuration;
-        }
+        public IWebHostEnvironment Environment { get; }
 
         public IConfiguration Configuration { get; }
+
+        public Startup(IConfiguration configuration, IWebHostEnvironment environment)
+        {
+            Configuration = configuration;
+            Environment = environment;
+
+            Log.Logger = new LoggerConfiguration().WriteTo.Console().CreateLogger();
+        }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
@@ -38,6 +44,11 @@ namespace ServiceStatus
             //
             var connection = Configuration["MySQLConnection:MySQLConnectionString"];
             services.AddDbContext<MySQLContext>(options => options.UseMySql(connection));
+
+            if (Environment.IsDevelopment())
+            {
+                MigrateDatabase(connection);
+            }
 
             //Versioning
             services.AddApiVersioning();
@@ -73,6 +84,25 @@ namespace ServiceStatus
             {
                 endpoints.MapControllers();
             });
+        }
+
+        private void MigrateDatabase(string connection)
+        {
+            try
+            {
+                var evolveConnection = new MySql.Data.MySqlClient.MySqlConnection(connection);
+                var evolve = new Evolve.Evolve(evolveConnection, msg => Log.Information(msg))
+                {
+                    Locations = new List<string> { "db/migrations", "db/dataset" },
+                    IsEraseDisabled = true,
+                };
+                evolve.Migrate();
+            }
+            catch (Exception ex)
+            {
+                Log.Error("Database migration failed!", ex);
+                throw;
+            }
         }
     }
 }

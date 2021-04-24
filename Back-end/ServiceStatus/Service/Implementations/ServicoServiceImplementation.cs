@@ -1,9 +1,6 @@
-﻿using System;
+﻿
 using System.Collections.Generic;
-using System.Linq;
-
 using ServiceStatus.Model;
-using ServiceStatus.Model.Context;
 using ServiceStatus.Repository;
 
 namespace ServiceStatus.Service.Implementations

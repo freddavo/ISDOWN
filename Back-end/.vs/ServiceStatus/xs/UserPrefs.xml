@@ -1,10 +1,11 @@
 ﻿<Properties StartupConfiguration="{52E52DAD-EB9D-46B3-9EE7-A7D9B5DC840B}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="ServiceStatus/Service/Implementations/ServicoServiceImplementation.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="ServiceStatus/Startup.cs">
     <Files>
       <File FileName="ServiceStatus/Service/ServicoService.cs" Line="1" Column="2" />
-      <File FileName="ServiceStatus/Service/Implementations/ServicoServiceImplementation.cs" Line="53" Column="3" />
+      <File FileName="ServiceStatus/Service/Implementations/ServicoServiceImplementation.cs" Line="1" Column="1" />
       <File FileName="ServiceStatus/Repository/ServicoRepository.cs" Line="1" Column="1" />
-      <File FileName="ServiceStatus/Repository/Implementations/ServicoRepositoryImplementation.cs" Line="16" Column="11" />
+      <File FileName="ServiceStatus/Repository/Implementations/ServicoRepositoryImplementation.cs" Line="62" Column="10" />
+      <File FileName="ServiceStatus/Startup.cs" Line="25" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -12,15 +13,11 @@
           <Node name="ServiceStatus" expanded="True">
             <Node name="ServiceStatus" expanded="True">
               <Node name="Controllers" expanded="True" />
-              <Node name="Model" expanded="True" />
-              <Node name="Repository" expanded="True">
+              <Node name="Repository" expanded="True" />
+              <Node name="Service" expanded="True">
                 <Node name="Implementations" expanded="True" />
               </Node>
-              <Node name="Service" expanded="True">
-                <Node name="Implementations" expanded="True">
-                  <Node name="ServicoServiceImplementation.cs" selected="True" />
-                </Node>
-              </Node>
+              <Node name="Startup.cs" selected="True" />
             </Node>
           </Node>
         </State>
