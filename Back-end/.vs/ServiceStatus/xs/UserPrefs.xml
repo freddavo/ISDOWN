@@ -1,6 +1,9 @@
 ﻿<Properties StartupConfiguration="{52E52DAD-EB9D-46B3-9EE7-A7D9B5DC840B}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="ServiceStatus/Model/Historic.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="ServiceStatus/Model/Subscription.cs">
     <Files>
+      <File FileName="ServiceStatus/Model/Subscription.cs" Line="12" Column="43" />
+      <File FileName="ServiceStatus/Model/Admin.cs" Line="1" Column="1" />
+      <File FileName="ServiceStatus/Model/Failure.cs" Line="1" Column="1" />
       <File FileName="ServiceStatus/Model/Historic.cs" Line="1" Column="1" />
     </Files>
     <Pads>
@@ -13,7 +16,7 @@
                 <Node name="migrations" expanded="True" />
               </Node>
               <Node name="Model" expanded="True">
-                <Node name="Historic.cs" selected="True" />
+                <Node name="Subscription.cs" selected="True" />
               </Node>
               <Node name="Properties" expanded="True" />
               <Node name="Repository" expanded="True" />
