@@ -7,11 +7,11 @@
             <Node name="ServiceStatus" expanded="True">
               <Node name="db" expanded="True">
                 <Node name="dataset" expanded="True" />
-                <Node name="migrations" expanded="True" />
+                <Node name="migrations" expanded="True">
+                  <Node name="V1__Create_Table_Service.sql" selected="True" />
+                </Node>
               </Node>
-              <Node name="Model" expanded="True">
-                <Node name="Servico.cs" selected="True" />
-              </Node>
+              <Node name="Model" expanded="True" />
               <Node name="Properties" expanded="True" />
               <Node name="Repository" expanded="True" />
               <Node name="Service" expanded="True" />
