@@ -1,0 +1,1 @@
+INSERT INTO `service` VALUES (1,'PACO','OK'),(2,'E-LEARNING','OK'),(3,'STIC','NOT OK'),(4,'GretUA','NOT OK'),(5,'LUA','OK'),(7,'GLUA','OK');
