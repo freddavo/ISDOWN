@@ -9,11 +9,12 @@
                 <Node name="dataset" expanded="True" />
                 <Node name="migrations" expanded="True" />
               </Node>
-              <Node name="Model" expanded="True" />
+              <Node name="Model" expanded="True">
+                <Node name="Servico.cs" selected="True" />
+              </Node>
               <Node name="Properties" expanded="True" />
               <Node name="Repository" expanded="True" />
               <Node name="Service" expanded="True" />
-              <Node name="Startup.cs" selected="True" />
             </Node>
           </Node>
         </State>
