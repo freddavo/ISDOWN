@@ -36,7 +36,7 @@ namespace ServiceStatus.Repository.Implementations
 
         public Person FindById(long id)
         {
-            return _context.People.SingleOrDefault(s => s.Id.Equals(id));
+            return _context.People.SingleOrDefault(p => p.Id.Equals(id));
         }
 
         public Person Update(Person person)
@@ -46,7 +46,7 @@ namespace ServiceStatus.Repository.Implementations
             if (!Exists(person.Id)) return null;
 
             //Current status of the record in the database
-            var result = _context.Servicos.SingleOrDefault(s => s.Id.Equals(person.Id));
+            var result = _context.Servicos.SingleOrDefault(p => p.Id.Equals(person.Id));
 
             if (result != null)
             {
@@ -66,7 +66,7 @@ namespace ServiceStatus.Repository.Implementations
 
         public void Delete(long id)
         {
-            var result = _context.People.SingleOrDefault(s => s.Id.Equals(id));
+            var result = _context.People.SingleOrDefault(p => p.Id.Equals(id));
 
             if (result != null)
             {
@@ -84,7 +84,7 @@ namespace ServiceStatus.Repository.Implementations
 
         public bool Exists(long id)
         {
-            return _context.People.Any(s => s.Id.Equals(id));
+            return _context.People.Any(p => p.Id.Equals(id));
         }
     }
 }
