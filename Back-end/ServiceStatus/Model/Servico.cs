@@ -12,5 +12,7 @@ namespace ServiceStatus.Model
         public string Name { get; set; }
         [Column("status")]
         public string Status { get; set; }
+
+        //lista de pessoas associadas a um serviço
     }
 }
