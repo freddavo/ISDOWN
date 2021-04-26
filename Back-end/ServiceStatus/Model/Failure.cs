@@ -6,6 +6,7 @@ namespace ServiceStatus.Model
     [Table("failure")]
     public class Failure
     {
+        //criar um ID
         [Column("date")]
         public DateTime Date { get; set; }
         [Column("resolution_time")]

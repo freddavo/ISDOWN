@@ -15,9 +15,18 @@ namespace ServiceStatus.Repository.Implementations
             _context = context;
         }
 
-        public Person Create(Person service)
+        public Person Create(Person person)
         {
-            throw new NotImplementedException();
+            try
+            {
+                _context.Add(person);
+                _context.SaveChanges();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            return person;
         }
 
         public List<Person> FindAll()
@@ -30,19 +39,52 @@ namespace ServiceStatus.Repository.Implementations
             return _context.People.SingleOrDefault(s => s.Id.Equals(id));
         }
 
-        public Person Update(Person service)
+        public Person Update(Person person)
         {
-            throw new NotImplementedException();
+            //Check if a person exists in the database
+            //If it does not, return a empty instance
+            if (!Exists(person.Id)) return null;
+
+            //Current status of the record in the database
+            var result = _context.Servicos.SingleOrDefault(s => s.Id.Equals(person.Id));
+
+            if (result != null)
+            {
+                try
+                {
+                    _context.Entry(result).CurrentValues.SetValues(person);
+                    _context.SaveChanges();
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+            }
+
+            return person;
         }
 
         public void Delete(long id)
         {
-            throw new NotImplementedException();
+            var result = _context.People.SingleOrDefault(s => s.Id.Equals(id));
+
+            if (result != null)
+            {
+                try
+                {
+                    _context.People.Remove(result);
+                    _context.SaveChanges();
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+            }
         }
 
         public bool Exists(long id)
         {
-            throw new NotImplementedException();
+            return _context.People.Any(s => s.Id.Equals(id));
         }
     }
 }
