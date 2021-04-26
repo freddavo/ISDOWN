@@ -1,22 +1,29 @@
 ﻿<Properties StartupConfiguration="{52E52DAD-EB9D-46B3-9EE7-A7D9B5DC840B}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="ServiceStatus/Model/Subscription.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="ServiceStatus/Repository/Implementations/ServicoRepositoryImplementation.cs">
     <Files>
-      <File FileName="ServiceStatus/Model/Subscription.cs" Line="13" Column="22" />
+      <File FileName="ServiceStatus/Repository/PersonRepository.cs" Line="14" Column="6" />
+      <File FileName="ServiceStatus/Repository/Implementations/PersonRepositoryImplementation.cs" Line="1" Column="1" />
+      <File FileName="ServiceStatus/Repository/Implementations/ServicoRepositoryImplementation.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="ServiceStatus" expanded="True">
             <Node name="ServiceStatus" expanded="True">
+              <Node name="Controllers" expanded="True" />
               <Node name="db" expanded="True">
                 <Node name="dataset" expanded="True" />
                 <Node name="migrations" expanded="True" />
               </Node>
               <Node name="Model" expanded="True">
-                <Node name="Subscription.cs" selected="True" />
+                <Node name="Context" expanded="True" />
               </Node>
               <Node name="Properties" expanded="True" />
-              <Node name="Repository" expanded="True" />
+              <Node name="Repository" expanded="True">
+                <Node name="Implementations" expanded="True">
+                  <Node name="ServicoRepositoryImplementation.cs" selected="True" />
+                </Node>
+              </Node>
               <Node name="Service" expanded="True" />
             </Node>
           </Node>
