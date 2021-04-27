@@ -1,0 +1,1 @@
+INSERT INTO `failure` VALUES (1,'2019-10-23',1234,'Server crashed');

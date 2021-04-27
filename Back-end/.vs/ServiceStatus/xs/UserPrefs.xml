@@ -1,21 +1,22 @@
 ﻿<Properties StartupConfiguration="{52E52DAD-EB9D-46B3-9EE7-A7D9B5DC840B}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="ServiceStatus/Controllers/ServicoController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="ServiceStatus/db/dataset/V6__Populate_Table_Failure.sql">
     <Files>
-      <File FileName="ServiceStatus/db/dataset/V2__Populate_Table_Service.sql" Line="1" Column="1" />
-      <File FileName="ServiceStatus/db/migrations/V5__Create_Table_Failure (copy).sql" Line="7" Column="2" />
-      <File FileName="ServiceStatus/Controllers/ServicoController.cs" Line="8" Column="5" />
-      <File FileName="ServiceStatus/Controllers/FailureController.cs" Line="1" Column="1" />
+      <File FileName="ServiceStatus/Model/Failure.cs" Line="16" Column="48" />
+      <File FileName="ServiceStatus/Controllers/FailureController.cs" Line="10" Column="20" />
+      <File FileName="ServiceStatus/Repository/Implementations/FailureRepositoryImplementation.cs" Line="40" Column="1" />
+      <File FileName="ServiceStatus/db/migrations/V5__Create_Table_Failure.sql" Line="2" Column="1" />
+      <File FileName="ServiceStatus/db/dataset/V6__Populate_Table_Failure.sql" Line="1" Column="37" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="ServiceStatus" expanded="True">
             <Node name="ServiceStatus" expanded="True">
-              <Node name="Controllers" expanded="True">
-                <Node name="ServicoController.cs" selected="True" />
-              </Node>
+              <Node name="Controllers" expanded="True" />
               <Node name="db" expanded="True">
-                <Node name="dataset" expanded="True" />
+                <Node name="dataset" expanded="True">
+                  <Node name="V6__Populate_Table_Failure.sql" selected="True" />
+                </Node>
                 <Node name="migrations" expanded="True" />
               </Node>
               <Node name="Model" expanded="True">

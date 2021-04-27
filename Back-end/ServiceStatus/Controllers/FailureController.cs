@@ -12,7 +12,7 @@ namespace ServiceStatus.Controllers
     public class FailureController : ControllerBase
     {
         private readonly ILogger<FailureController> _logger;
-        private FailureService _failureService;
+        private Service.FailureService _failureService;
 
         public FailureController(ILogger<FailureController> logger, FailureService failureService)
         {
