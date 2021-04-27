@@ -57,6 +57,10 @@ namespace ServiceStatus
             //Injecão de dependência
             services.AddScoped<ServicoService, ServicoServiceImplementation>();
             services.AddScoped<ServicoRepository, ServicoRepositoryImplementation>();
+            services.AddScoped<PersonService, PersonServiceImplementations>();
+            services.AddScoped<PersonRepository, PersonRepositoryImplementation>();
+            services.AddScoped<FailureService, FailureServiceImplementation>();
+            services.AddScoped<FailureRepository, FailureRepositoryImplementation>();
 
             services.AddSwaggerGen(c =>
             {
