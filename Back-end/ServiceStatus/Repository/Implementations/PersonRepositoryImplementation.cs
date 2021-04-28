@@ -6,6 +6,7 @@ using ServiceStatus.Model.Context;
 
 namespace ServiceStatus.Repository.Implementations
 {
+    //apagar
     public class PersonRepositoryImplementation : PersonRepository
     {
         private MySQLContext _context;

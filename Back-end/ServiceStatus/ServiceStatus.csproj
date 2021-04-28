@@ -24,5 +24,7 @@
     <Folder Include="db\" />
     <Folder Include="db\dataset\" />
     <Folder Include="db\migrations\" />
+    <Folder Include="Model\Base\" />
+    <Folder Include="Repository\Generic\" />
   </ItemGroup>
 </Project>

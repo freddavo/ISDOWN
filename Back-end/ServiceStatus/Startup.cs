@@ -15,6 +15,7 @@ using Microsoft.OpenApi.Models;
 using Serilog;
 using ServiceStatus.Model.Context;
 using ServiceStatus.Repository;
+using ServiceStatus.Repository.Generic;
 using ServiceStatus.Repository.Implementations;
 using ServiceStatus.Service;
 using ServiceStatus.Service.Implementations;
@@ -61,6 +62,7 @@ namespace ServiceStatus
             services.AddScoped<PersonRepository, PersonRepositoryImplementation>();
             services.AddScoped<FailureService, FailureServiceImplementation>();
             services.AddScoped<FailureRepository, FailureRepositoryImplementation>();
+            services.AddScoped(typeof(Repository<>), typeof(GenericRepository<>));
 
             services.AddSwaggerGen(c =>
             {

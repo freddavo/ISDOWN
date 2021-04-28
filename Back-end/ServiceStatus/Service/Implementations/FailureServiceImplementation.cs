@@ -7,9 +7,9 @@ namespace ServiceStatus.Service.Implementations
 {
     public class FailureServiceImplementation : FailureService
     {
-        private readonly FailureRepository _repository;
+        private readonly Repository<Failure> _repository;
 
-        public FailureServiceImplementation(FailureRepository repository)
+        public FailureServiceImplementation(Repository<Failure> repository)
         {
             _repository = repository;
         }

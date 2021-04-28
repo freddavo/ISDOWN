@@ -1,13 +1,12 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations.Schema;
+using ServiceStatus.Model.Base;
 
 namespace ServiceStatus.Model
 {
     [Table("failure")]
-    public class Failure
+    public class Failure : BaseEntity
     {
-        [Column("id")]
-        public long Id { get; set; }
         [Column("date")]
         public DateTime Date { get; set; }
         [Column("resolution_time")]

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using ServiceStatus.Model;
 namespace ServiceStatus.Repository
 {
+    //apagar
     public interface PersonRepository
     {
         Person Create(Person person);
