@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "iQYi7IXqFzjmmlrmLP2luAcMSExW5yRH+AJWWMlZs/rFamEidaNzdYwpngMaa3firIm4aLf8dCumskqw9bl82A==",
+  "dgSpecHash": "lFF6a+FF0d7rfcuqjDaTLF97llAoKEbQVXZbWJ3u83m0IJLndnwSAAaIWfa3GNMoPpwHb5hMPq2uIuV2FZrRUA==",
   "success": true,
-  "projectFilePath": "/Users/eleandrog/Projects/ServiceBus/ServiceBus/ServiceBus.csproj",
+  "projectFilePath": "/Users/eleandrog/Desktop/PI/ISDOWN/ServiceBus/ServiceBus/ServiceBus/ServiceBus.csproj",
   "expectedPackageFiles": [
     "/Users/eleandrog/.nuget/packages/azure.core/1.8.1/azure.core.1.8.1.nupkg.sha512",
     "/Users/eleandrog/.nuget/packages/azure.core.amqp/1.0.0/azure.core.amqp.1.0.0.nupkg.sha512",

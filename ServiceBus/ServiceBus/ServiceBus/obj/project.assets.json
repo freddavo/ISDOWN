@@ -3093,11 +3093,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/eleandrog/Projects/ServiceBus/ServiceBus/ServiceBus.csproj",
+      "projectUniqueName": "/Users/eleandrog/Desktop/PI/ISDOWN/ServiceBus/ServiceBus/ServiceBus/ServiceBus.csproj",
       "projectName": "ServiceBus",
-      "projectPath": "/Users/eleandrog/Projects/ServiceBus/ServiceBus/ServiceBus.csproj",
+      "projectPath": "/Users/eleandrog/Desktop/PI/ISDOWN/ServiceBus/ServiceBus/ServiceBus/ServiceBus.csproj",
       "packagesPath": "/Users/eleandrog/.nuget/packages/",
-      "outputPath": "/Users/eleandrog/Projects/ServiceBus/ServiceBus/obj/",
+      "outputPath": "/Users/eleandrog/Desktop/PI/ISDOWN/ServiceBus/ServiceBus/ServiceBus/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/eleandrog/.config/NuGet/NuGet.Config"
