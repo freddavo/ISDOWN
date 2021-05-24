@@ -1,0 +1,39 @@
+﻿<Properties StartupConfiguration="Multiple Projects">
+  <MonoDevelop.Ide.ItemProperties.AzureQueueDemo FirstBuild="True" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.ItemProperties.AzureQueueDemo.Sender PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="AzureQueueDemo/Program.cs">
+    <Files>
+      <File FileName="AzureQueueDemo/Program.cs" Line="1" Column="1" />
+      <File FileName="AzureQueueDemo.Receiver/Program.cs" Line="1" Column="1" />
+      <File FileName="AzureQueueDemo.Sender/Program.cs" Line="62" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="AzureQueueDemo" expanded="True">
+            <Node name="AzureQueueDemo" expanded="True">
+              <Node name="Program.cs" selected="True" />
+            </Node>
+            <Node name="AzureQueueDemo.Domain" expanded="True" />
+            <Node name="AzureQueueDemo.Receiver" expanded="True" />
+            <Node name="AzureQueueDemo.Sender" expanded="True" />
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.AzureQueueDemo.Receiver PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations>
+    <MultiItemSolutionRunConfiguration Id="Multiple Projects" Name="Multiple Projects">
+      <Items>
+        <StartupItem ItemId="{F5671E63-B8E6-4A6A-A290-5DECB1026416}" ItemName="AzureQueueDemo.Receiver" ConfigurationId="Default" />
+        <StartupItem ItemId="{84EE56E4-E45A-46DF-82D2-4C820078BB9D}" ItemName="AzureQueueDemo.Sender" ConfigurationId="Default" />
+      </Items>
+    </MultiItemSolutionRunConfiguration>
+  </MultiItemStartupConfigurations>
+</Properties>
