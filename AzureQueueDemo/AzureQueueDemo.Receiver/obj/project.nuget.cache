@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "xSy4oc+h1hYXtTMzRsDqJnTeu81ybLIi6sEOkvSqn8K+VFVmKdbNVXk/ahKF7quAmx19wEZdsco11xx9RHjbaw==",
+  "dgSpecHash": "oFtZEMR2aU/B6bDY5+isJ4MPZkTft9KVdhUZCDQG+BHvlgqL45HZHbHoEYt+p9Vsfi3sdrkKvmxuNsxGvP6H7A==",
   "success": true,
-  "projectFilePath": "/Users/eleandrog/Desktop/PI/pasta exemplo/AzureQueueDemo/AzureQueueDemo.Receiver/AzureQueueDemo.Receiver.csproj",
+  "projectFilePath": "/Users/eleandrog/Desktop/PI/ISDOWN/AzureQueueDemo/AzureQueueDemo.Receiver/AzureQueueDemo.Receiver.csproj",
   "expectedPackageFiles": [
     "/Users/eleandrog/.nuget/packages/microsoft.azure.amqp/2.4.2/microsoft.azure.amqp.2.4.2.nupkg.sha512",
     "/Users/eleandrog/.nuget/packages/microsoft.azure.servicebus/4.1.3/microsoft.azure.servicebus.4.1.3.nupkg.sha512",

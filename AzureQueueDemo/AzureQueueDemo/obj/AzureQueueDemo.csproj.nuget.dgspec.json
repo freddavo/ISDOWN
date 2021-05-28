@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/eleandrog/Desktop/PI/pasta exemplo/AzureQueueDemo/AzureQueueDemo/AzureQueueDemo.csproj": {}
+    "/Users/eleandrog/Desktop/PI/ISDOWN/AzureQueueDemo/AzureQueueDemo/AzureQueueDemo.csproj": {}
   },
   "projects": {
-    "/Users/eleandrog/Desktop/PI/pasta exemplo/AzureQueueDemo/AzureQueueDemo/AzureQueueDemo.csproj": {
+    "/Users/eleandrog/Desktop/PI/ISDOWN/AzureQueueDemo/AzureQueueDemo/AzureQueueDemo.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/eleandrog/Desktop/PI/pasta exemplo/AzureQueueDemo/AzureQueueDemo/AzureQueueDemo.csproj",
+        "projectUniqueName": "/Users/eleandrog/Desktop/PI/ISDOWN/AzureQueueDemo/AzureQueueDemo/AzureQueueDemo.csproj",
         "projectName": "AzureQueueDemo",
-        "projectPath": "/Users/eleandrog/Desktop/PI/pasta exemplo/AzureQueueDemo/AzureQueueDemo/AzureQueueDemo.csproj",
+        "projectPath": "/Users/eleandrog/Desktop/PI/ISDOWN/AzureQueueDemo/AzureQueueDemo/AzureQueueDemo.csproj",
         "packagesPath": "/Users/eleandrog/.nuget/packages/",
-        "outputPath": "/Users/eleandrog/Desktop/PI/pasta exemplo/AzureQueueDemo/AzureQueueDemo/obj/",
+        "outputPath": "/Users/eleandrog/Desktop/PI/ISDOWN/AzureQueueDemo/AzureQueueDemo/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/eleandrog/.config/NuGet/NuGet.Config"

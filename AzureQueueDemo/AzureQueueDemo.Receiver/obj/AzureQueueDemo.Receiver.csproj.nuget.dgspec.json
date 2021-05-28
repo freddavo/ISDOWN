@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/eleandrog/Desktop/PI/pasta exemplo/AzureQueueDemo/AzureQueueDemo.Receiver/AzureQueueDemo.Receiver.csproj": {}
+    "/Users/eleandrog/Desktop/PI/ISDOWN/AzureQueueDemo/AzureQueueDemo.Receiver/AzureQueueDemo.Receiver.csproj": {}
   },
   "projects": {
-    "/Users/eleandrog/Desktop/PI/pasta exemplo/AzureQueueDemo/AzureQueueDemo.Domain/AzureQueueDemo.Domain.csproj": {
+    "/Users/eleandrog/Desktop/PI/ISDOWN/AzureQueueDemo/AzureQueueDemo.Domain/AzureQueueDemo.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/eleandrog/Desktop/PI/pasta exemplo/AzureQueueDemo/AzureQueueDemo.Domain/AzureQueueDemo.Domain.csproj",
+        "projectUniqueName": "/Users/eleandrog/Desktop/PI/ISDOWN/AzureQueueDemo/AzureQueueDemo.Domain/AzureQueueDemo.Domain.csproj",
         "projectName": "AzureQueueDemo.Domain",
-        "projectPath": "/Users/eleandrog/Desktop/PI/pasta exemplo/AzureQueueDemo/AzureQueueDemo.Domain/AzureQueueDemo.Domain.csproj",
+        "projectPath": "/Users/eleandrog/Desktop/PI/ISDOWN/AzureQueueDemo/AzureQueueDemo.Domain/AzureQueueDemo.Domain.csproj",
         "packagesPath": "/Users/eleandrog/.nuget/packages/",
-        "outputPath": "/Users/eleandrog/Desktop/PI/pasta exemplo/AzureQueueDemo/AzureQueueDemo.Domain/obj/",
+        "outputPath": "/Users/eleandrog/Desktop/PI/ISDOWN/AzureQueueDemo/AzureQueueDemo.Domain/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/eleandrog/.config/NuGet/NuGet.Config"
@@ -56,14 +56,14 @@
         }
       }
     },
-    "/Users/eleandrog/Desktop/PI/pasta exemplo/AzureQueueDemo/AzureQueueDemo.Receiver/AzureQueueDemo.Receiver.csproj": {
+    "/Users/eleandrog/Desktop/PI/ISDOWN/AzureQueueDemo/AzureQueueDemo.Receiver/AzureQueueDemo.Receiver.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/eleandrog/Desktop/PI/pasta exemplo/AzureQueueDemo/AzureQueueDemo.Receiver/AzureQueueDemo.Receiver.csproj",
+        "projectUniqueName": "/Users/eleandrog/Desktop/PI/ISDOWN/AzureQueueDemo/AzureQueueDemo.Receiver/AzureQueueDemo.Receiver.csproj",
         "projectName": "AzureQueueDemo.Receiver",
-        "projectPath": "/Users/eleandrog/Desktop/PI/pasta exemplo/AzureQueueDemo/AzureQueueDemo.Receiver/AzureQueueDemo.Receiver.csproj",
+        "projectPath": "/Users/eleandrog/Desktop/PI/ISDOWN/AzureQueueDemo/AzureQueueDemo.Receiver/AzureQueueDemo.Receiver.csproj",
         "packagesPath": "/Users/eleandrog/.nuget/packages/",
-        "outputPath": "/Users/eleandrog/Desktop/PI/pasta exemplo/AzureQueueDemo/AzureQueueDemo.Receiver/obj/",
+        "outputPath": "/Users/eleandrog/Desktop/PI/ISDOWN/AzureQueueDemo/AzureQueueDemo.Receiver/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/eleandrog/.config/NuGet/NuGet.Config"
@@ -78,8 +78,8 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "/Users/eleandrog/Desktop/PI/pasta exemplo/AzureQueueDemo/AzureQueueDemo.Domain/AzureQueueDemo.Domain.csproj": {
-                "projectPath": "/Users/eleandrog/Desktop/PI/pasta exemplo/AzureQueueDemo/AzureQueueDemo.Domain/AzureQueueDemo.Domain.csproj"
+              "/Users/eleandrog/Desktop/PI/ISDOWN/AzureQueueDemo/AzureQueueDemo.Domain/AzureQueueDemo.Domain.csproj": {
+                "projectPath": "/Users/eleandrog/Desktop/PI/ISDOWN/AzureQueueDemo/AzureQueueDemo.Domain/AzureQueueDemo.Domain.csproj"
               }
             }
           }

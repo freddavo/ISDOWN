@@ -1,22 +1,21 @@
 ﻿<Properties StartupConfiguration="Multiple Projects">
   <MonoDevelop.Ide.ItemProperties.AzureQueueDemo FirstBuild="True" PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.ItemProperties.AzureQueueDemo.Sender PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="AzureQueueDemo/Program.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="AzureQueueDemo.Sender/Program.cs">
     <Files>
-      <File FileName="AzureQueueDemo/Program.cs" Line="1" Column="1" />
-      <File FileName="AzureQueueDemo.Receiver/Program.cs" Line="1" Column="1" />
-      <File FileName="AzureQueueDemo.Sender/Program.cs" Line="62" Column="1" />
+      <File FileName="AzureQueueDemo.Receiver/Program.cs" Line="14" Column="14" />
+      <File FileName="AzureQueueDemo.Sender/Program.cs" Line="42" Column="47" />
+      <File FileName="AzureQueueDemo.Domain/ServiceInformation.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="AzureQueueDemo" expanded="True">
-            <Node name="AzureQueueDemo" expanded="True">
-              <Node name="Program.cs" selected="True" />
-            </Node>
             <Node name="AzureQueueDemo.Domain" expanded="True" />
             <Node name="AzureQueueDemo.Receiver" expanded="True" />
-            <Node name="AzureQueueDemo.Sender" expanded="True" />
+            <Node name="AzureQueueDemo.Sender" expanded="True">
+              <Node name="Program.cs" selected="True" />
+            </Node>
           </Node>
         </State>
       </Pad>

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "aWJMhseOCbWCCZcD/ghOAJF6u3h4CyENOAxySuR0UM5V7zGWg22fsIUbf0zIKEND7BEUET6OJdDUCU63uE6Qvg==",
+  "dgSpecHash": "qQSfXaUHaUYzEsbCaKrADqvpaX2JHRY3/pM6ohmAXvCHBuJn5xd06rJfKVba7HFq2CcDmFbzY08lr5+stfjqjA==",
   "success": true,
-  "projectFilePath": "/Users/eleandrog/Desktop/PI/pasta exemplo/AzureQueueDemo/AzureQueueDemo/AzureQueueDemo.csproj",
+  "projectFilePath": "/Users/eleandrog/Desktop/PI/ISDOWN/AzureQueueDemo/AzureQueueDemo/AzureQueueDemo.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

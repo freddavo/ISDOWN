@@ -10,9 +10,8 @@ namespace AzureQueueDemo.Receiver
 {
     class Program
     {
-        private static string AZURE_SERVICE_BUS_CONNECTIONSTRING = "Endpoint=sb://servicebusua.servicebus" +
-            ".windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAc" +
-            "cessKey=0M5sv2N1VifxyVPpIo6uYgI+OWOEAUA0n/vvoJmByxY=";
+        private static string AZURE_SERVICE_BUS_CONNECTIONSTRING = "Endpoint=sb://servicebus-servicesatus.servicebus.windows.net/" +
+            ";SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=OgxwUGyscSbN5tJmJKslYgbSClPCjXvE/FBMq7ahi9M=";
         private static string QUEUE_NAME = "fila1";
         private static IQueueClient client;
         static async Task Main(string[] args)

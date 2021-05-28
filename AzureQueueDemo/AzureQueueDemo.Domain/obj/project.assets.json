@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/eleandrog/Desktop/PI/pasta exemplo/AzureQueueDemo/AzureQueueDemo.Domain/AzureQueueDemo.Domain.csproj",
+      "projectUniqueName": "/Users/eleandrog/Desktop/PI/ISDOWN/AzureQueueDemo/AzureQueueDemo.Domain/AzureQueueDemo.Domain.csproj",
       "projectName": "AzureQueueDemo.Domain",
-      "projectPath": "/Users/eleandrog/Desktop/PI/pasta exemplo/AzureQueueDemo/AzureQueueDemo.Domain/AzureQueueDemo.Domain.csproj",
+      "projectPath": "/Users/eleandrog/Desktop/PI/ISDOWN/AzureQueueDemo/AzureQueueDemo.Domain/AzureQueueDemo.Domain.csproj",
       "packagesPath": "/Users/eleandrog/.nuget/packages/",
-      "outputPath": "/Users/eleandrog/Desktop/PI/pasta exemplo/AzureQueueDemo/AzureQueueDemo.Domain/obj/",
+      "outputPath": "/Users/eleandrog/Desktop/PI/ISDOWN/AzureQueueDemo/AzureQueueDemo.Domain/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/eleandrog/.config/NuGet/NuGet.Config"
