@@ -1,0 +1,25 @@
+﻿<Properties StartupConfiguration="{3CF486C9-C7DA-4428-BC94-1B936B6CA8E1}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Daemon/Daemon.cs">
+    <Files>
+      <File FileName="Daemon/Daemon.cs" Line="63" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Daemon" expanded="True">
+            <Node name="Daemon" expanded="True">
+              <Node name="Daemon.cs" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.Daemon PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

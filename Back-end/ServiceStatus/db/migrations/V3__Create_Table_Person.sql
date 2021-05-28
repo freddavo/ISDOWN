@@ -1,4 +1,0 @@
-CREATE TABLE IF NOT EXISTS `person` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  PRIMARY KEY (`id`)
-)
