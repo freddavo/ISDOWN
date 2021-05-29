@@ -126,11 +126,8 @@ namespace Daemon
                 }
             }
 
-            
-            //----------------------------------------------------------------------
-            // Adding custom code to log messages to the Azure SQL Database
-            // Creating the connection string
-            
+            //-----------------------------------------------------------------------------------------------------//
+            // Adding custom code to log messages to the Azure SQL Database  
             string connectionString = "Server=tcp:isdown.database.windows.net,1433;Initial Catalog=isdown;Persist Security Info=False;User ID=isdown;Password=projeto.1;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
             // Using the connection string to open a connection
             try
@@ -156,7 +153,6 @@ namespace Daemon
                                 namesUnique.Add(reader["Name"].ToString().ToUpper());         
                             } 
                         }
-
            
                         if(!namesUnique.Contains(servico.Name.ToUpper()))
                         {
@@ -182,46 +178,12 @@ namespace Daemon
                             command3.ExecuteNonQuery();
                         }   
                     }
-
-
-                    // Se o estado for != faz update, se não, continua           
-                    /*if (command1 != null)
-                    {
-                        if (healthState == "Success" )
-                        {
-                            var query3 = $"UPDATE INTO [Services] ([HealthState]) VALUES('{healthState}')";
-                            SqlCommand command3 = new SqlCommand(query3, connection);
-                            if (command3.Connection.State == System.Data.ConnectionState.Open)
-                            {
-                                command3.Connection.Close();
-                            }
-                            command3.Connection.Open();
-                            command3.ExecuteNonQuery();
-                        }
-                    }
-
-                    // Prepare the SQL command and execute query
-                    //SqlCommand command = new SqlCommand(query, connection);
-
-                    // Open the connection, execute and close connection
-                    if (command.Connection.State == System.Data.ConnectionState.Open)
-                    {
-                        command.Connection.Close();
-                    }
-                    command.Connection.Open();
-                    command.ExecuteNonQuery();*/
-
                 }
             }
             catch (Exception e)
             {
                 log.LogError(e.ToString());
-                //responseMessage = e.ToString();
             }
-
-            //------------------------------------------------------------------
-
-            //return new OkObjectResult(responseMessage);
         }
     }
 }
