@@ -1,15 +1,13 @@
 ﻿<Properties StartupConfiguration="{3CF486C9-C7DA-4428-BC94-1B936B6CA8E1}|Default">
   <MonoDevelop.Ide.Workbench ActiveDocument="Daemon/Daemon.cs">
     <Files>
-      <File FileName="Daemon/Daemon.cs" Line="18" Column="34" />
+      <File FileName="Daemon/Daemon.cs" Line="101" Column="39" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="Daemon" expanded="True">
-            <Node name="Daemon" expanded="True">
-              <Node name="Dependencies" selected="True" />
-            </Node>
+            <Node name="Daemon" expanded="True" selected="True" />
           </Node>
         </State>
       </Pad>
