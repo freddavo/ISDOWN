@@ -1,16 +1,19 @@
 using System;
+using System.Data.SqlClient;
 using System.IO;
 using System.Net;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Host;
 using Microsoft.Extensions.Logging;
 
 namespace Daemon
 {
+    //Name - HealthState - Path
     public static class Daemon
     {
         [FunctionName("Daemon")]
-        public static void Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTimer, ILogger log)
+        public static void Run([TimerTrigger("0 */2 * * * *")] TimerInfo myTimer, ILogger log)
         {
             //ACCESS TOKEN (POST)
             var url = "https://wso2-gw.ua.pt/token?grant_type=client_credentials&state=1234567890&scope=openid";
@@ -83,6 +86,50 @@ namespace Daemon
                     Console.WriteLine(result);
                 }
             }
+
+            //----------------------------------------------------------------------
+            // Adding custom code to log messages to the Azure SQL Database
+            // Creating the connection string
+            string connectionString = "Server=tcp:servicestatus-ua.database.windows.net,1433;Initial Catalog=servicestatusua;Persist Security Info=False;User ID=servicestatusua;Password={your_password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+
+            // Using the connection string to open a connection
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    // Opening a connection
+                    connection.Open();
+
+                    // Defining the log message and Create Date
+                    var name = $"PACO";
+                    var healthState = "Error";
+                    var path = "WEB-1.ua.pt";
+
+                    // Prepare the SQL Query
+                    var query = $"INSERT INTO [Services] ([Name],[CreateDate], [Path]) VALUES('{name}', '{healthState}', '{path}')";
+
+                    // Prepare the SQL command and execute query
+                    SqlCommand command = new SqlCommand(query, connection);
+
+                    // Open the connection, execute and close connection
+                    if (command.Connection.State == System.Data.ConnectionState.Open)
+                    {
+                        command.Connection.Close();
+                    }
+                    command.Connection.Open();
+                    command.ExecuteNonQuery();
+
+                }
+            }
+            catch (Exception e)
+            {
+                log.LogError(e.ToString());
+                //responseMessage = e.ToString();
+            }
+
+            //------------------------------------------------------------------
+
+            //return new OkObjectResult(responseMessage);
         }
     }
 }
