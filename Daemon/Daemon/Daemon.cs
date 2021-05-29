@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.IO;
@@ -11,12 +12,18 @@ using Microsoft.Extensions.Logging;
 
 namespace Daemon
 {
-    //Name - HealthState - Path
+
+    
+
     public static class Daemon
     {
+
         [FunctionName("Daemon")]
         public static void Run([TimerTrigger("0 */2 * * * *")] TimerInfo myTimer, ILogger log)
         {
+            List<Servico> servicos = new List<Servico>();
+            Console.WriteLine("-------");
+
             //ACCESS TOKEN (POST)
             var url = "https://wso2-gw.ua.pt/token?grant_type=client_credentials&state=1234567890&scope=openid";
 
@@ -40,7 +47,7 @@ namespace Daemon
                 myfunc(chars);
             }
 
-
+            
             //GET WEBSITES
             void myfunc(char[] chars)
             {
@@ -80,37 +87,12 @@ namespace Daemon
 
                 using (var streamReader = new StreamReader(httpResponse1.GetResponseStream()))
                 {
-                    /*
-                    var result = streamReader.ReadToEnd();
-                    
-                    var dadosAPI = result.Split('{');
-                    List<string> servicos = new List<string>();
-
-                    //GET NAME (API)
-                    foreach(var x in dadosAPI)
-                    {
-                        var servico = x.Split(',');
-                        var s = servico[0]; //servico[1] - HealthState, servico[2] - Path
-                        servicos.Add(s);
-
-                    }
-
-                    for(int i = 0; i < servicos.Count(); i++)
-                    {
-                        if(servicos[i].Contains("\"Name\":"))
-                        {
-                            var name = servicos[i].Split("\"Name\":")[1];
-                        }
-                    }*/
-
                     var result = streamReader.ReadToEnd();
 
                     var dadosAPI = result.Split('{');
 
-                    List<string> servicosNames = new List<string>();
-                    List<string> servicosStates = new List<string>();
-                    List<string> servicosPath = new List<string>();
 
+                    List<string> namesUnique = new List<string>();
 
                     foreach (var x in dadosAPI)
                     {
@@ -120,56 +102,36 @@ namespace Daemon
                             var tuploName = servico[0];
                             var tuploState = servico[1];
                             var tuploPath = servico[2];
-                            servicosNames.Add(tuploName);
-                            servicosStates.Add(tuploState);
-                            servicosPath.Add(tuploPath);
-                        }
-                    }
 
-                    List<string> names = new List<string>();
-                    List<string> states = new List<string>();
-                    List<string> paths = new List<string>();
+                            if(tuploName.Contains("\"Name\":") & tuploState.Contains("\"HealthState\":")
+                                & tuploPath.Contains("\"Path\":"))
+                            {
+                                if (!namesUnique.Contains(tuploName.Split("\"Name\":")[1].ToUpper()))
+                                {
+                                    namesUnique.Add(tuploName.Split("\"Name\":")[1].ToUpper());
+                                    Servico s = new Servico(tuploName.Split("\"Name\":")[1], tuploState.Split("\"HealthState\":")[1],
+                                        tuploPath.Split("\"Path\":")[1]);
+                                    servicos.Add(s);
+                                }
 
-                    for (int i = 0; i < servicosNames.Count(); i++)
-                    {
-                        if (servicosNames[i].Contains("\"Name\":"))
-                        {
-                            names.Add(servicosNames[i].Split("\"Name\":")[1]);
-                            
-                        }
-                    }
+                            }
 
-                    for (int i = 0; i < servicosStates.Count(); i++)
-                    {
-                        if (servicosStates[i].Contains("\"HealthState\":"))
-                        {
-                            states.Add(servicosStates[i].Split("\"HealthState\":")[1]);
                         }
-                    }
-
-                    for (int i = 0; i < servicosPath.Count(); i++)
-                    {
-                        if (servicosPath[i].Contains("\"Path\":"))
-                        {
-                            paths.Add(servicosPath[i].Split("\"Path\":")[1]);
-                        }
-                    }
+                    } 
 
                     Console.WriteLine("-");
-                    Console.WriteLine(names.Count());
-                    Console.WriteLine(states.Count());
-                    Console.WriteLine(paths.Count());
+                    Console.WriteLine(servicos.Count());
                     Console.WriteLine("-");
                     //Console.WriteLine(result);    
                 }
             }
 
-            /*
+            
             //----------------------------------------------------------------------
             // Adding custom code to log messages to the Azure SQL Database
             // Creating the connection string
             
-            string connectionString = "Server=tcp:servicestatus-ua.database.windows.net,1433;Initial Catalog=servicestatusua;Persist Security Info=False;User ID=servicestatusua;Password=projeto.1;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=100;";
+            string connectionString = "Server=tcp:isdown.database.windows.net,1433;Initial Catalog=isdown;Persist Security Info=False;User ID=isdown;Password=projeto.1;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
             // Using the connection string to open a connection
             try
             {
@@ -178,33 +140,52 @@ namespace Daemon
                     // Opening a connection
                     connection.Open();
 
-                    // Data
-                    var name = "PACO";
-                    var healthState = "Error";
-                    var path = "WEB-1.ua.pt";
-
-                    //SELECT column_names FROM table_name WHERE column_name IS NULL;
-
-                    var query1 = $"SELECT ([Name],[HealthState], [Path]) FROM [Services] WHERE ([Name],[HealthState], [Path]) IS NULL";
-                    SqlCommand command1 = new SqlCommand(query1, connection);
-
-                    //var query2 = $"";
                     //Se estiver vazio, insere! Se não, continua!
-                    if (command1 == null) {
-                        var query2 = $"INSERT INTO [Services] ([Name],[HealthState], [Path]) VALUES('{name}', '{healthState}', '{path}')";
-                        SqlCommand command2 = new SqlCommand(query2, connection);
-                        if (command2.Connection.State == System.Data.ConnectionState.Open)
+                    for (int i = 0; i < servicos.Count(); i++) {
+                        Servico servico = servicos[i];
+
+                        var query1 = $"SELECT [Name], [Health_State], [Path] FROM [id].[Servico]";
+                        SqlCommand command1 = new SqlCommand(query1, connection);
+                        var reader = command1.ExecuteReader();
+                        var namesUnique = new ArrayList();
+
+                        if(reader.HasRows)
                         {
-                            command2.Connection.Close();
+                            while (reader.Read())
+                            {
+                                namesUnique.Add(reader["Name"].ToString().ToUpper());         
+                            } 
                         }
-                        command2.Connection.Open();
-                        command2.ExecuteNonQuery();
+
+           
+                        if(!namesUnique.Contains(servico.Name.ToUpper()))
+                        {
+                            namesUnique.Add(servico.Name.ToUpper());
+                            var query = $"INSERT INTO [id].[Servico] ([Name],[Health_State], [Path]) VALUES('{servico.Name}', '{servico.HealthState}', '{servico.Path}')";
+                            SqlCommand command2 = new SqlCommand(query, connection);
+                            if (command2.Connection.State == System.Data.ConnectionState.Open)
+                            {
+                                command2.Connection.Close();
+                            }
+                            command2.Connection.Open();
+                            command2.ExecuteNonQuery();
+                        }
+                        else
+                        {
+                            var query3 = $"UPDATE [id].[Servico] SET [Health_State] = '{servico.HealthState}' WHERE Name = '{servico.Name}' ";
+                            SqlCommand command3 = new SqlCommand(query3, connection);
+                            if (command3.Connection.State == System.Data.ConnectionState.Open)
+                            {
+                                command3.Connection.Close();
+                            }
+                            command3.Connection.Open();
+                            command3.ExecuteNonQuery();
+                        }   
                     }
 
 
-                    // Se o estado for != faz update, se não, continua!
-                    
-                    if (command1 != null)
+                    // Se o estado for != faz update, se não, continua           
+                    /*if (command1 != null)
                     {
                         if (healthState == "Success" )
                         {
@@ -217,20 +198,19 @@ namespace Daemon
                             command3.Connection.Open();
                             command3.ExecuteNonQuery();
                         }
-                    }*/
-                    
+                    }
 
                     // Prepare the SQL command and execute query
                     //SqlCommand command = new SqlCommand(query, connection);
 
                     // Open the connection, execute and close connection
-                    /*if (command.Connection.State == System.Data.ConnectionState.Open)
+                    if (command.Connection.State == System.Data.ConnectionState.Open)
                     {
                         command.Connection.Close();
                     }
                     command.Connection.Open();
                     command.ExecuteNonQuery();*/
-/*
+
                 }
             }
             catch (Exception e)
@@ -241,7 +221,7 @@ namespace Daemon
 
             //------------------------------------------------------------------
 
-            //return new OkObjectResult(responseMessage);*/
+            //return new OkObjectResult(responseMessage);
         }
     }
 }
