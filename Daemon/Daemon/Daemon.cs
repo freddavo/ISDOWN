@@ -96,21 +96,22 @@ namespace Daemon
 
                     foreach (var x in dadosAPI)
                     {
-                        var servico = x.Split(',');
+                        var cut = x.Remove(x.Length-1,1);
+                        var servico = cut.Split(',');
                         if(servico.Length > 2)
                         {
-                            var tuploName = servico[0];
-                            var tuploState = servico[1];
-                            var tuploPath = servico[2];
+                            var tuploName = servico[0].Replace("\"", "").Replace("}", "");
+                            var tuploState = servico[1].Replace("\"", "").Replace("}", "");
+                            var tuploPath = servico[2].Replace("\"", "").Replace("}", "");
 
-                            if(tuploName.Contains("\"Name\":") & tuploState.Contains("\"HealthState\":")
-                                & tuploPath.Contains("\"Path\":"))
+                            if(tuploName.Contains("Name:") & tuploState.Contains("HealthState:")
+                                & tuploPath.Contains("Path:"))
                             {
-                                if (!namesUnique.Contains(tuploName.Split("\"Name\":")[1].ToUpper()))
+                                if (!namesUnique.Contains(tuploName.Split("Name:")[1].ToUpper())) 
                                 {
-                                    namesUnique.Add(tuploName.Split("\"Name\":")[1].ToUpper());
-                                    Servico s = new Servico(tuploName.Split("\"Name\":")[1], tuploState.Split("\"HealthState\":")[1],
-                                        tuploPath.Split("\"Path\":")[1]);
+                                    namesUnique.Add(tuploName.Split("Name:")[1].ToUpper());
+                                    Servico s = new Servico(tuploName.Split("Name:")[1], tuploState.Split("HealthState:")[1],
+                                        tuploPath.Split("Path:")[1]);
                                     servicos.Add(s);
                                 }
 
@@ -118,7 +119,6 @@ namespace Daemon
 
                         }
                     } 
-
                     Console.WriteLine("-");
                     Console.WriteLine(servicos.Count());
                     Console.WriteLine("-");
@@ -172,7 +172,7 @@ namespace Daemon
                         }
                         else
                         {
-                            var query3 = $"UPDATE [id].[Servico] SET [Health_State] = '{servico.HealthState}' WHERE Name = '{servico.Name}' ";
+                            var query3 = $"UPDATE [id].[Servico] SET [Health_State] = '{servico.HealthState}', [Path] = '{servico.Path}' WHERE Name = '{servico.Name}' ";
                             SqlCommand command3 = new SqlCommand(query3, connection);
                             if (command3.Connection.State == System.Data.ConnectionState.Open)
                             {
