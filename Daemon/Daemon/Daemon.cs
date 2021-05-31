@@ -22,6 +22,7 @@ namespace Daemon
         public static void Run([TimerTrigger("0 */2 * * * *")] TimerInfo myTimer, ILogger log)
         {
             List<Servico> servicos = new List<Servico>();
+            List<Historico> historicos = new List<Historico>();
             Console.WriteLine("-------");
 
             //ACCESS TOKEN (POST)
@@ -137,24 +138,42 @@ namespace Daemon
                     // Opening a connection
                     connection.Open();
 
+                    var query1 = $"SELECT [Name], [Health_State], [Path] FROM [id].[Servico]";
+                    SqlCommand command1 = new SqlCommand(query1, connection);
+                    var reader = command1.ExecuteReader();
+                    var namesUnique = new ArrayList();
+
+                    if (reader.HasRows)
+                    {
+                        while (reader.Read())
+                        {
+                            namesUnique.Add(reader["Name"].ToString().ToUpper());
+                        }
+                    }
+
+                    reader.Close();
+
+
+                    var query4 = $"SELECT * FROM [id].[Historico]";
+                    SqlCommand command4 = new SqlCommand(query4, connection);
+                    var reader4 = command4.ExecuteReader();
+                    var namesUnique4 = new ArrayList();
+
+                    if (reader4.HasRows)
+                    {
+                        while (reader4.Read())
+                        {
+                            namesUnique4.Add(reader4["NomeServico"].ToString().ToUpper());
+                        }
+                    }
+                    
+                    reader4.Close();
+
                     //Se estiver vazio, insere! Se não, continua!
                     for (int i = 0; i < servicos.Count(); i++) {
                         Servico servico = servicos[i];
 
-                        var query1 = $"SELECT [Name], [Health_State], [Path] FROM [id].[Servico]";
-                        SqlCommand command1 = new SqlCommand(query1, connection);
-                        var reader = command1.ExecuteReader();
-                        var namesUnique = new ArrayList();
-
-                        if(reader.HasRows)
-                        {
-                            while (reader.Read())
-                            {
-                                namesUnique.Add(reader["Name"].ToString().ToUpper());         
-                            } 
-                        }
-           
-                        if(!namesUnique.Contains(servico.Name.ToUpper()))
+                        if (!namesUnique.Contains(servico.Name.ToUpper()))
                         {
                             namesUnique.Add(servico.Name.ToUpper());
                             var query = $"INSERT INTO [id].[Servico] ([Name],[Health_State], [Path]) VALUES('{servico.Name}', '{servico.HealthState}', '{servico.Path}')";
@@ -176,7 +195,50 @@ namespace Daemon
                             }
                             command3.Connection.Open();
                             command3.ExecuteNonQuery();
-                        }   
+                        }
+
+                        if(servico.HealthState.Equals("Error"))
+                        {
+                            var query5 = $"SELECT * FROM [id].[Historico]";
+                            SqlCommand command5 = new SqlCommand(query5, connection);
+                            var reader5 = command5.ExecuteReader();
+                            var namesError = new ArrayList();
+                            
+
+                            if (reader5.HasRows)
+                            {
+                                while (reader5.Read())
+                                {
+                                    if ((reader5["Resolvido"].Equals("N") || reader5["Falha"].ToString().ToUpper().Contains("PERMANENTE")) & !namesError.Contains(reader5["NomeServico"].ToString().ToUpper()))
+                                    {     
+                                        namesError.Add(reader5["NomeServico"].ToString().ToUpper());
+                                    }
+                                }
+                            }
+
+                            reader5.Close();
+                            
+
+                            if (!namesError.Contains(servico.Name.ToUpper()))
+                            {
+                                DateTime time = DateTime.Now;
+                                string format = "yyyy-MM-dd HH:mm:ss";
+
+                                namesError.Add(servico.Name.ToUpper());
+                                var query = $"INSERT INTO [id].[Historico] ([NomeServico],[DataFalha], [Resolvido]) VALUES('{servico.Name}', '{time.ToString(format)}', '{'N'}')";
+                                SqlCommand command2 = new SqlCommand(query, connection);
+                                if (command2.Connection.State == System.Data.ConnectionState.Open)
+                                {
+                                    command2.Connection.Close();
+                                }
+                                command2.Connection.Open();
+                                command2.ExecuteNonQuery();
+
+                            }
+
+
+
+                        }
                     }
                 }
             }
