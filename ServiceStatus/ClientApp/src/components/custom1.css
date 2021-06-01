@@ -1,0 +1,17 @@
+img {
+    height: 400px;
+}
+
+.d-flex div {
+    padding: 1rem;
+    background-color: #33b5e5;
+    border: 2px solid #fff;
+    color: #fff;
+    text-align: center;
+}
+
+.d-flex {
+    height: 150px;
+    background-color: #eee;
+    border: 1px solid black;
+}
