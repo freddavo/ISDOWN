@@ -7,6 +7,7 @@ import Home from './components/Home/Home';
 import { Services } from './components/Services';
 import CardsAbout from './components/AboutUs/CardsAbout';
 import { Historic } from './components/Historic';
+import { Dns } from './DNS/Dns';
 
 
 
@@ -21,7 +22,8 @@ function App() {
                   <Route path='/' exact component={Home} />
                   <Route path='/Services' component={Services} />
                   <Route path="/CardsAbout" component={CardsAbout}/>
-                  <Route path="/Historic" component={Historic}/>
+                  <Route path="/Historic" component={Historic} />
+                  <Route path="/Dns" component={Dns}/>
               </Switch>
         </Router>
       </>
