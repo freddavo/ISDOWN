@@ -1,0 +1,13 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\ServiceStatus",
+    "\\ServiceStatus\\ClientApp",
+    "\\ServiceStatus\\ClientApp\\src",
+    "\\ServiceStatus\\ClientApp\\src\\components",
+    "\\ServiceStatus\\Controllers",
+    "\\ServiceStatus\\Models"
+  ],
+  "SelectedNode": "\\ServiceStatus\\ServiceStatus.sln",
+  "PreviewInSolutionExplorer": false
+}
