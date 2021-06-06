@@ -20,6 +20,7 @@ namespace ServiceStatus.Models
         public virtual DbSet<Dns> Dns { get; set; }
         public virtual DbSet<Historico> Historicos { get; set; }
         public virtual DbSet<Servico> Servicos { get; set; }
+        public virtual DbSet<Admin> Admins { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -93,6 +94,31 @@ namespace ServiceStatus.Models
 
                 entity.Property(e => e.Path)
                     .HasMaxLength(50)
+                    .IsUnicode(false);
+            });
+
+            modelBuilder.Entity<Admin>(entity =>
+            {
+                entity.HasKey(e => e.Name)
+                    .HasName("PK__Servico__737584F72776B92D");
+
+                entity.ToTable("Admin", "id");
+
+                entity.Property(e => e.Name)
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Health_State)
+                    .HasMaxLength(50)
+                    .IsUnicode(false)
+                    .HasColumnName("Health_State");
+
+                entity.Property(e => e.Resolvido)
+                    .HasMaxLength(1)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Tempo)
+                    .HasMaxLength(255)
                     .IsUnicode(false);
             });
 
