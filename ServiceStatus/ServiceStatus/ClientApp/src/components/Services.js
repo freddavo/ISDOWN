@@ -23,15 +23,17 @@ import {
 
 
 
-
-
 export class Services extends Component {
     static displayName = Services.name;
     
   
     constructor(props) {
         super(props);
-        this.state = { forecasts: [], loading: true };
+        this.state = {
+            forecasts: [],
+            loading: true,
+            value: "None"
+        };
      
 
         fetch('Service/Index')
@@ -41,14 +43,9 @@ export class Services extends Component {
             });
     }
 
-     onSubmit () {
-         const history = useHistory();
-         
-       history.push('/Historic');
-    }
 
     render() {
-        
+
         //let contents = this.renderForecastsTable(this.state.forecasts);
 
         const handleOnClickDefault = () => {
@@ -95,7 +92,6 @@ export class Services extends Component {
             }
         }));
 
-        
 
         return (
            
@@ -122,6 +118,10 @@ export class Services extends Component {
                             <TableCell className={useStyles.tableHeaderCell} style={{
                                 fontWeight: 'bold'
                             }}></TableCell>
+
+
+
+
                             <TableCell className={useStyles.tableHeaderCell} style={{
                                 fontWeight: 'bold'
                             }}></TableCell>
@@ -161,6 +161,7 @@ export class Services extends Component {
                                                 forecast.name]
                                         }
                                     }}> Historic </NavLink></Typography></TableCell>
+
                                 <TableCell> <Typography><button onClick={handleOnClickDefault}>
                                     Subscribe </button> </Typography></TableCell>
                             </tr>

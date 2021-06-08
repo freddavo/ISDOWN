@@ -8,6 +8,10 @@ import 'animate.css';
 import { makeStyles } from '@material-ui/core/styles';
 import ReactDOM from "react-dom";
 import { useState } from 'react';
+import { Button } from '../components/Button/Button';
+import * as mysql from 'mysql';
+
+
 
 export class Admin extends Component {
     static displayName = Admin.name;
@@ -23,9 +27,6 @@ export class Admin extends Component {
             value1: "The \"service name\" has a scheduled Maintenance on <dd/mm/yyyy>",
             isInEditMode1: false,
         };
-
- 
-
 
         fetch('Admin/Index')
             .then(response => response.json())
@@ -102,8 +103,38 @@ export class Admin extends Component {
         })
     }
 
+    element = (idName) => {
+        console.log(idName);
+        var idd = document.getElementById(idName);
+
+        if (idd !== null) {
+            var text = idd.value;
+            console.log(text);
+        }
+
+        /*var mysql = require('mysql');
+
+        var con = mysql.createConnection({
+            host: "isdown.database.windows.net",
+            user: "isdown",
+            password: "projeto.1",
+            database: "isdown"
+        });
+
+        con.connect(function (err) {
+            if (err) throw err;
+            var sql = "UPDATE [id].Admin SET Tempo = '"+ text + "' WHERE [Name] = '" + idd + "'";
+            con.query(sql, function (err, result) {
+                if (err) throw err;
+                console.log(result.affectedRows + " record(s) updated");
+            });
+        });*/
+    }
 
     renderTable() {
+
+
+
         return (
             <div>
                 <table className='table table-striped variant= "dark"'>
@@ -111,7 +142,8 @@ export class Admin extends Component {
                         <tr>
                             <th>Name</th>
                             <th>Health State</th>
-
+                            <th>Resolution Time</th>
+                            <th> </th>
                         </tr>
                     </thead>
                     <tbody>
@@ -120,7 +152,7 @@ export class Admin extends Component {
                             return <tr key={forecast.name}>
                                 <td>{forecast.name}</td>
                                 <td>{forecast.health_State}</td>
-                                
+                                <td> <input type="text" id={forecast.name} /> <button onClick={() => this.element(forecast.name)}> Change </button>  </td>
                             </tr>
                         })}
                     </tbody>

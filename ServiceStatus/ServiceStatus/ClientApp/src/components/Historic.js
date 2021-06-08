@@ -25,11 +25,6 @@ export class Historic extends Component {
         console.log(this.state.forecasts);
     }
 
-    onSubmit() {
-        const history = useHistory();
-        history.push('/Historic');
-    }
-
     render() {
         //let contents = this.renderForecastsTable(this.state.forecasts);
      
