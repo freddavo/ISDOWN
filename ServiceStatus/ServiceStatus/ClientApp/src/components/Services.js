@@ -153,16 +153,35 @@ export class Services extends Component {
                                     }}
                                 >{forecast.health_State}</Typography>
                                 </TableCell>
-                                <TableCell> <Typography><NavLink exact activeClassName="active"
+                                <TableCell> <Typography ><NavLink exact activeClassName="active"
                                     to={{
                                         pathname: "/Historic",
                                         props: {
                                             state: [
                                                 forecast.name]
                                         }
-                                    }}> Historic </NavLink></Typography></TableCell>
+                                    }}
+                                style={{
+                                    fontWeight: 'bold',
+                                    fontSize: '0.75rem',
+                                    color: 'white',
+                                    backgroundColor: 'grey',
+                                    borderRadius: 8,
+                                    padding: '3px 10px',
+                                    display: 'inline-block',
+                                    backgroundColor:'gray'
+                                }}                                > History </NavLink></Typography></TableCell>
 
-                                <TableCell> <Typography><button onClick={handleOnClickDefault}>
+                                <TableCell> <Typography><button onClick={handleOnClickDefault} style={{
+                                    fontWeight: 'bold',
+                                    fontSize: '0.75rem',
+                                    color: 'white',
+                                    backgroundColor: 'grey',
+                                    borderRadius: 8,
+                                    padding: '3px 10px',
+                                    display: 'inline-block',
+                                    backgroundColor: 'black'
+                                }}    >
                                     Subscribe </button> </Typography></TableCell>
                             </tr>
                         })}
