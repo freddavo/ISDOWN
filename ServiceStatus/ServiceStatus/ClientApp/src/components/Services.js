@@ -58,71 +58,39 @@ export class Services extends Component {
             })
         }
 
-        const useStyles = makeStyles((theme) => ({
-            table: {
-                minWidth: 650,
-            },
-            tableContainer: {
-                borderRadius: 15,
-                margin: '10px 10px',
-                maxWidth: 950
-            },
-            tableHeaderCell: {
-                fontWeight: 'bold',
-                backgroundColor: theme.palette.primary.dark,
-                color: theme.palette.getContrastText(theme.palette.primary.dark)
-            },
-            avatar: {
-                backgroundColor: theme.palette.primary.light,
-                color: theme.palette.getContrastText(theme.palette.primary.light)
-            },
-            name: {
-                fontWeight: 'bold',
-                color: theme.palette.secondary.dark,
-                padding: '10px 10px'
-            },
-            status: {
-                fontWeight: 'bold',
-                fontSize: '0.75rem',
-                color: 'white',
-                backgroundColor: 'grey',
-                borderRadius: 8,
-                padding: '3px 10px',
-                display: 'inline-block'
-            }
-        }));
+        
 
 
         return (
            
-            <TableContainer component={Paper} className={useStyles.tableContainer}
+            <TableContainer component={Paper} 
 
                 style={{
                 borderRadius: 15,
                     margin: '10px 10px',
                     maxWidth: 1425
                 }}> 
-                <Table className={useStyles.table}
+                <Table 
                     aria-label="simple table"
                     style={{ minWidth: 650 }}>
                     <TableHead>
                         <TableRow>
-                            <TableCell className={useStyles.tableHeaderCell} style={{
+                            <TableCell  style={{
                                 fontWeight: 'bold'}} >Services</TableCell>
-                            <TableCell className={useStyles.tableHeaderCell} style={{
+                            <TableCell  style={{
                                 fontWeight: 'bold'
                             }}>Path</TableCell>
-                            <TableCell className={useStyles.tableHeaderCell} style={{
+                            <TableCell  style={{
                                 fontWeight: 'bold'
                             }}>Status</TableCell>
-                            <TableCell className={useStyles.tableHeaderCell} style={{
+                            <TableCell style={{
                                 fontWeight: 'bold'
                             }}></TableCell>
 
 
 
 
-                            <TableCell className={useStyles.tableHeaderCell} style={{
+                            <TableCell style={{
                                 fontWeight: 'bold'
                             }}></TableCell>
                         </TableRow>
@@ -138,7 +106,7 @@ export class Services extends Component {
                                 </TableCell>
                                 
                                 <TableCell> <Typography>{forecast.path}</Typography></TableCell>
-                                <TableCell> <Typography className={useStyles.status}
+                                <TableCell> <Typography 
                                     style={{
                                         fontWeight: 'bold',
                                         fontSize: '0.75rem',

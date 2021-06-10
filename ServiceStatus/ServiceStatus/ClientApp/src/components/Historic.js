@@ -2,6 +2,21 @@
 import { useHistory } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
+import { makeStyles } from '@material-ui/core/styles';
+import {
+    Table,
+    TableBody,
+    TableCell,
+    TableContainer,
+    TableHead,
+    TableRow,
+    Paper,
+    Avatar,
+    Grid,
+    Typography,
+    TablePagination,
+    TableFooter
+} from '@material-ui/core';
 
 export class Historic extends Component {
     static displayName = Historic.name;
@@ -29,17 +44,34 @@ export class Historic extends Component {
         //let contents = this.renderForecastsTable(this.state.forecasts);
      
         return (
-            <div>
-                <table className='table table-striped variant= "dark"' >
-                    <thead>
+            <TableContainer component={Paper} 
 
-                        <tr>
-                            <th>Data</th>
-                            <th>Serviço</th>
-                            <th>Falha</th>      
-                        </tr>
-                    </thead>
-                    <tbody>
+                style={{
+                    borderRadius: 15,
+                    margin: '10px 10px',
+                    maxWidth: 1425
+                }}> 
+                <Table 
+                    aria-label="simple table"
+                    style={{ minWidth: 650 }}>
+                    <TableHead>
+                        <TableRow>
+                            <TableCell style={{
+                                fontWeight: 'bold'
+                            }} >Date</TableCell>
+                            <TableCell  style={{
+                                fontWeight: 'bold'
+                            }}>Service</TableCell>
+                            <TableCell style={{
+                                fontWeight: 'bold'
+                            }}>Failure</TableCell>
+                            <TableCell  style={{
+                                fontWeight: 'bold'
+                            }}></TableCell>
+
+                        </TableRow>
+                    </TableHead>
+                    <TableBody>
 
 
                         {
@@ -49,15 +81,25 @@ export class Historic extends Component {
                             if (this.state.nomeServico == forecast.nomeServico) {
                                 return <tr key={forecast.dataFalha, forecast.nomeServico}>
 
-                                    <td>{forecast.dataFalha}</td>
-                                    <td>{this.state.nomeServico}</td>
-                                    <td>{forecast.falha}</td>
+                                    <TableCell>
+                                        <Typography>
+                                            {forecast.dataFalha}
+                                        </Typography>
+                                    </TableCell>
+                                    <TableCell>
+                                        <Typography>
+                                            {this.state.nomeServico}
+                                        </Typography>
+                                </TableCell>
+                                    <TableCell>
+                                        <Typography>{forecast.falha}</Typography>
+                                        </TableCell>
                                 </tr>
                             }
                         })}
-                    </tbody>
-                </table>
-            </div>
+                    </TableBody>
+                </Table>
+            </ TableContainer>
         );
     }
 
