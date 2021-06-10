@@ -16,13 +16,13 @@ function Cards() {
                             path='/Services'
                         />
                         <CardItem
-                            src='images/Glua.png'
-                            text='Check out if Glua is working.'
-                            label='Glua'
+                            src='images/iscalogo2.jpg'
+                            text='Check out if Isca is working.'
+                            label='Isca'
                             path='/Services'
                         />
                         <CardItem
-                            src='images/PACO.png'
+                            src='images/paco_secretaria.jpg'
                             text='Check out if PACO is working.'
                             label='PACO'
                             path='/Services'
@@ -30,13 +30,13 @@ function Cards() {
                     </ul>
                     <ul className='cards__items'>
                         <CardItem
-                            src='images/Elearning.png'
+                            src='images/elearningteste.jpg'
                             text='Check out if Elearning is working.'
                             label='Elearning'
                             path='/Services'
                         />
                         <CardItem
-                            src='images/Codeua.PNG'
+                            src='images/ualogo.png'
                             text='Check out if CodeUA is working'
                             label='CodeUA'
                             path='/Services'

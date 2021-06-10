@@ -6,7 +6,7 @@ import '../../App.css';
 export default function CardsAbout() {
     return (
         <div className='cards'>
-            <h1 >Se liga nessa gente linda!</h1>
+            <h1 >Meet Our Team!</h1>
             <div className='cards__container'>
                 <div className='cards__wrapper'>
                     <ul className='cards__items'>

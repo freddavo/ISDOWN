@@ -12,13 +12,7 @@ function HomeSection() {
             <h1>WANNA CHECK SOMETHING?</h1>
             <div className="home-btns">
                 
-                <ButtonAbout className='btns'
-                buttonStyle='btn--outline'
-                buttonSize='btn--large'
                 
-                >
-                    KNOW ABOUT US <i className='fas fa-users' />
-                </ButtonAbout>
                  <Button className='btns'
                 buttonStyle='btn--primary'
                 buttonSize='btn--large'
