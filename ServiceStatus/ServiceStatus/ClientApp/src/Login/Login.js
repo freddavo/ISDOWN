@@ -46,7 +46,7 @@ const UserLogin = () => {
 
         if (token) {
             setToken(token);
-            return history.push('/Admin');
+            return history.push('/CardsLogin');
         }
 
         setError(error);

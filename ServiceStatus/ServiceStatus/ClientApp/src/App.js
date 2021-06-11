@@ -12,6 +12,9 @@ import { Admin } from './Admin/Admin';
 import Login from './Login/Login';
 import StoreProvider from './components/Store/Provider';
 import { ProductProvider } from './Context';
+import CardsLogin from './components/Login_Options/CardsLogin';
+import { Maintenance } from './Admin/Maintenance';
+import { Time } from './Admin/Time';
 //import RoutesPrivate from './components/Routes/Private';
  
 
@@ -30,6 +33,9 @@ function App() {
                           <Route path="/Dns" component={Dns} />
                           <Route path="/Admin" component={Admin} />
                           <Route path="/Login" component={Login} />
+                          <Route path="/CardsLogin" component={CardsLogin} />
+                          <Route path="/Maintenance" component={Maintenance} />
+                          <Route path="/Time" component={Time} />
                   </Switch>
               </StoreProvider>
         </Router>
