@@ -35,7 +35,7 @@ export class Time extends Component {
             loading: true,
             value: "None",
             name: '',
-            time: '',
+            maintenance: '',
         };
      
 
@@ -53,7 +53,7 @@ export class Time extends Component {
     submitHandler = e => {
         e.preventDefault()
         console.log(this.state)
-        axios.post('https://localhost:6001/api/service/v1', this.state)
+        axios.post('https://localhost:6001/api/servico/v1', this.state)
             .then(response => {
                 console.log(response)
             })
@@ -61,6 +61,8 @@ export class Time extends Component {
                 console.log(error)
             })
     }
+
+    
 
     element = (idName) => {
         console.log(idName);
@@ -77,7 +79,7 @@ export class Time extends Component {
 
         //let contents = this.renderForecastsTable(this.state.forecasts);
 
-        const { name, time } = this.state
+        const { name, maintenance } = this.state
 
         const handleOnClickDefault = () => {
             store.addNotification({
@@ -128,12 +130,12 @@ export class Time extends Component {
                                         {forecast.name}
                                     </Typography>
                                 </TableCell>
-                               
+                                    
                                 <TableCell>
                                     <Typography>
                                         <form onSubmit={this.submitHandler}>
                                             <input type="text" name="name" value={name} onChange={this.changeHandler} />
-                                            <input type="text" name="time" value={time} onChange={this.changeHandler} />
+                                            <input type="text" name="maintenance" value={maintenance} onChange={this.changeHandler} />
                                             <button type="submit"> Change </button>
                                         </form>
                                     </Typography>

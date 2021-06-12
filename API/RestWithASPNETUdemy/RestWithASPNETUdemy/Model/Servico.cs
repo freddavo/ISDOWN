@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace RestWithASPNETUdemy.Model
 {
     [Table("servicos")]
-    public class Service
+    public class Servico
     {
         [Column("id")]
         public long Id { get; set; }
