@@ -15,6 +15,7 @@ import { ProductProvider } from './Context';
 import CardsLogin from './components/Login_Options/CardsLogin';
 import { Maintenance } from './Admin/Maintenance';
 import { Time } from './Admin/Time';
+import PostForm from './Admin/PostForm';
 //import RoutesPrivate from './components/Routes/Private';
  
 
@@ -23,8 +24,8 @@ function App() {
     
           <Router>
               <StoreProvider>
-                  <Navbar />
-                 
+              <Navbar />
+              <PostForm />
                         <Switch>
                           <Route path='/' exact component={Home} />
                           <Route path='/Services' component={Services} />
@@ -36,6 +37,8 @@ function App() {
                           <Route path="/CardsLogin" component={CardsLogin} />
                           <Route path="/Maintenance" component={Maintenance} />
                           <Route path="/Time" component={Time} />
+
+
                   </Switch>
               </StoreProvider>
         </Router>

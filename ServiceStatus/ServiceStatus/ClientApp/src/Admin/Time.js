@@ -114,6 +114,7 @@ export class Time extends Component {
                                
                                 <TableCell>
                                     <Typography>
+
                                         <input type="text" id={forecast.name} />
                                         <button onClick={() =>
                                             this.element(forecast.name)}>

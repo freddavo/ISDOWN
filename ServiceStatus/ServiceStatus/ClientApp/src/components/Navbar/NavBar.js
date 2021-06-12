@@ -58,7 +58,7 @@ function Navbar() {
                                 className='nav-links'
                                 onClick={closeMobileMenu}
                             >
-                              DNS - Services
+                              DNS
                             </Link>
                         </li>
                         <li className='nav-item'>
