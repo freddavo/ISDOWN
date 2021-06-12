@@ -88,14 +88,10 @@ export class Maintenance extends Component {
             })
         }
 
-        
-
 
         return (
 
-
             <TableContainer component={Paper} 
-
                 style={{
                 borderRadius: 15,
                     margin: '10px 10px',
@@ -107,11 +103,7 @@ export class Maintenance extends Component {
                     <TableHead>
                         <TableRow>
                             <TableCell  style={{
-                                fontWeight: 'bold'}} >Services</TableCell>
-                            
-
-                            
-
+                                fontWeight: 'bold'}} >Services</TableCell> 
                             <TableCell style={{
                                 fontWeight: 'bold'
                             }}>Maintenance</TableCell>
@@ -119,8 +111,7 @@ export class Maintenance extends Component {
                             <TableCell style={{
                                 fontWeight: 'bold'
                             }}>Status</TableCell>
-                           
-                           
+                            
                         </TableRow>
                     </TableHead>
                     <TableBody>
@@ -132,20 +123,17 @@ export class Maintenance extends Component {
                                         {forecast.name}
                                     </Typography>
                                 </TableCell>
-                                
-                                
 
                                 <TableCell>
                                     <Typography>
                                         <form onSubmit={this.submitHandler}>
                                             <input type="text" name="name" value={name} onChange={this.changeHandler} />
                                             <input type="text" name="maintenance" value={maintenance} onChange={this.changeHandler} />
-                                            <button type="submit"> Submit </button>
+                                            <button type="submit"> Change </button>
                                         </form>
                                     </Typography>
                                 </TableCell>
-
-                               
+ 
                                 <TableCell> <Typography
                                     style={{
                                         fontWeight: 'bold',

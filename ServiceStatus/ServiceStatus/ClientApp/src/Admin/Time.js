@@ -6,6 +6,7 @@ import { store } from 'react-notifications-component';
 import 'react-notifications-component/dist/theme.css';
 import 'animate.css';
 import { makeStyles } from '@material-ui/core/styles';
+import axios from 'axios';
 import {
     Table,
     TableBody,
@@ -32,15 +33,33 @@ export class Time extends Component {
         this.state = {
             forecasts: [],
             loading: true,
-            value: "None"
+            value: "None",
+            name: '',
+            maintenance: '',
         };
      
 
-        fetch('Service/Index')
+        fetch('Admin/Index')
             .then(response => response.json())
             .then(data => {
                 this.setState({ forecasts: data, loading: false });
             });
+    }
+
+    changeHandler = e => {
+        this.setState({ [e.target.name]: e.target.value })
+    }
+
+    submitHandler = e => {
+        e.preventDefault()
+        console.log(this.state)
+        axios.post('https://localhost:6001/api/time/v1', this.state)
+            .then(response => {
+                console.log(response)
+            })
+            .catch(error => {
+                console.log(error)
+            })
     }
 
     element = (idName) => {
@@ -57,6 +76,8 @@ export class Time extends Component {
     render() {
 
         //let contents = this.renderForecastsTable(this.state.forecasts);
+
+        const { name, maintenance } = this.state
 
         const handleOnClickDefault = () => {
             store.addNotification({
@@ -109,16 +130,15 @@ export class Time extends Component {
                                     <Typography>
                                         {forecast.name}
                                     </Typography>
-                                </TableCell>
-                                
+                                </TableCell>  
                                
                                 <TableCell>
                                     <Typography>
-
-                                        <input type="text" id={forecast.name} />
-                                        <button onClick={() =>
-                                            this.element(forecast.name)}>
-                                            Change </button>
+                                        <form onSubmit={this.submitHandler}>
+                                            <input type="text" name="name" value={name} onChange={this.changeHandler} />
+                                            <input type="text" name="maintenance" value={maintenance} onChange={this.changeHandler} />
+                                            <button type="submit"> Change </button>
+                                        </form>
                                     </Typography>
                                 </TableCell>
                                 

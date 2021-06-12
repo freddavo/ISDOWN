@@ -25,7 +25,6 @@ function App() {
           <Router>
               <StoreProvider>
               <Navbar />
-              <PostForm />
                         <Switch>
                           <Route path='/' exact component={Home} />
                           <Route path='/Services' component={Services} />
