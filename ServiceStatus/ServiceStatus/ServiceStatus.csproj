@@ -32,6 +32,7 @@
   <ItemGroup>
     <None Remove="ClientApp\src\components\Routes.js" />
     <None Remove="ClientApp\src\components\Routes.js" />
+    <None Remove="ClientApp\src\Admin\PostForm.js" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ClientApp\src\components\Button\" />

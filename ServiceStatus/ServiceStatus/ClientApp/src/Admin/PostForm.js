@@ -1,46 +1,44 @@
 import React, { useState } from 'react';
-import Axios from 'axios';
+import axios from 'axios';
+import { Component } from 'react'
 
-function PostForm() {
-    const url = ""
-    const [data, setData] = useState({
-        name: "",
-        date: "",
-        iduser: "",
-    })
+export class PostForm extends Component {
 
-    function submit(e) {
-        e.preventDefault();
-        Axios.post(url, {
-            name: data.name,
-            date: data.date,
-            iduser: parseInt(data.iduser)
-        })
-            .then(res => {
-                console.log(res.data)
+    constructor(props) {
+        super(props);
+        this.state = {
+            name: '',
+            maintenance: '',
+        }
+    }
+
+    changeHandler = e => {
+        this.setState({ [e.target.name]: e.target.value })
+    }
+
+    submitHandler = e => {
+        e.preventDefault()
+        console.log(this.state)
+        axios.post('https://localhost:6001/api/service/v1', this.state)
+            .then(response => {
+                console.log(response)
+            })
+            .catch(error => {
+                console.log(error)
             })
     }
 
-    function handle(e) {
-        const newdata = { ...data }
-        newdata[e.target.id] = e.target.value
-        setData(newdata)
-        console.log(newdata)
-    }
+    render() {
+        const { name, maintenance } = this.state
+        return (
 
-
-    return (
-
-        <div>
-            <form onSubmit={(e) => submit(e)}>
-                <input onChange={(e) => handle(e)} id="name" value={data.name} placeholder="name" type="text" />
-                <input onChange={(e) => handle(e)} id="date" value={data.date} placeholder="date" type="date" />
-                <input onChange={(e) => handle(e)} id="iduser" value={data.iduser} placeholder="iduser" type="number" />
-                <button> Submit </button>
-            </form>
-        </div>
+            <div>
+                <form onSubmit={this.submitHandler }>
+                    <input type="text" name="name" value={name} onChange={this.changeHandler} />
+                    <input type="text" name="maintenance" value={maintenance} onChange={this.changeHandler} />
+                    <button type="submit"> Submit </button>
+                </form>
+            </div>
         )
+    } 
 }
-
-
-export default PostForm;

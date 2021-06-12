@@ -6,6 +6,7 @@ import { store } from 'react-notifications-component';
 import 'react-notifications-component/dist/theme.css';
 import 'animate.css';
 import { makeStyles } from '@material-ui/core/styles';
+import axios from 'axios';
 import {
     Table,
     TableBody,
@@ -32,7 +33,9 @@ export class Maintenance extends Component {
         this.state = {
             forecasts: [],
             loading: true,
-            value: "None"
+            value: "None",
+            name: '',
+            maintenance: '',
         };
      
 
@@ -41,6 +44,22 @@ export class Maintenance extends Component {
             .then(data => {
                 this.setState({ forecasts: data, loading: false });
             });
+    }
+
+    changeHandler = e => {
+        this.setState({ [e.target.name]: e.target.value })
+    }
+
+    submitHandler = e => {
+        e.preventDefault()
+        console.log(this.state)
+        axios.post('https://localhost:6001/api/service/v1', this.state)
+            .then(response => {
+                console.log(response)
+            })
+            .catch(error => {
+                console.log(error)
+            })
     }
 
     element = (idName) => {
@@ -57,6 +76,8 @@ export class Maintenance extends Component {
 
         //let contents = this.renderForecastsTable(this.state.forecasts);
 
+        const { name, maintenance } = this.state
+
         const handleOnClickDefault = () => {
             store.addNotification({
                 title: "Subscrição",
@@ -71,7 +92,8 @@ export class Maintenance extends Component {
 
 
         return (
-           
+
+
             <TableContainer component={Paper} 
 
                 style={{
@@ -115,7 +137,11 @@ export class Maintenance extends Component {
 
                                 <TableCell>
                                     <Typography>
-                                        <input type="text" id={forecast.name} /> <button onClick={() => this.element(forecast.name)}> Change </button>
+                                        <form onSubmit={this.submitHandler}>
+                                            <input type="text" name="name" value={name} onChange={this.changeHandler} />
+                                            <input type="text" name="maintenance" value={maintenance} onChange={this.changeHandler} />
+                                            <button type="submit"> Submit </button>
+                                        </form>
                                     </Typography>
                                 </TableCell>
 

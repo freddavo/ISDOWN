@@ -15,7 +15,7 @@ import { ProductProvider } from './Context';
 import CardsLogin from './components/Login_Options/CardsLogin';
 import { Maintenance } from './Admin/Maintenance';
 import { Time } from './Admin/Time';
-import PostForm from './Admin/PostForm';
+import { PostForm } from './Admin/PostForm';
 //import RoutesPrivate from './components/Routes/Private';
  
 
