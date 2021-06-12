@@ -35,7 +35,7 @@ export class Time extends Component {
             loading: true,
             value: "None",
             name: '',
-            maintenance: '',
+            time: '',
         };
      
 
@@ -53,7 +53,7 @@ export class Time extends Component {
     submitHandler = e => {
         e.preventDefault()
         console.log(this.state)
-        axios.post('https://localhost:6001/api/time/v1', this.state)
+        axios.post('https://localhost:6001/api/service/v1', this.state)
             .then(response => {
                 console.log(response)
             })
@@ -77,7 +77,7 @@ export class Time extends Component {
 
         //let contents = this.renderForecastsTable(this.state.forecasts);
 
-        const { name, maintenance } = this.state
+        const { name, time } = this.state
 
         const handleOnClickDefault = () => {
             store.addNotification({
@@ -108,9 +108,6 @@ export class Time extends Component {
                         <TableRow>
                             <TableCell  style={{
                                 fontWeight: 'bold'}} >Services</TableCell>
-                            
-
-                         
 
                             <TableCell style={{
                                 fontWeight: 'bold'
@@ -130,13 +127,13 @@ export class Time extends Component {
                                     <Typography>
                                         {forecast.name}
                                     </Typography>
-                                </TableCell>  
+                                </TableCell>
                                
                                 <TableCell>
                                     <Typography>
                                         <form onSubmit={this.submitHandler}>
                                             <input type="text" name="name" value={name} onChange={this.changeHandler} />
-                                            <input type="text" name="maintenance" value={maintenance} onChange={this.changeHandler} />
+                                            <input type="text" name="time" value={time} onChange={this.changeHandler} />
                                             <button type="submit"> Change </button>
                                         </form>
                                     </Typography>
