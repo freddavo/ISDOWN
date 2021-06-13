@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Net.Http;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Host;
 using Microsoft.Extensions.Logging;
@@ -18,7 +19,7 @@ namespace Daemon
         public static void Run([TimerTrigger("0 */2 * * * *")] TimerInfo myTimer, ILogger log)
         {
             List<DNS> dnss = new List<DNS>();
-            Console.WriteLine("-------");
+            //Console.WriteLine("-------");
 
             //ACCESS TOKEN (POST)
             var url = "https://wso2-gw.ua.pt/token?grant_type=client_credentials&state=1234567890&scope=openid";
@@ -37,8 +38,8 @@ namespace Daemon
                 var result = streamReader.ReadToEnd();
                 char[] chars = result.ToCharArray();
 
-                for (int i = 17; i < 53; i++)
-                    Console.Write(chars[i]);
+                //for (int i = 17; i < 53; i++)
+                //    Console.Write(chars[i]);
                 myfunc(chars);
             }
 
@@ -50,9 +51,9 @@ namespace Daemon
 
                 var httpRequest1 = (HttpWebRequest)WebRequest.Create(url1);
 
-                Console.WriteLine();
-                Console.WriteLine();
-                Console.WriteLine();
+                //Console.WriteLine();
+                //Console.WriteLine();
+                //Console.WriteLine();
 
                 string resultado0 = "Bearer ";
                 char resultado = chars[17];
@@ -108,10 +109,10 @@ namespace Daemon
                             }
                         }
                     }
-                    Console.WriteLine("-");
-                    Console.WriteLine(result);
-                    Console.WriteLine(dnss.Count());
-                    Console.WriteLine("-");    
+                    //Console.WriteLine("-");
+                    //Console.WriteLine(result);
+                    //Console.WriteLine(dnss.Count());
+                    //Console.WriteLine("-");    
                 }
             }
             

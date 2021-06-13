@@ -19,7 +19,7 @@ namespace Daemon
         {
             List<Servico> servicos = new List<Servico>();
             List<Historico> historicos = new List<Historico>();
-            Console.WriteLine("-------");
+            //Console.WriteLine("-------");
 
             //ACCESS TOKEN (POST)
             var url = "https://wso2-gw.ua.pt/token?grant_type=client_credentials&state=1234567890&scope=openid";
@@ -39,8 +39,8 @@ namespace Daemon
                 var result = streamReader.ReadToEnd();
                 char[] chars = result.ToCharArray();
 
-                for (int i = 17; i < 53; i++)
-                    Console.Write(chars[i]);
+                //for (int i = 17; i < 53; i++)
+                //    Console.Write(chars[i]);
                 myfunc(chars);
             }
 
@@ -52,9 +52,9 @@ namespace Daemon
 
                 var httpRequest1 = (HttpWebRequest)WebRequest.Create(url1);
 
-                Console.WriteLine();
-                Console.WriteLine();
-                Console.WriteLine();
+               // Console.WriteLine();
+               // Console.WriteLine();
+               // Console.WriteLine();
 
                 string resultado0 = "Bearer ";
                 char resultado = chars[17];
@@ -116,9 +116,9 @@ namespace Daemon
 
                         }
                     }
-                    Console.WriteLine("-");
-                    Console.WriteLine(servicos.Count());
-                    Console.WriteLine("-");
+                    //Console.WriteLine("-");
+                    //Console.WriteLine(servicos.Count());
+                    //Console.WriteLine("-");
                     //Console.WriteLine(result);    
                 }
             }
