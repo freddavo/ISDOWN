@@ -11,6 +11,7 @@ using Microsoft.Extensions.Logging;
 
 namespace Daemon
 {
+    //DNS
     public static class Daemon1
     {
         [FunctionName("Daemon1")]

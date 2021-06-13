@@ -11,10 +11,7 @@ using Microsoft.Azure.WebJobs.Host;
 using Microsoft.Extensions.Logging;
 
 namespace Daemon
-{
-
-    
-
+{   
     public static class Daemon
     {
 
@@ -108,14 +105,30 @@ namespace Daemon
                             if(tuploName.Contains("Name:") & tuploState.Contains("HealthState:")
                                 & tuploPath.Contains("Path:"))
                             {
-                                if (!namesUnique.Contains(tuploName.Split("Name:")[1].ToUpper())) 
+                                if (!namesUnique.Contains(tuploName.Split("Name:")[1].ToUpper()))
                                 {
                                     namesUnique.Add(tuploName.Split("Name:")[1].ToUpper());
                                     Servico s = new Servico(tuploName.Split("Name:")[1], tuploState.Split("HealthState:")[1],
                                         tuploPath.Split("Path:")[1]);
                                     servicos.Add(s);
                                 }
+                                else if (tuploState.Split("HealthState:")[1].Equals("Success"))
+                                {
+                                    Console.WriteLine(tuploName.Split("Name:")[1].ToUpper());
+                                    
+                                    foreach (var s in servicos)
+                                    {
+                                        if (s.Name.ToUpper().Equals(tuploName.Split("Name:")[1].ToUpper()))
+                                        {
+                                            Console.WriteLine(tuploName.Split("Name:")[1].ToUpper());
 
+                                            s.HealthState = tuploState.Split("HealthState:")[1];
+                                            s.Path = tuploPath.Split("Path:")[1];
+
+                                            
+                                        }
+                                    } 
+                                }
                             }
 
                         }
@@ -150,7 +163,6 @@ namespace Daemon
                             namesUnique.Add(reader["Name"].ToString().ToUpper());
                         }
                     }
-
                     reader.Close();
 
 
@@ -235,9 +247,6 @@ namespace Daemon
                                 command2.ExecuteNonQuery();
 
                             }
-
-
-
                         }
                     }
                 }
