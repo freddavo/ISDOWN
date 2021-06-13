@@ -26,8 +26,8 @@ import {
 
 export class Time extends Component {
     static displayName = Time.name;
-    
-  
+
+
     constructor(props) {
         super(props);
         this.state = {
@@ -37,7 +37,7 @@ export class Time extends Component {
             name: '',
             maintenance: '',
         };
-     
+
 
         fetch('Admin/Index')
             .then(response => response.json())
@@ -53,7 +53,7 @@ export class Time extends Component {
     submitHandler = e => {
         e.preventDefault()
         console.log(this.state)
-        axios.post('https://localhost:6001/api/servico/v1', this.state)
+        axios.post('https://localhost:6001/api/service/v1', this.state)
             .then(response => {
                 console.log(response)
             })
@@ -61,8 +61,6 @@ export class Time extends Component {
                 console.log(error)
             })
     }
-
-    
 
     element = (idName) => {
         console.log(idName);
@@ -73,7 +71,6 @@ export class Time extends Component {
             console.log(text);
         }
     }
-
 
     render() {
 
@@ -92,25 +89,22 @@ export class Time extends Component {
         }
 
 
-
-
         return (
-           
-            <TableContainer component={Paper} 
 
+            <TableContainer component={Paper}
                 style={{
-                borderRadius: 15,
+                    borderRadius: 15,
                     margin: '10px 10px',
-                    maxWidth: 1350
-                }}> 
-                <Table 
+                    maxWidth: 1385
+                }}>
+                <Table
                     aria-label="simple table"
                     style={{ minWidth: 650 }}>
                     <TableHead>
                         <TableRow>
-                            <TableCell  style={{
-                                fontWeight: 'bold'}} >Services</TableCell>
-
+                            <TableCell style={{
+                                fontWeight: 'bold'
+                            }} >Services</TableCell>
                             <TableCell style={{
                                 fontWeight: 'bold'
                             }}>Time</TableCell>
@@ -118,7 +112,7 @@ export class Time extends Component {
                             <TableCell style={{
                                 fontWeight: 'bold'
                             }}>Status</TableCell>
-                           
+
                         </TableRow>
                     </TableHead>
                     <TableBody>
@@ -130,7 +124,7 @@ export class Time extends Component {
                                         {forecast.name}
                                     </Typography>
                                 </TableCell>
-                                    
+
                                 <TableCell>
                                     <Typography>
                                         <form onSubmit={this.submitHandler}>
@@ -140,7 +134,7 @@ export class Time extends Component {
                                         </form>
                                     </Typography>
                                 </TableCell>
-                                
+
                                 <TableCell> <Typography
                                     style={{
                                         fontWeight: 'bold',
@@ -156,12 +150,12 @@ export class Time extends Component {
                                     }}
                                 >{forecast.health_State}</Typography>
                                 </TableCell>
-                     
+
                             </tr>
                         })}
                     </TableBody>
                 </Table>
-                    
+
             </ TableContainer>
         );
     }

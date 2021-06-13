@@ -50,12 +50,8 @@ namespace RestWithASPNETUdemy
             services.AddScoped<IServiceBusiness, ServiceBusinessImplementation>();
             services.AddScoped<IServiceRepository, ServiceRepositoryImplementation>();
 
-            services.AddScoped<IMaintenanceBusiness, MaintenanceBusinessImplementation>();
-            services.AddScoped<IMaintenanceRepository, MaintenanceRepositoryImplementation>();
-            services.AddScoped<ITimeBusiness, TimeBusinessImplementation>();
-            services.AddScoped<ITimeRepository, TimeRepositoryImplementation>();
-            services.AddScoped<IServicoBusiness, ServicoBusinessImplementation>();
-            services.AddScoped<IServicoRepository, ServicoRepositoryImplementation>();
+
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "RestWithASPNETUdemy", Version = "v1" });

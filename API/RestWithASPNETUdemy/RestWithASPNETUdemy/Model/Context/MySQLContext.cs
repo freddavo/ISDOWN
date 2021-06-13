@@ -14,8 +14,6 @@ namespace RestWithASPNETUdemy.Model.Context
 
         public DbSet<Person> Persons { get; set; }
         public DbSet<Service> Services { get; set; }
-        public DbSet<Maintenance> Maintenances { get; set; }
-        public DbSet<Time> Times { get; set; }
-        public DbSet<Servico> Servicos { get; set; }
+
     }
 }
