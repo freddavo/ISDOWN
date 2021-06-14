@@ -5,13 +5,13 @@ namespace Daemon
     {
         public string Name { get; set; }
         public string Maintenance { get; set; }
-        //public string Tempo { get; set; }
+        //public string Id { get; set; }
 
-        public Servico1(string name, string maintenance/*, string tempo*/)
+        public Servico1(string name, string maintenance/*, string id*/)
         {
             Name = name;
             Maintenance = maintenance;
-            //Tempo = tempo;
+            //Id = id;
         }
     }
 }
