@@ -19,16 +19,14 @@ namespace ServiceStatus.Models
 
         public virtual DbSet<Admin> Admins { get; set; }
         public virtual DbSet<Dns> Dns { get; set; }
-        public virtual DbSet<Falha> Falhas { get; set; }
         public virtual DbSet<Historico> Historicos { get; set; }
         public virtual DbSet<Servico> Servicos { get; set; }
-        public virtual DbSet<Subscricao> Subscricaos { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
+//#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
                 optionsBuilder.UseSqlServer("Server=isdown.database.windows.net;Database=isdown;user id=isdown;password=projeto.1");
             }
         }
@@ -77,26 +75,7 @@ namespace ServiceStatus.Models
                     .HasMaxLength(50)
                     .IsUnicode(false);
             });
-
-            modelBuilder.Entity<Falha>(entity =>
-            {
-                entity.ToTable("Falha", "id");
-
-                entity.Property(e => e.Id)
-                    .HasMaxLength(40)
-                    .IsUnicode(false)
-                    .HasColumnName("id");
-
-                entity.Property(e => e.Descricao)
-                    .HasMaxLength(40)
-                    .IsUnicode(false)
-                    .HasColumnName("descricao");
-
-                entity.Property(e => e.Tempo)
-                    .HasMaxLength(40)
-                    .IsUnicode(false)
-                    .HasColumnName("tempo");
-            });
+ 
 
             modelBuilder.Entity<Historico>(entity =>
             {
@@ -152,27 +131,7 @@ namespace ServiceStatus.Models
                     .IsUnicode(false);
             });
 
-            modelBuilder.Entity<Subscricao>(entity =>
-            {
-                entity.HasKey(e => new { e.Email, e.NomeServico })
-                    .HasName("PK__Subscric__97203C93D67C2A07");
-
-                entity.ToTable("Subscricao", "id");
-
-                entity.Property(e => e.Email)
-                    .HasMaxLength(50)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.NomeServico)
-                    .HasMaxLength(50)
-                    .IsUnicode(false);
-
-                entity.HasOne(d => d.NomeServicoNavigation)
-                    .WithMany(p => p.Subscricaos)
-                    .HasForeignKey(d => d.NomeServico)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Subscrica__NomeS__2EA5EC27");
-            });
+            
 
             modelBuilder.HasSequence<int>("SalesOrderNumber", "SalesLT");
 
