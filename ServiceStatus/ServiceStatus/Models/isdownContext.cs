@@ -96,9 +96,13 @@ namespace ServiceStatus.Models
                     .HasMaxLength(50)
                     .IsUnicode(false);
 
-                /*entity.Property(e => e.Maintenance)
+                entity.Property(e => e.Maintenance)
                     .HasMaxLength(50)
-                    .IsUnicode(false);*/
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Tempo)
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
             });
 
             modelBuilder.Entity<Admin>(entity =>

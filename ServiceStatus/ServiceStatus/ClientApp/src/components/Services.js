@@ -85,6 +85,12 @@ export class Services extends Component {
                             }}>Status</TableCell>
                             <TableCell style={{
                                 fontWeight: 'bold'
+                            }}>Time</TableCell>
+                            <TableCell style={{
+                                fontWeight: 'bold'
+                            }}>Maintenance</TableCell>
+                            <TableCell style={{
+                                fontWeight: 'bold'
                             }}></TableCell>
 
 
@@ -121,6 +127,8 @@ export class Services extends Component {
                                     }}
                                 >{forecast.health_State}</Typography>
                                 </TableCell>
+                                <TableCell> <Typography>{forecast.time}</Typography></TableCell>
+                                <TableCell> <Typography>{forecast.Maintenance}</Typography></TableCell>
                                 <TableCell> <Typography ><NavLink exact activeClassName="active"
                                     to={{
                                         pathname: "/Historic",
