@@ -18,7 +18,7 @@ namespace ServiceStatus.Models
         }
 
         public virtual DbSet<Admin> Admins { get; set; }
-        public virtual DbSet<Dn> Dns { get; set; }
+        public virtual DbSet<Dns> Dns { get; set; }
         public virtual DbSet<Falha> Falhas { get; set; }
         public virtual DbSet<Historico> Historicos { get; set; }
         public virtual DbSet<Servico> Servicos { get; set; }
@@ -62,7 +62,7 @@ namespace ServiceStatus.Models
                     .IsUnicode(false);
             });
 
-            modelBuilder.Entity<Dn>(entity =>
+            modelBuilder.Entity<Dns>(entity =>
             {
                 entity.HasKey(e => e.Name)
                     .HasName("PK__DNS__737584F741538A6E");

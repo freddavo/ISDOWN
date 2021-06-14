@@ -141,10 +141,10 @@ export class Maintenance extends Component {
                                         padding: '3px 10px',
                                         display: 'inline-block',
                                         backgroundColor:
-                                            ((forecast.health_State === 'Success' && 'green') ||
-                                                (forecast.health_State === 'Error' && 'red'))
+                                            ((forecast.healthState === 'Success' && 'green') ||
+                                                (forecast.healthState === 'Error' && 'red'))
                                     }}
-                                >{forecast.health_State}</Typography>
+                                >{forecast.healthState}</Typography>
                                 </TableCell>
                      
                             </tr>

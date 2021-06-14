@@ -150,7 +150,7 @@ export class Admin extends Component {
                             console.log(forecast);
                             return <tr key={forecast.name}>
                                 <td>{forecast.name}</td>
-                                <td>{forecast.health_State}</td>
+                                <td>{forecast.healthState}</td>
                                 <td> <input type="text" id={forecast.name} />
                                     <button onClick={() =>
                                         this.element(forecast.name)}>

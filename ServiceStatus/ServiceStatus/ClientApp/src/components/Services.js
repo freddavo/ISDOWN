@@ -122,13 +122,13 @@ export class Services extends Component {
                                         padding: '3px 10px',
                                         display: 'inline-block',
                                         backgroundColor:
-                                            ((forecast.health_State === 'Success' && 'green') ||
-                                                (forecast.health_State === 'Error' && 'red'))
+                                            ((forecast.healthState === 'Success' && 'green') ||
+                                                (forecast.healthState === 'Error' && 'red'))
                                     }}
-                                >{forecast.health_State}</Typography>
+                                >{forecast.healthState}</Typography>
                                 </TableCell>
-                                <TableCell> <Typography>{forecast.time}</Typography></TableCell>
-                                <TableCell> <Typography>{forecast.Maintenance}</Typography></TableCell>
+                                <TableCell> <Typography>{forecast.tempo}</Typography></TableCell>
+                                <TableCell> <Typography>{forecast.maintenance}</Typography></TableCell>
                                 <TableCell> <Typography ><NavLink exact activeClassName="active"
                                     to={{
                                         pathname: "/Historic",
