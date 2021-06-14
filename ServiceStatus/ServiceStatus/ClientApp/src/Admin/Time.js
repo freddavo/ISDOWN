@@ -91,6 +91,13 @@ export class Time extends Component {
 
         return (
 
+            <div>
+                <form onSubmit={this.submitHandler}>
+                    <input type="text" name="name" value={name} onChange={this.changeHandler} />
+                    <input type="text" name="tempo" value={tempo} onChange={this.changeHandler} />
+                    <button type="submit"> Change </button>
+                </form>
+
             <TableContainer component={Paper}
                 style={{
                     borderRadius: 15,
@@ -105,9 +112,6 @@ export class Time extends Component {
                             <TableCell style={{
                                 fontWeight: 'bold'
                             }} >Services</TableCell>
-                            <TableCell style={{
-                                fontWeight: 'bold'
-                            }}>Time</TableCell>
 
                             <TableCell style={{
                                 fontWeight: 'bold'
@@ -122,16 +126,6 @@ export class Time extends Component {
                                 <TableCell>
                                     <Typography>
                                         {forecast.name}
-                                    </Typography>
-                                </TableCell>
-
-                                <TableCell>
-                                    <Typography>
-                                        <form onSubmit={this.submitHandler}>
-                                            <input type="text" name="name" value={name} onChange={this.changeHandler} />
-                                            <input type="text" name="tempo" value={tempo} onChange={this.changeHandler} />
-                                            <button type="submit"> Change </button>
-                                        </form>
                                     </Typography>
                                 </TableCell>
 
@@ -156,7 +150,8 @@ export class Time extends Component {
                     </TableBody>
                 </Table>
 
-            </ TableContainer>
+                </ TableContainer>
+            </div>
         );
     }
 
