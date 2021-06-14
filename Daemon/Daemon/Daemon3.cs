@@ -18,67 +18,12 @@ namespace Daemon
         public static void Run([TimerTrigger("0 */1 * * * *")] TimerInfo myTimer, ILogger log)
         {
             GetRequest("https://localhost:6001/api/service/v1");
+            GetRequest1("https://localhost:6001/api/person/v1");
 
             List<Servico1> servicos = new List<Servico1>();
 
-            var url1 = "https://localhost:6001/api/service/v1";
-
-            var httpRequest1 = (HttpWebRequest)WebRequest.Create(url1);
-            var httpResponse1 = (HttpWebResponse)httpRequest1.GetResponse();
-
-            using (var streamReader = new StreamReader(httpResponse1.GetResponseStream()))
-            {
-                var result = streamReader.ReadToEnd();
-
-                var dadosAPI = result.Split('{');
 
 
-                List<string> namesUnique = new List<string>();
-
-                foreach (var x in dadosAPI)
-                {
-                    var cut = x.Remove(x.Length - 1, 1);
-                    var servico = cut.Split(',');
-                    if (servico.Length > 2)
-                    {
-                        var tuploName = servico[0].Replace("\"", "").Replace("}", "");
-                        var tuploState = servico[1].Replace("\"", "").Replace("}", "");
-                        var tuploPath = servico[2].Replace("\"", "").Replace("}", "");
-
-                        if (tuploName.Contains("name:") & tuploState.Contains("maintenance:"))
-                        {
-                            if (!namesUnique.Contains(tuploName.Split("name:")[1].ToUpper()))
-                            {
-                                namesUnique.Add(tuploName.Split("name:")[1].ToUpper());
-                                Servico1 s = new Servico1(tuploName.Split("name:")[1], tuploState.Split("maintenance:")[1]);
-                                servicos.Add(s);
-                            }
-                            else if (tuploState.Split("maintenance:")[1].Equals("30 min"))
-                            {
-                                Console.WriteLine(tuploName.Split("name:")[1].ToUpper());
-
-                                foreach (var s in servicos)
-                                {
-                                    if (s.Name.ToUpper().Equals(tuploName.Split("name:")[1].ToUpper()))
-                                    {
-                                        Console.WriteLine(tuploName.Split("name:")[1].ToUpper());
-
-                                        s.Maintenance = tuploState.Split("maintenance:")[1];
-                                        //s.Path = tuploPath.Split("Path:")[1];
-
-
-                                    }
-                                }
-                            }
-                        }
-
-                    }
-                }
-                //Console.WriteLine("-");
-                //Console.WriteLine(servicos.Count());
-                //Console.WriteLine("-");
-                //Console.WriteLine(result);    
-            }
 
             //fazer o split dos dados recebidos pela API
 
@@ -147,6 +92,24 @@ namespace Daemon
         }*/
 
             async static void GetRequest(string url)
+            {
+                using (HttpClient client = new HttpClient())
+                {
+                    using (HttpResponseMessage response = await client.GetAsync(url))
+                    {
+                        using (HttpContent content = response.Content)
+                        {
+                            string mycontent = await content.ReadAsStringAsync();
+                            Console.WriteLine(mycontent);
+                            Console.WriteLine();
+                            Console.WriteLine();
+                            Console.WriteLine();
+                        }
+                    }
+                }
+            }
+
+            async static void GetRequest1(string url)
             {
                 using (HttpClient client = new HttpClient())
                 {
