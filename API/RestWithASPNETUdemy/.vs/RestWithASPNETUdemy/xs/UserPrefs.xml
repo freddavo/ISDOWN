@@ -2,8 +2,6 @@
   <MonoDevelop.Ide.ItemProperties.RestWithASPNETUdemy PreferredExecutionTarget="/Applications/Firefox.app" />
   <MonoDevelop.Ide.Workbench ActiveDocument="RestWithASPNETUdemy/Repository/Implementations/PersonRepositoryImplementation.cs">
     <Files>
-      <File FileName="RestWithASPNETUdemy/Startup.cs" Line="45" Column="45" />
-      <File FileName="RestWithASPNETUdemy/Model/Person.cs" Line="14" Column="28" />
       <File FileName="RestWithASPNETUdemy/Repository/Implementations/PersonRepositoryImplementation.cs" Line="39" Column="1" />
     </Files>
     <Pads>
