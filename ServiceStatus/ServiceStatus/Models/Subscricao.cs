@@ -7,10 +7,9 @@ namespace ServiceStatus.Models
 {
     public partial class Subscricao
     {
-        public string IdPessoa { get; set; }
-        public string IdServico { get; set; }
+        public string Email { get; set; }
+        public string NomeServico { get; set; }
 
-        public virtual Pessoa IdPessoaNavigation { get; set; }
-        public virtual Servico IdServicoNavigation { get; set; }
+        public virtual Servico NomeServicoNavigation { get; set; }
     }
 }

@@ -11,12 +11,5 @@ namespace ServiceStatus.Models
         public string DataFalha { get; set; }
         public string Falha { get; set; }
         public string Resolvido { get; set; }
-
-        public Historico()
-        {
-
-        }
-
-        //public virtual Servico IdServicoNavigation { get; set; }
     }
 }
