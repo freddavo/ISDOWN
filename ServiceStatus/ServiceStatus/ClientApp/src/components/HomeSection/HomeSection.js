@@ -12,13 +12,19 @@ function HomeSection() {
             <h1>WANNA CHECK SOMETHING?</h1>
             <div className="home-btns">
                 
-                
+                <Button className='btns'
+                    buttonStyle='btn--outline'
+                    buttonSize='btn--large'
+                >
+                  CHECK OUR DEMO!
+                </Button>
                  <Button className='btns'
                 buttonStyle='btn--primary'
                 buttonSize='btn--large'
                 >
                     GET STARTED 
                 </Button>
+                
             </div>
         </div>
         );

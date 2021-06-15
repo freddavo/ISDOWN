@@ -47,6 +47,7 @@
     <Folder Include="ClientApp\src\Login\" />
     <Folder Include="ClientApp\src\components\utils\" />
     <Folder Include="ClientApp\src\components\Login_Options\" />
+    <Folder Include="ClientApp\src\components\Video\" />
   </ItemGroup>
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">
     <!-- Ensure Node.js is installed -->

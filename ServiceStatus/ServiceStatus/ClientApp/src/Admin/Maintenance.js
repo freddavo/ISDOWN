@@ -19,7 +19,9 @@ import {
     Grid,
     Typography,
     TablePagination,
-    TableFooter
+    TableFooter,
+    FormControl,
+    InputLabel
 } from '@material-ui/core';
 
 
@@ -90,14 +92,78 @@ export class Maintenance extends Component {
 
 
         return (
+            <>
+             <TableContainer style={{
+                    borderRadius: 15,
+                    margin: '10px 10px',
+                    maxWidth: 1385,
+                    backgroundColor:'#EBECEC'
+                }}>
+                    <Table aria-label="simple table"
+                        style={{ minWidth: 20 }}
+                    >
+                    <TableHead>
+                        <TableRow>
+                            <TableCell
+                                  style={{
+                                fontWeight: 'bold'
+                            }}
+                            >
+                                Name
+                            </TableCell>
+                            <TableCell
+                                 style={{
+                                fontWeight: 'bold'
+                            }}
+                            >
+                                Maintenance
+                            </TableCell>
+                                <TableCell></TableCell>
+                                   
+                            
+                        </TableRow>
+                    </TableHead>
+                        <TableBody onSubmit={this.submitHandler}>
+                          
+                        <TableCell>
+                            <Typography>
+                                 
+                                    <input type="text" name="name" value={name} onChange={this.changeHandler} style={{ minWidth: 400, borderRadius: 5 }}/>
+                                     
+                             </Typography>
+                                </TableCell>
+                                <TableCell>
+                                    <Typography>
 
-            <div>
-                <form onSubmit={this.submitHandler}>
-                                            <input type="text" name="name" value={name} onChange={this.changeHandler} />
-                                            <input type="text" name="maintenance" value={maintenance} onChange={this.changeHandler} />
-                                            <button type="submit"> Change </button>
-                                        </form>
-                
+                                    <input type="text" name="maintenance" value={maintenance} onChange={this.changeHandler} style={{ minWidth: 400, borderRadius: 5 }}/>
+                                      
+
+                                    </Typography>
+                                </TableCell>
+                                <TableCell>
+                                    <Typography>
+
+                                    <button type="submit"
+                                        style={{
+                                        fontWeight: 'bold',
+                                        fontSize: '0.75rem',
+                                        color: 'white',
+                                        backgroundColor: 'grey',
+                                        borderRadius: 8,
+                                        padding: '3px 10px',
+                                        display: 'inline-block',
+                                        backgroundColor: 'black'
+                                    }}> Change
+                                    </button>
+
+                                    </Typography>
+                                </TableCell>
+                      
+                    </TableBody>
+                </Table>
+                </TableContainer>
+                                        
+               
             <TableContainer component={Paper} 
                 style={{
                 borderRadius: 15,
@@ -118,7 +184,9 @@ export class Maintenance extends Component {
                             }}>Status</TableCell>
                             
                         </TableRow>
-                    </TableHead>
+                    </TableHead>                 
+                                                                          
+                    
                     <TableBody>
                         {this.state.forecasts.map(forecast => {
                             console.log(forecast);
@@ -153,7 +221,7 @@ export class Maintenance extends Component {
                 </Table>
                     
                 </ TableContainer>
-            </div>
+            </>
         );
     }
 

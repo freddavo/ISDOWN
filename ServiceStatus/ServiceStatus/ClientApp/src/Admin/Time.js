@@ -91,12 +91,77 @@ export class Time extends Component {
 
         return (
 
-            <div>
-                <form onSubmit={this.submitHandler}>
-                    <input type="text" name="name" value={name} onChange={this.changeHandler} />
-                    <input type="text" name="tempo" value={tempo} onChange={this.changeHandler} />
-                    <button type="submit"> Change </button>
-                </form>
+         
+           <>
+                <TableContainer style={{
+                    borderRadius: 15,
+                    margin: '10px 10px',
+                    maxWidth: 1385,
+                    backgroundColor:'#EBECEC'
+                }}>
+                    <Table aria-label="simple table"
+                        style={{ minWidth: 20 }}
+                    >
+                    <TableHead>
+                        <TableRow>
+                            <TableCell
+                                  style={{
+                                fontWeight: 'bold'
+                            }}
+                            >
+                                    Name
+                            </TableCell>
+                            <TableCell
+                                 style={{
+                                fontWeight: 'bold'
+                            }}
+                            >
+                                    Scheduled Time
+                            </TableCell>
+                                <TableCell></TableCell>
+                                   
+                            
+                        </TableRow>
+                    </TableHead>
+                        <TableBody onSubmit={this.submitHandler}>
+                          
+                        <TableCell>
+                            <Typography>
+                                 
+                                    <input type="text" name="name" value={name} onChange={this.changeHandler} style={{ minWidth: 400, borderRadius: 5 }}/>
+                                     
+                             </Typography>
+                                </TableCell>
+                                <TableCell>
+                                    <Typography>
+
+                                    <input type="text" name="tempo" value={tempo} onChange={this.changeHandler} style={{ minWidth: 400, borderRadius: 5 }}/>
+                                      
+
+                                    </Typography>
+                                </TableCell>
+                                <TableCell>
+                                    <Typography>
+
+                                    <button type="submit"
+                                        style={{
+                                        fontWeight: 'bold',
+                                        fontSize: '0.75rem',
+                                        color: 'white',
+                                        backgroundColor: 'grey',
+                                        borderRadius: 8,
+                                        padding: '3px 10px',
+                                        display: 'inline-block',
+                                        backgroundColor: 'black'
+                                    }}> Change
+                                    </button>
+
+                                    </Typography>
+                                </TableCell>
+                      
+                    </TableBody>
+                </Table>
+                </TableContainer>
 
             <TableContainer component={Paper}
                 style={{
@@ -104,8 +169,7 @@ export class Time extends Component {
                     margin: '10px 10px',
                     maxWidth: 1385
                 }}>
-                <Table
-                    aria-label="simple table"
+                <Table aria-label="simple table"
                     style={{ minWidth: 650 }}>
                     <TableHead>
                         <TableRow>
@@ -119,6 +183,11 @@ export class Time extends Component {
 
                         </TableRow>
                     </TableHead>
+                    <form onSubmit={this.submitHandler}>
+                        <input type="text" name="name" value={name} onChange={this.changeHandler} />
+                        <input type="text" name="tempo" value={tempo} onChange={this.changeHandler} />
+                        <button type="submit"> Change </button>
+                    </form>
                     <TableBody>
                         {this.state.forecasts.map(forecast => {
                             console.log(forecast);
@@ -151,7 +220,7 @@ export class Time extends Component {
                 </Table>
 
                 </ TableContainer>
-            </div>
+       </>
         );
     }
 
