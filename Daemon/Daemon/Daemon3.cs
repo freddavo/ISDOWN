@@ -11,6 +11,7 @@ using Microsoft.Extensions.Logging;
 
 namespace Daemon
 {
+    //Maintenance
     public static class Daemon3
     {
         [FunctionName("Daemon3")]
@@ -151,24 +152,6 @@ namespace Daemon
             }
 
             async static void GetRequest(string url)
-            {
-                using (HttpClient client = new HttpClient())
-                {
-                    using (HttpResponseMessage response = await client.GetAsync(url))
-                    {
-                        using (HttpContent content = response.Content)
-                        {
-                            string mycontent = await content.ReadAsStringAsync();
-                            Console.WriteLine(mycontent);
-                            Console.WriteLine();
-                            Console.WriteLine();
-                            Console.WriteLine();
-                        }
-                    }
-                }
-            }
-
-            async static void GetRequest1(string url)
             {
                 using (HttpClient client = new HttpClient())
                 {

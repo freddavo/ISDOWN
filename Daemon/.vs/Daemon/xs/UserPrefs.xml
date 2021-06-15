@@ -2,8 +2,9 @@
   <MonoDevelop.Ide.Workbench ActiveDocument="Daemon/Daemon3.cs">
     <Files>
       <File FileName="Daemon/Servico1.cs" Line="18" Column="1" />
-      <File FileName="Daemon/Daemon3.cs" Line="83" Column="19" />
-      <File FileName="Daemon/Daemon.cs" Line="1" Column="1" />
+      <File FileName="Daemon/Servico2.cs" Line="1" Column="1" />
+      <File FileName="Daemon/Daemon3.cs" Line="106" Column="55" />
+      <File FileName="Daemon/Daemon4.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">

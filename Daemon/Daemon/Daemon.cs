@@ -11,7 +11,8 @@ using Microsoft.Azure.WebJobs.Host;
 using Microsoft.Extensions.Logging;
 
 namespace Daemon
-{   
+{
+    //Services
     public static class Daemon
     {
 
