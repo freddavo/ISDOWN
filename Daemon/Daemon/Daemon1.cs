@@ -98,19 +98,19 @@ namespace Daemon
                             var tuploName = dns[0].Replace("\"", "").Replace("}", "");
                             var tuploState = dns[1].Replace("\"", "").Replace("}", "");
 
-                            if (tuploName.Contains("Name:") & tuploState.Contains("Status:"))
+                            if (tuploName.Contains("Name:\":\"DNS:") & tuploState.Contains("Status:"))
                             {
                                 if (!namesUnique.Contains(tuploName.Split("Name:")[1].ToUpper()))
                                 {
-                                    namesUnique.Add(tuploName.Split("Name:")[1].ToUpper());
-                                    DNS d = new DNS(tuploName.Split("Name:")[1], tuploState.Split("Status:")[1]);
+                                    namesUnique.Add(tuploName.Split("Name:\":\"DNS:")[1].ToUpper());
+                                    DNS d = new DNS(tuploName.Split("Name:\":\"DNS:")[1], tuploState.Split("Status:")[1]);
                                     dnss.Add(d);
                                 }
                             }
                         }
                     }
                     //Console.WriteLine("-");
-                    //Console.WriteLine(result);
+                    Console.WriteLine(result);
                     //Console.WriteLine(dnss.Count());
                     //Console.WriteLine("-");    
                 }
