@@ -126,8 +126,7 @@ export class Maintenance extends Component {
                         </TableHead>
 
                             <TableBody>
-                            <TableCell>
-                                <Typography>
+                                <TableCell>
                                     <form onSubmit={this.submitHandler}>
                                     
                                             <input type="text" name="name" value={name} onChange={this.changeHandler} style={{ minWidth: 400, borderRadius: 5 }}/>
@@ -150,8 +149,6 @@ export class Maintenance extends Component {
                                                     </button>
                                     
                                     </form>
-                                </Typography>
-
                                 </TableCell>
                       
                             </TableBody>
