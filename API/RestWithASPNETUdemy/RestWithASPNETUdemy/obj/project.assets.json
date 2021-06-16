@@ -3912,11 +3912,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/eleandrog/Desktop/PI/UDEMY - ASP NET/RestWithASP-NET5Udemy/03_RestWithASPNETUdemy_ScaffoldViaVisualStudio/RestWithASPNETUdemy/RestWithASPNETUdemy/RestWithASPNETUdemy.csproj",
+      "projectUniqueName": "/Users/eleandrog/Desktop/PI/ISDOWN/API/RestWithASPNETUdemy/RestWithASPNETUdemy/RestWithASPNETUdemy.csproj",
       "projectName": "RestWithASPNETUdemy",
-      "projectPath": "/Users/eleandrog/Desktop/PI/UDEMY - ASP NET/RestWithASP-NET5Udemy/03_RestWithASPNETUdemy_ScaffoldViaVisualStudio/RestWithASPNETUdemy/RestWithASPNETUdemy/RestWithASPNETUdemy.csproj",
+      "projectPath": "/Users/eleandrog/Desktop/PI/ISDOWN/API/RestWithASPNETUdemy/RestWithASPNETUdemy/RestWithASPNETUdemy.csproj",
       "packagesPath": "/Users/eleandrog/.nuget/packages/",
-      "outputPath": "/Users/eleandrog/Desktop/PI/UDEMY - ASP NET/RestWithASP-NET5Udemy/03_RestWithASPNETUdemy_ScaffoldViaVisualStudio/RestWithASPNETUdemy/RestWithASPNETUdemy/obj/",
+      "outputPath": "/Users/eleandrog/Desktop/PI/ISDOWN/API/RestWithASPNETUdemy/RestWithASPNETUdemy/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/eleandrog/.config/NuGet/NuGet.Config"

@@ -1,8 +1,5 @@
 ﻿<Properties StartupConfiguration="{3CF486C9-C7DA-4428-BC94-1B936B6CA8E1}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Daemon/Daemon1.cs">
-    <Files>
-      <File FileName="Daemon/Daemon1.cs" Line="1" Column="1" />
-    </Files>
+  <MonoDevelop.Ide.Workbench>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">

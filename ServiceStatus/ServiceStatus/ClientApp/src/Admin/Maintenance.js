@@ -102,64 +102,59 @@ export class Maintenance extends Component {
                     <Table aria-label="simple table"
                         style={{ minWidth: 20 }}
                     >
-                    <TableHead>
-                        <TableRow>
-                            <TableCell
-                                  style={{
-                                fontWeight: 'bold'
-                            }}
-                            >
-                                Name
-                            </TableCell>
-                            <TableCell
-                                 style={{
-                                fontWeight: 'bold'
-                            }}
-                            >
-                                Maintenance
-                            </TableCell>
-                                <TableCell></TableCell>
+                        <TableHead>
+                           
+                                <TableCell
+                                      style={{
+                                    fontWeight: 'bold'
+                                }}
+                                >
+                                    Name
+                                </TableCell>
+                                <TableCell
+                                     style={{
+                                    fontWeight: 'bold'
+                                }}
+                                >
+                                    Maintenance
+                                </TableCell>
+                                    <TableCell></TableCell>
                                    
                             
-                        </TableRow>
-                    </TableHead>
-                        <TableBody onSubmit={this.submitHandler}>
-                          
-                        <TableCell>
-                            <Typography>
-                                 
-                                    <input type="text" name="name" value={name} onChange={this.changeHandler} style={{ minWidth: 400, borderRadius: 5 }}/>
+                           
+
+                        </TableHead>
+
+                            <TableBody>
+                            <TableCell>
+                                <Typography>
+                                    <form onSubmit={this.submitHandler}>
+                                    
+                                            <input type="text" name="name" value={name} onChange={this.changeHandler} style={{ minWidth: 400, borderRadius: 5 }}/>
                                      
-                             </Typography>
-                                </TableCell>
-                                <TableCell>
-                                    <Typography>
+                                            <input type="text" name="maintenance" value={maintenance} onChange={this.changeHandler} style={{ minWidth: 400, borderRadius: 5 }} />
 
-                                    <input type="text" name="maintenance" value={maintenance} onChange={this.changeHandler} style={{ minWidth: 400, borderRadius: 5 }}/>
-                                      
+                                    
 
-                                    </Typography>
-                                </TableCell>
-                                <TableCell>
-                                    <Typography>
+                                            <button type="submit"
+                                                style={{
+                                                    fontWeight: 'bold',
+                                                    fontSize: '0.75rem',
+                                                    color: 'white',
+                                                    backgroundColor: 'grey',
+                                                    borderRadius: 8,
+                                                    padding: '3px 10px',
+                                                    display: 'inline-block',
+                                                    backgroundColor: 'black'
+                                                }}> Change
+                                                    </button>
+                                    
+                                    </form>
+                                </Typography>
 
-                                    <button type="submit"
-                                        style={{
-                                        fontWeight: 'bold',
-                                        fontSize: '0.75rem',
-                                        color: 'white',
-                                        backgroundColor: 'grey',
-                                        borderRadius: 8,
-                                        padding: '3px 10px',
-                                        display: 'inline-block',
-                                        backgroundColor: 'black'
-                                    }}> Change
-                                    </button>
-
-                                    </Typography>
                                 </TableCell>
                       
-                    </TableBody>
+                            </TableBody>
                 </Table>
                 </TableContainer>
                                         
