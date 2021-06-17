@@ -96,72 +96,75 @@ export class Time extends Component {
                 <TableContainer style={{
                     borderRadius: 15,
                     margin: '10px 10px',
-                    maxWidth: 1385,
-                    backgroundColor:'#EBECEC'
+                    maxWidth: 1300,
+                    backgroundColor: '#EBECEC'
                 }}>
                     <Table aria-label="simple table"
                         style={{ minWidth: 20 }}
                     >
-                    <TableHead>
-                        <TableRow>
+                        <TableHead>
+
                             <TableCell
-                                  style={{
-                                fontWeight: 'bold'
-                            }}
+
                             >
-                                    Name
-                            </TableCell>
-                            <TableCell
-                                 style={{
-                                fontWeight: 'bold'
-                            }}
-                            >
+                                <Typography style={{
+                                    fontWeight: 'bold'
+                                }}>
+                                    Name       &nbsp;&nbsp; &nbsp;&nbsp;
+                                    &nbsp;&nbsp; &nbsp; &nbsp;
+                                    &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp;
+                                    &nbsp; &nbsp; &nbsp; &nbsp;
+                                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                    &nbsp; &nbsp; &nbsp; &nbsp;
+                                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                    &nbsp; &nbsp; &nbsp; &nbsp;
+                                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                    &nbsp; &nbsp; &nbsp; &nbsp;
                                     Scheduled Time
+                                </Typography>
                             </TableCell>
-                                <TableCell></TableCell>
-                                   
-                            
-                        </TableRow>
-                    </TableHead>
-                        <TableBody onSubmit={this.submitHandler}>
-                          
-                        <TableCell>
-                            <Typography>
-                                 
-                                    <input type="text" name="name" value={name} onChange={this.changeHandler} style={{ minWidth: 400, borderRadius: 5 }}/>
-                                     
-                             </Typography>
-                                </TableCell>
-                                <TableCell>
-                                    <Typography>
+                            <TableCell></TableCell>
 
-                                    <input type="text" name="tempo" value={tempo} onChange={this.changeHandler} style={{ minWidth: 400, borderRadius: 5 }}/>
-                                      
 
-                                    </Typography>
-                                </TableCell>
-                                <TableCell>
-                                    <Typography>
+
+
+                        </TableHead>
+
+                        <TableBody>
+                            <TableCell>
+                                <form onSubmit={this.submitHandler}>
+
+                                    <input type="text" name="name" value={name}
+                                        onChange={this.changeHandler}
+                                        style={{ minWidth: 400, borderRadius: 5 }} />
+
+                                    <input type="text" name="tempo" value={tempo}
+                                        onChange={this.changeHandler}
+                                        style={{ minWidth: 400, borderRadius: 5, marginLeft: '5rem' }} />
+
+
 
                                     <button type="submit"
                                         style={{
-                                        fontWeight: 'bold',
-                                        fontSize: '0.75rem',
-                                        color: 'white',
-                                        backgroundColor: 'grey',
-                                        borderRadius: 8,
-                                        padding: '3px 10px',
-                                        display: 'inline-block',
-                                        backgroundColor: 'black'
-                                    }}> Change
-                                    </button>
+                                            fontWeight: 'bold',
+                                            fontSize: '0.75rem',
+                                            color: 'white',
+                                            backgroundColor: 'grey',
+                                            borderRadius: 8,
+                                            padding: '3px 10px',
+                                            display: 'inline-block',
+                                            backgroundColor: 'black',
+                                            marginLeft: '15rem'
+                                        }}> Change
+                                            </button>
 
-                                    </Typography>
-                                </TableCell>
-                      
-                    </TableBody>
-                </Table>
+                                </form>
+                            </TableCell>
+
+                        </TableBody>
+                    </Table>
                 </TableContainer>
+
 
             <TableContainer component={Paper}
                 style={{

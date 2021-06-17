@@ -96,7 +96,7 @@ export class Maintenance extends Component {
              <TableContainer style={{
                     borderRadius: 15,
                     margin: '10px 10px',
-                    maxWidth: 1385,
+                    maxWidth: 1300,
                     backgroundColor:'#EBECEC'
                 }}>
                     <Table aria-label="simple table"
@@ -105,18 +105,23 @@ export class Maintenance extends Component {
                         <TableHead>
                            
                                 <TableCell
-                                      style={{
-                                    fontWeight: 'bold'
-                                }}
+                                      
                                 >
-                                    Name
-                                </TableCell>
-                                <TableCell
-                                     style={{
+                                <Typography style={{
                                     fontWeight: 'bold'
-                                }}
-                                >
-                                    Maintenance
+                                }}>
+                                    Name      &nbsp;&nbsp; &nbsp;&nbsp;
+                                    &nbsp;&nbsp; &nbsp; &nbsp;
+                                    &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp;
+                                    &nbsp; &nbsp; &nbsp; &nbsp;
+                                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                    &nbsp; &nbsp; &nbsp; &nbsp;
+                                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                    &nbsp; &nbsp; &nbsp; &nbsp;
+                                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                    &nbsp; &nbsp; &nbsp; &nbsp;
+                                    Maintenance                                           
+                                </Typography>
                                 </TableCell>
                                     <TableCell></TableCell>
                                    
@@ -129,9 +134,13 @@ export class Maintenance extends Component {
                                 <TableCell>
                                     <form onSubmit={this.submitHandler}>
                                     
-                                            <input type="text" name="name" value={name} onChange={this.changeHandler} style={{ minWidth: 400, borderRadius: 5 }}/>
-                                     
-                                            <input type="text" name="maintenance" value={maintenance} onChange={this.changeHandler} style={{ minWidth: 400, borderRadius: 5 }} />
+                                    <input type="text" name="name" value={name}
+                                        onChange={this.changeHandler}
+                                        style={{ minWidth: 400, borderRadius: 5 }} />
+                                            
+                                    <input type="text" name="maintenance" value={maintenance}
+                                        onChange={this.changeHandler}
+                                        style={{ minWidth: 400, borderRadius: 5, marginLeft: '5rem' }} />
 
                                     
 
@@ -144,9 +153,10 @@ export class Maintenance extends Component {
                                                     borderRadius: 8,
                                                     padding: '3px 10px',
                                                     display: 'inline-block',
-                                                    backgroundColor: 'black'
+                                                    backgroundColor: 'black',
+                                                    marginLeft: '15rem'
                                                 }}> Change
-                                                    </button>
+                                            </button>
                                     
                                     </form>
                                 </TableCell>
