@@ -120,6 +120,7 @@ export class Time extends Component {
                                     &nbsp; &nbsp; &nbsp; &nbsp;
                                     &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
                                     &nbsp; &nbsp; &nbsp; &nbsp;
+                                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
                                     Scheduled Time
                                 </Typography>
                             </TableCell>
