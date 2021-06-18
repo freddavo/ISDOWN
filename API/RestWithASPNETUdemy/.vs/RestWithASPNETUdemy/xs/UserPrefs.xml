@@ -9,14 +9,13 @@
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="RestWithASPNETUdemy" expanded="True">
-            <Node name="RestWithASPNETUdemy" expanded="True">
+            <Node name="RestWithASPNETUdemy" expanded="True" selected="True">
               <Node name="Business" expanded="True">
                 <Node name="Implementations" expanded="True" />
               </Node>
               <Node name="Controllers" expanded="True" />
               <Node name="Model" expanded="True">
                 <Node name="Context" expanded="True" />
-                <Node name="Service.cs" selected="True" />
               </Node>
               <Node name="Repository" expanded="True">
                 <Node name="Implementations" expanded="True" />
