@@ -168,7 +168,7 @@ namespace Daemon
                     {
                         Servico servico = servicos[i];
                         
-                        if(servico.HealthState.Equals("Error")) {
+                        if(servico.HealthState.Equals("Error") & (servico.Path.Equals("WEB-H2.ua.pt"))) {
                             if (!namesUnique.Contains(servico.Name.ToUpper()))
                             {
                                 namesUnique.Add(servico.Name.ToUpper());
