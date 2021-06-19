@@ -19,19 +19,19 @@ export default function CardsAbout() {
                         />
                         <CardItemAbout
                             src='images/joselindao.jpg'
-                            text='React Frontend Developer'
+                            text='DevOps Master'
                             label='José Carlos'
                             path='/'
                          />
                         <CardItemAbout
                             src='images/fred.jpg'
-                            text='Team Manager'
+                            text='Product Owner'
                             label='Fred Avó'
                             path='/'
                         />
                         <CardItemAbout
                             src='images/Gon.jpg'
-                            text='Backend Developer'
+                            text='Lead Developer'
                             label='Gonçalo'
                             path='/'
                          />
