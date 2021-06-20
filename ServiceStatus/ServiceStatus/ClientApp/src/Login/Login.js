@@ -18,7 +18,7 @@ function initialState() {
 }
 
 function login({ user, password }) {
-    if (user === 'admin' && password === 'admin') {
+    if (user === 'adminssua@ua.pt' && password === 'admin') {
         return { token: '1234' };
     }
     return { error: 'Invalid user or password!' };
