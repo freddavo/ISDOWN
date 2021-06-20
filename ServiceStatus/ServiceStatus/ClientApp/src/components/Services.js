@@ -25,7 +25,8 @@ import {
 
 export class Services extends Component {
     static displayName = Services.name;
-    
+
+    searchArray = [];
   
     constructor(props) {
         super(props);
@@ -35,84 +36,126 @@ export class Services extends Component {
             value: "None"
         };
      
-
+        
         fetch('Service/Index')
             .then(response => response.json())
             .then(data => {
                 this.setState({ forecasts: data, loading: false });
+                this.searchArray = data;
             });
     }
 
+    onChangeHandler(e) {
+        console.log(e.target.value);
+        let newArray = this.searchArray.filter((d) => {
+            console.log(d);
+            let searchValue = d.name.toLowerCase();
+            return searchValue.indexOf(e.target.value) !== -1;
+        });
+        this.setState({ forecasts: newArray })
+    }
 
     render() {
 
         //let contents = this.renderForecastsTable(this.state.forecasts);
 
         const handleOnClickDefault = () => {
-            store.addNotification({
-                title: "Subscrição",
-                message: "Notificações ativadas com sucesso!",
-                type: "success",
-                container: "center",
-                insert: "top"
-            })
+            fetch('Service/Index')
+                .then(response => response.json())
+                .then(data => {
+                    var filtered = data.filter(function (el) { return el.name == "paco.ua.pt"; });
+                    console.log(filtered);
+                /*this.setState({ forecasts: filtered, loading: false });*/
+                    this.state.forecasts = filtered;
+                });
         }
 
         
-
+    
 
         return (
-           
-            <TableContainer component={Paper} 
-
-                style={{
-                borderRadius: 15,
-                    margin: '10px 10px',
-                    maxWidth: 1425
-                }}> 
-                <Table 
-                    aria-label="simple table"
-                    style={{ minWidth: 650 }}>
-                    <TableHead>
-                        <TableRow>
-                            <TableCell  style={{
-                                fontWeight: 'bold'}} >Services</TableCell>
-                            <TableCell  style={{
-                                fontWeight: 'bold'
-                            }}>Path</TableCell>
-                            <TableCell  style={{
-                                fontWeight: 'bold'
-                            }}>Status</TableCell>
-                            <TableCell style={{
-                                fontWeight: 'bold'
-                            }}>Time</TableCell>
-                            <TableCell style={{
-                                fontWeight: 'bold'
-                            }}>Maintenance</TableCell>
-                            <TableCell style={{
-                                fontWeight: 'bold'
-                            }}></TableCell>
+            <div>
+                <div style={{ margin: 30 }}>
+                    <label>
+                        <input type="text" onChange={this.onChangeHandler.bind(this)} placeholder="Search for..." />
+                    </label>
+                </div>
 
 
+                <TableContainer component={Paper} 
+
+                    style={{
+                    borderRadius: 15,
+                        margin: '10px 10px',
+                        maxWidth: 1425
+                    }}> 
+                    <Table 
+                        aria-label="simple table"
+                        style={{ minWidth: 650 }}>
+                        <TableHead>
+                            <TableRow>
+                                <TableCell  style={{
+                                    fontWeight: 'bold'}} >Services</TableCell>
+                                <TableCell  style={{
+                                    fontWeight: 'bold'
+                                }}>Path</TableCell>
+                                <TableCell  style={{
+                                    fontWeight: 'bold'
+                                }}>Status</TableCell>
+                                <TableCell style={{
+                                    fontWeight: 'bold'
+                                }}>Time</TableCell>
+                                <TableCell style={{
+                                    fontWeight: 'bold'
+                                }}>Maintenance</TableCell>
+                                <TableCell style={{
+                                    fontWeight: 'bold'
+                                }}></TableCell>
 
 
-                            <TableCell style={{
-                                fontWeight: 'bold'
-                            }}></TableCell>
-                        </TableRow>
-                    </TableHead>
-                    <TableBody>
-                        {this.state.forecasts.map(forecast => {
-                            console.log(forecast);
-                            return <tr key={forecast.name}>
-                                <TableCell>
-                                    <Typography>
-                                        {forecast.name}
-                                    </Typography>
-                                </TableCell>
+
+
+                                <TableCell style={{
+                                    fontWeight: 'bold'
+                                }}></TableCell>
+                            </TableRow>
+                        </TableHead>
+                        <TableBody>
+                            {this.state.forecasts.map(forecast => {
+                                console.log(forecast);
+                                return <tr key={forecast.name}>
+                                    <TableCell>
+                                        <Typography>
+                                            {forecast.name}
+                                        </Typography>
+                                    </TableCell>
                                 
-                                <TableCell> <Typography>{forecast.path}</Typography></TableCell>
-                                <TableCell> <Typography 
+                                    <TableCell> <Typography>{forecast.path}</Typography></TableCell>
+                                    <TableCell> <Typography 
+                                        style={{
+                                            fontWeight: 'bold',
+                                            fontSize: '0.75rem',
+                                            color: 'white',
+                                            backgroundColor: 'grey',
+                                            borderRadius: 8,
+                                            padding: '3px 10px',
+                                            display: 'inline-block',
+                                            backgroundColor:
+                                                ((forecast.healthState === 'Success' && 'green') ||
+                                                    (forecast.healthState === 'Error' && 'red'))
+                                        }}
+                                    >{forecast.healthState}</Typography>
+                                    </TableCell>
+                                    <TableCell> <Typography>{forecast.tempo}</Typography></TableCell>
+                                    <TableCell> <Typography>{forecast.maintenance}</Typography></TableCell>
+                                    <TableCell> <Typography ><NavLink exact activeClassName="active"
+                                        to={{
+                                            pathname: "/Historic",
+                                            props: {
+                                                state: [
+                                                    forecast.name]
+                                            }
+                                        }}
                                     style={{
                                         fontWeight: 'bold',
                                         fontSize: '0.75rem',
@@ -121,50 +164,16 @@ export class Services extends Component {
                                         borderRadius: 8,
                                         padding: '3px 10px',
                                         display: 'inline-block',
-                                        backgroundColor:
-                                            ((forecast.healthState === 'Success' && 'green') ||
-                                                (forecast.healthState === 'Error' && 'red'))
-                                    }}
-                                >{forecast.healthState}</Typography>
-                                </TableCell>
-                                <TableCell> <Typography>{forecast.tempo}</Typography></TableCell>
-                                <TableCell> <Typography>{forecast.maintenance}</Typography></TableCell>
-                                <TableCell> <Typography ><NavLink exact activeClassName="active"
-                                    to={{
-                                        pathname: "/Historic",
-                                        props: {
-                                            state: [
-                                                forecast.name]
-                                        }
-                                    }}
-                                style={{
-                                    fontWeight: 'bold',
-                                    fontSize: '0.75rem',
-                                    color: 'white',
-                                    backgroundColor: 'grey',
-                                    borderRadius: 8,
-                                    padding: '3px 10px',
-                                    display: 'inline-block',
-                                    backgroundColor:'gray'
-                                }}                                > History </NavLink></Typography></TableCell>
+                                        backgroundColor:'gray'
+                                    }}                                > History </NavLink></Typography></TableCell>
 
-                                <TableCell> <Typography><button onClick={handleOnClickDefault} style={{
-                                    fontWeight: 'bold',
-                                    fontSize: '0.75rem',
-                                    color: 'white',
-                                    backgroundColor: 'grey',
-                                    borderRadius: 8,
-                                    padding: '3px 10px',
-                                    display: 'inline-block',
-                                    backgroundColor: 'black'
-                                }}    >
-                                    Subscribe </button> </Typography></TableCell>
-                            </tr>
-                        })}
-                    </TableBody>
-                </Table>
+                                </tr>
+                            })}
+                        </TableBody>
+                    </Table>
                     
-            </ TableContainer>
+                    </ TableContainer>
+                </div>
         );
     }
 
