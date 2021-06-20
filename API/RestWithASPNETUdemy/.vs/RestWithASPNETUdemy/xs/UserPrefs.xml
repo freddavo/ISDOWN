@@ -1,15 +1,19 @@
 ﻿<Properties StartupConfiguration="{BEF4986F-3F9C-432C-96D0-CB5EA15717DF}|Default">
   <MonoDevelop.Ide.ItemProperties.RestWithASPNETUdemy PreferredExecutionTarget="/Applications/Firefox.app" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="RestWithASPNETUdemy/Startup.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="RestWithASPNETUdemy/Controllers/ServiceController.cs">
     <Files>
       <File FileName="RestWithASPNETUdemy/Startup.cs" Line="103" Column="1" />
+      <File FileName="RestWithASPNETUdemy/Controllers/PersonController.cs" Line="1" Column="1" />
+      <File FileName="RestWithASPNETUdemy/Controllers/ServiceController.cs" Line="11" Column="28" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="RestWithASPNETUdemy" expanded="True">
             <Node name="RestWithASPNETUdemy" expanded="True">
-              <Node name="Controllers" expanded="True" />
+              <Node name="Controllers" expanded="True">
+                <Node name="ServiceController.cs" selected="True" />
+              </Node>
               <Node name="db" expanded="True" />
               <Node name="Model" expanded="True">
                 <Node name="Context" expanded="True" />
@@ -18,7 +22,6 @@
               <Node name="Repository" expanded="True">
                 <Node name="Implementations" expanded="True" />
               </Node>
-              <Node name="Startup.cs" selected="True" />
             </Node>
           </Node>
         </State>

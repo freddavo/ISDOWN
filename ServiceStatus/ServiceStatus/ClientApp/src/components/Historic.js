@@ -62,9 +62,7 @@ export class Historic extends Component {
                             <TableCell  style={{
                                 fontWeight: 'bold'
                             }}>Service</TableCell>
-                            <TableCell style={{
-                                fontWeight: 'bold'
-                            }}>Failure</TableCell>
+                           
                             <TableCell  style={{
                                 fontWeight: 'bold'
                             }}></TableCell>
@@ -91,9 +89,7 @@ export class Historic extends Component {
                                             {this.state.nomeServico}
                                         </Typography>
                                 </TableCell>
-                                    <TableCell>
-                                        <Typography>{forecast.falha}</Typography>
-                                        </TableCell>
+                                    
                                 </tr>
                             }
                         })}
