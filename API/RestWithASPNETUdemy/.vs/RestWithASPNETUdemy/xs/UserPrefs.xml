@@ -1,11 +1,32 @@
 ﻿<Properties StartupConfiguration="{BEF4986F-3F9C-432C-96D0-CB5EA15717DF}|Default">
   <MonoDevelop.Ide.ItemProperties.RestWithASPNETUdemy PreferredExecutionTarget="/Applications/Firefox.app" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="RestWithASPNETUdemy/Controllers/ServiceController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="RestWithASPNETUdemy/Controllers/PersonController.cs">
     <Files>
       <File FileName="RestWithASPNETUdemy/Startup.cs" Line="103" Column="1" />
-      <File FileName="RestWithASPNETUdemy/Controllers/PersonController.cs" />
-      <File FileName="RestWithASPNETUdemy/Controllers/ServiceController.cs" Line="11" Column="18" />
+      <File FileName="RestWithASPNETUdemy/Controllers/PersonController.cs" Line="11" Column="23" />
+      <File FileName="RestWithASPNETUdemy/Controllers/ServiceController.cs" />
     </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="RestWithASPNETUdemy" expanded="True">
+            <Node name="RestWithASPNETUdemy" expanded="True">
+              <Node name="Controllers" expanded="True">
+                <Node name="PersonController.cs" selected="True" />
+              </Node>
+              <Node name="db" expanded="True" />
+              <Node name="Model" expanded="True">
+                <Node name="Context" expanded="True" />
+              </Node>
+              <Node name="Properties" expanded="True" />
+              <Node name="Repository" expanded="True">
+                <Node name="Implementations" expanded="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
