@@ -24,12 +24,11 @@ import {
     InputLabel
 } from '@material-ui/core';
 
-
-
 export class Maintenance extends Component {
     static displayName = Maintenance.name;
     
-  
+    searchArray = [];
+
     constructor(props) {
         super(props);
         this.state = {
@@ -45,11 +44,20 @@ export class Maintenance extends Component {
             .then(response => response.json())
             .then(data => {
                 this.setState({ forecasts: data, loading: false });
+                this.searchArray = data;
             });
     }
 
     changeHandler = e => {
         this.setState({ [e.target.name]: e.target.value })
+    }
+
+    onChangeHandler(e) {
+        let newArray = this.searchArray.filter((d) => {
+            let searchValue = d.name.toLowerCase();
+            return searchValue.indexOf(e.target.value) !== -1;
+        });
+        this.setState({ forecasts: newArray })
     }
 
     submitHandler = e => {
@@ -80,19 +88,15 @@ export class Maintenance extends Component {
 
         const { name, maintenance } = this.state
 
-        const handleOnClickDefault = () => {
-            store.addNotification({
-                title: "Subscrição",
-                message: "Notificações ativadas com sucesso!",
-                type: "success",
-                container: "center",
-                insert: "top"
-            })
-        }
-
-
         return (
             <>
+
+                <div style={{ margin: 30 }}>
+                    <label>
+                        <input type="text" onChange={this.onChangeHandler.bind(this)} placeholder="Search for..." />
+                    </label>
+                </div>
+
              <TableContainer style={{
                     borderRadius: 15,
                     margin: '10px 10px',

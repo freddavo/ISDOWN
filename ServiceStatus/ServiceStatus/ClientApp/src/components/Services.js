@@ -59,19 +59,6 @@ export class Services extends Component {
 
         //let contents = this.renderForecastsTable(this.state.forecasts);
 
-        const handleOnClickDefault = () => {
-            fetch('Service/Index')
-                .then(response => response.json())
-                .then(data => {
-                    var filtered = data.filter(function (el) { return el.name == "paco.ua.pt"; });
-                    console.log(filtered);
-                /*this.setState({ forecasts: filtered, loading: false });*/
-                    this.state.forecasts = filtered;
-                });
-        }
-
-        
-    
 
         return (
             <div>

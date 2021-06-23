@@ -27,6 +27,7 @@ import {
 export class Time extends Component {
     static displayName = Time.name;
 
+    searchArray = [];
 
     constructor(props) {
         super(props);
@@ -43,11 +44,21 @@ export class Time extends Component {
             .then(response => response.json())
             .then(data => {
                 this.setState({ forecasts: data, loading: false });
+                this.searchArray = data;
+
             });
     }
 
     changeHandler = e => {
         this.setState({ [e.target.name]: e.target.value })
+    }
+
+    onChangeHandler(e) {
+        let newArray = this.searchArray.filter((d) => {
+            let searchValue = d.name.toLowerCase();
+            return searchValue.indexOf(e.target.value) !== -1;
+        });
+        this.setState({ forecasts: newArray })
     }
 
     submitHandler = e => {
@@ -78,21 +89,17 @@ export class Time extends Component {
 
         const { name, tempo } = this.state
 
-        const handleOnClickDefault = () => {
-            store.addNotification({
-                title: "Subscrição",
-                message: "Notificações ativadas com sucesso!",
-                type: "success",
-                container: "center",
-                insert: "top"
-            })
-        }
-
 
         return (
 
          
-           <>
+            <>
+                <div style={{ margin: 30 }}>
+                    <label>
+                        <input type="text" onChange={this.onChangeHandler.bind(this)} placeholder="Search for..." />
+                    </label>
+                </div>
+
                 <TableContainer style={{
                     borderRadius: 15,
                     margin: '10px 10px',
@@ -194,7 +201,6 @@ export class Time extends Component {
                     </form>
                     <TableBody>
                         {this.state.forecasts.map(forecast => {
-                            console.log(forecast);
                             return <tr key={forecast.name}>
                                 <TableCell>
                                     <Typography>

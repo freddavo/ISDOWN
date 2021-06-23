@@ -20,13 +20,14 @@ namespace ServiceStatus.Models
         public virtual DbSet<Admin> Admins { get; set; }
         public virtual DbSet<Dns> Dns { get; set; }
         public virtual DbSet<Historico> Historicos { get; set; }
+        public virtual DbSet<Manutencao> Manutencaos { get; set; }
         public virtual DbSet<Servico> Servicos { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {
-//#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
+#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
                 optionsBuilder.UseSqlServer("Server=isdown.database.windows.net;Database=isdown;user id=isdown;password=projeto.1");
             }
         }
@@ -75,7 +76,7 @@ namespace ServiceStatus.Models
                     .HasMaxLength(50)
                     .IsUnicode(false);
             });
- 
+
 
             modelBuilder.Entity<Historico>(entity =>
             {
@@ -101,10 +102,33 @@ namespace ServiceStatus.Models
                     .IsUnicode(false);
             });
 
+            modelBuilder.Entity<Manutencao>(entity =>
+            {
+                entity.HasKey(e => new { e.ServiceName, e.DataManutencao })
+                    .HasName("PK__Manutenc__D612055A60EE76CC");
+
+                entity.ToTable("Manutencao", "id");
+
+                entity.Property(e => e.ServiceName)
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.DataManutencao)
+                    .HasMaxLength(10)
+                    .IsUnicode(false)
+                    .HasColumnName("Data_Manutencao");
+
+                entity.HasOne(d => d.ServiceNameNavigation)
+                    .WithMany(p => p.Manutencaos)
+                    .HasForeignKey(d => d.ServiceName)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__Manutenca__Servi__7CD98669");
+            });
+
             modelBuilder.Entity<Servico>(entity =>
             {
                 entity.HasKey(e => e.Name)
-                    .HasName("PK__Servico__737584F72776B92D");
+                    .HasName("PK__Servico__737584F79ED727A6");
 
                 entity.ToTable("Servico", "id");
 
@@ -117,11 +141,6 @@ namespace ServiceStatus.Models
                     .IsUnicode(false)
                     .HasColumnName("Health_State");
 
-                entity.Property(e => e.Maintenance)
-                    .HasMaxLength(50)
-                    .IsUnicode(false)
-                    .HasDefaultValueSql("('None')");
-
                 entity.Property(e => e.Path)
                     .HasMaxLength(50)
                     .IsUnicode(false);
@@ -130,8 +149,6 @@ namespace ServiceStatus.Models
                     .HasMaxLength(50)
                     .IsUnicode(false);
             });
-
-            
 
             modelBuilder.HasSequence<int>("SalesOrderNumber", "SalesLT");
 
