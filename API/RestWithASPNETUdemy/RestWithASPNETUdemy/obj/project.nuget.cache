@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "q6ddQK95oeP3tpibfnZAmdhFWux8htPxXrjwgQGOnjUdd45a/9JpGBqK90EUA53r1Zn+fSganHM9uoxz9+qu8Q==",
+  "dgSpecHash": "uItK3lkKTajM010ZoUZ9ns1+rc2F5JKcbOJ3WyXtsGtECoLQGGMIgVEH3dk4SaM3dPs3PYdQZMfJ+ttDu5OmsQ==",
   "success": true,
   "projectFilePath": "/Users/eleandrog/Desktop/PI/ISDOWN/API/RestWithASPNETUdemy/RestWithASPNETUdemy/RestWithASPNETUdemy.csproj",
   "expectedPackageFiles": [
@@ -47,10 +47,10 @@
     "/Users/eleandrog/.nuget/packages/serilog.sinks.console/3.1.1/serilog.sinks.console.3.1.1.nupkg.sha512",
     "/Users/eleandrog/.nuget/packages/serilog.sinks.debug/2.0.0/serilog.sinks.debug.2.0.0.nupkg.sha512",
     "/Users/eleandrog/.nuget/packages/serilog.sinks.file/4.1.0/serilog.sinks.file.4.1.0.nupkg.sha512",
-    "/Users/eleandrog/.nuget/packages/swashbuckle.aspnetcore/5.6.3/swashbuckle.aspnetcore.5.6.3.nupkg.sha512",
-    "/Users/eleandrog/.nuget/packages/swashbuckle.aspnetcore.swagger/5.6.3/swashbuckle.aspnetcore.swagger.5.6.3.nupkg.sha512",
-    "/Users/eleandrog/.nuget/packages/swashbuckle.aspnetcore.swaggergen/5.6.3/swashbuckle.aspnetcore.swaggergen.5.6.3.nupkg.sha512",
-    "/Users/eleandrog/.nuget/packages/swashbuckle.aspnetcore.swaggerui/5.6.3/swashbuckle.aspnetcore.swaggerui.5.6.3.nupkg.sha512",
+    "/Users/eleandrog/.nuget/packages/swashbuckle.aspnetcore/6.1.4/swashbuckle.aspnetcore.6.1.4.nupkg.sha512",
+    "/Users/eleandrog/.nuget/packages/swashbuckle.aspnetcore.swagger/6.1.4/swashbuckle.aspnetcore.swagger.6.1.4.nupkg.sha512",
+    "/Users/eleandrog/.nuget/packages/swashbuckle.aspnetcore.swaggergen/6.1.4/swashbuckle.aspnetcore.swaggergen.6.1.4.nupkg.sha512",
+    "/Users/eleandrog/.nuget/packages/swashbuckle.aspnetcore.swaggerui/6.1.4/swashbuckle.aspnetcore.swaggerui.6.1.4.nupkg.sha512",
     "/Users/eleandrog/.nuget/packages/system.appcontext/4.1.0/system.appcontext.4.1.0.nupkg.sha512",
     "/Users/eleandrog/.nuget/packages/system.collections/4.0.11/system.collections.4.0.11.nupkg.sha512",
     "/Users/eleandrog/.nuget/packages/system.collections.immutable/1.7.1/system.collections.immutable.1.7.1.nupkg.sha512",
