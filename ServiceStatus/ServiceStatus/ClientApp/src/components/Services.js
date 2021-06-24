@@ -134,7 +134,28 @@ export class Services extends Component {
                                     >{forecast.healthState}</Typography>
                                     </TableCell>
                                     <TableCell> <Typography>{forecast.tempo}</Typography></TableCell>
-                                    <TableCell> <Typography>{forecast.maintenance}</Typography></TableCell>
+                                    <TableCell> <Typography ><NavLink exact activeClassName="active"
+                                        to={{
+                                            pathname: "/Scheduled",
+                                            props: {
+                                                state: [
+                                                    forecast.serviceName]
+                                            }
+                                           
+                                        }}
+                                        style={{
+                                            fontWeight: 'bold',
+                                            fontSize: '0.75rem',
+                                            color: 'white',
+                                            backgroundColor: 'blue',
+                                            borderRadius: 8,
+                                            padding: '3px 10px',
+                                            display: 'inline-block',
+                                            marginLeft: 5,
+                                            textDecoration: 'none'
+                                           
+                                            
+                                        }}                                > Scheduled</NavLink></Typography></TableCell>
                                     <TableCell> <Typography ><NavLink exact activeClassName="active"
                                         to={{
                                             pathname: "/Historic",
@@ -147,7 +168,7 @@ export class Services extends Component {
                                         fontWeight: 'bold',
                                         fontSize: '0.75rem',
                                         color: 'white',
-                                        backgroundColor: 'grey',
+                                        textDecoration: 'none',
                                         borderRadius: 8,
                                         padding: '3px 10px',
                                         display: 'inline-block',

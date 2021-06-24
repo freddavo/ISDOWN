@@ -16,6 +16,7 @@ import CardsLogin from './components/Login_Options/CardsLogin';
 import { Maintenance } from './Admin/Maintenance';
 import { Time } from './Admin/Time';
 import { PostForm } from './Admin/PostForm';
+import { Scheduled } from './components/Scheduled/Scheduled';
 //import RoutesPrivate from './components/Routes/Private';
  
 
@@ -36,6 +37,8 @@ function App() {
                           <Route path="/CardsLogin" component={CardsLogin} />
                           <Route path="/Maintenance" component={Maintenance} />
                           <Route path="/Time" component={Time} />
+                          <Route path="/Scheduled" component={Scheduled} />
+
 
 
                   </Switch>
