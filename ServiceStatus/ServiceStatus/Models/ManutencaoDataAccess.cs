@@ -4,13 +4,13 @@ using ServiceStatus.Models;
 namespace ServiceStatus.Controllers
 {
 
-    public class AdminDataAccess
+    public class ManutencaoDataAccess
     {
         isdownContext db = new isdownContext();
 
-        public IEnumerable<Admin> GetAdmin()
+        public IEnumerable<Manutencao> GetManutencao()
         {
-            return db.Admins.ToList();
+            return db.Manutencaos.ToList();
         }
     }
 }

@@ -134,6 +134,7 @@ export class Services extends Component {
                                     >{forecast.healthState}</Typography>
                                     </TableCell>
                                     <TableCell> <Typography>{forecast.tempo}</Typography></TableCell>
+
                                     <TableCell> <Typography ><NavLink exact activeClassName="active"
                                         to={{
                                             pathname: "/Scheduled",
@@ -141,7 +142,6 @@ export class Services extends Component {
                                                 state: [
                                                     forecast.serviceName]
                                             }
-                                           
                                         }}
                                         style={{
                                             fontWeight: 'bold',
@@ -155,7 +155,8 @@ export class Services extends Component {
                                             textDecoration: 'none'
                                            
                                             
-                                        }}                                > Scheduled</NavLink></Typography></TableCell>
+                                        }}                                >
+                                        Scheduled</NavLink></Typography></TableCell>
                                     <TableCell> <Typography ><NavLink exact activeClassName="active"
                                         to={{
                                             pathname: "/Historic",
@@ -173,7 +174,8 @@ export class Services extends Component {
                                         padding: '3px 10px',
                                         display: 'inline-block',
                                         backgroundColor:'gray'
-                                    }}                                > History </NavLink></Typography></TableCell>
+                                        }}                                >
+                                        History </NavLink></Typography></TableCell>
 
                                 </tr>
                             })}
