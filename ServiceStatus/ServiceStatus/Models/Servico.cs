@@ -9,7 +9,7 @@ namespace ServiceStatus.Models
     {
         public Servico()
         {
-            Manutencaos = new HashSet<Manutencao>();
+            //Manutencaos = new HashSet<Manutencao>();
         }
 
         public string Name { get; set; }

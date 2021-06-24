@@ -35,14 +35,48 @@ export class Services extends Component {
             loading: true,
             value: "None"
         };
-     
+    }
+
+    componentDidMount() {
         
         fetch('Service/Index')
             .then(response => response.json())
             .then(data => {
                 this.setState({ forecasts: data, loading: false });
                 this.searchArray = data;
+
+                return (fetch('Manutencao/Index'));
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log(this.state.forecasts.length);
+                console.log(this.state.forecasts[parseInt('0')]);
+                for (var s in this.state.forecasts) {
+                    var servico = this.state.forecasts[parseInt(s)];
+                    for (var m in data) {
+                        var manutencao = data[parseInt(m)];
+                        if (servico.name == manutencao.serviceName) {
+                            if (servico.hasOwnProperty("nextManutencao")) {
+                                if (Date.parse(servico.nextManutencao) > Date.parse(manutencao.dataManutencao)) {
+                                    this.state.forecasts[parseInt(s)]["nextManutencao"] = manutencao.dataManutencao;
+                                }
+                            }
+                            else {
+                                this.state.forecasts[parseInt(s)]["nextManutencao"] = manutencao.dataManutencao;
+                            }
+                            console.log(this.state.forecasts[parseInt(s)]);
+                        }
+                    }
+                }
+
+                this.setState({ forecasts: this.state.forecasts, loading: false });
+                this.searchArray = data;
             });
+    }
+    
+
+    dateBiggerThan(date1, date2) {
+
     }
 
     onChangeHandler(e) {
@@ -108,9 +142,9 @@ export class Services extends Component {
                             </TableRow>
                         </TableHead>
                         <TableBody>
-                            {this.state.forecasts.map(forecast => {
+                            {this.state.forecasts.map((forecast, index)=> {
                                 console.log(forecast);
-                                return <tr key={forecast.name}>
+                                return <tr key={forecast.name, index}>
                                     <TableCell>
                                         <Typography>
                                             {forecast.name}
@@ -135,28 +169,32 @@ export class Services extends Component {
                                     </TableCell>
                                     <TableCell> <Typography>{forecast.tempo}</Typography></TableCell>
 
-                                    <TableCell> <Typography ><NavLink exact activeClassName="active"
-                                        to={{
-                                            pathname: "/Scheduled",
-                                            props: {
-                                                state: [
-                                                    forecast.serviceName]
-                                            }
-                                        }}
-                                        style={{
-                                            fontWeight: 'bold',
-                                            fontSize: '0.75rem',
-                                            color: 'white',
-                                            backgroundColor: 'blue',
-                                            borderRadius: 8,
-                                            padding: '3px 10px',
-                                            display: 'inline-block',
-                                            marginLeft: 5,
-                                            textDecoration: 'none'
-                                           
-                                            
-                                        }}                                >
-                                        Scheduled</NavLink></Typography></TableCell>
+                                    <TableCell>
+                                        <Typography >
+                                            {forecast.nextManutencao} 
+                                            <NavLink exact activeClassName="active"
+                                                to={{
+                                                    pathname: "/Scheduled",
+                                                    props: {
+                                                        state: [
+                                                            forecast.serviceName]
+                                                    }
+                                                }}
+                                                style={{
+                                                    fontWeight: 'bold',
+                                                    fontSize: '0.75rem',
+                                                    color: 'white',
+                                                    backgroundColor: 'blue',
+                                                    borderRadius: 8,
+                                                    padding: '3px 10px',
+                                                    display: 'inline-block',
+                                                    marginLeft: 5,
+                                                    textDecoration: 'none'
+
+                                                }}                               >
+                                        Schedule</NavLink>
+                                    </Typography>
+                                    </TableCell>
                                     <TableCell> <Typography ><NavLink exact activeClassName="active"
                                         to={{
                                             pathname: "/Historic",
