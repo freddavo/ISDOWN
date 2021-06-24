@@ -194,11 +194,7 @@ export class Time extends Component {
 
                         </TableRow>
                     </TableHead>
-                    <form onSubmit={this.submitHandler}>
-                        <input type="text" name="name" value={name} onChange={this.changeHandler} />
-                        <input type="text" name="tempo" value={tempo} onChange={this.changeHandler} />
-                        <button type="submit"> Change </button>
-                    </form>
+                    
                     <TableBody>
                         {this.state.forecasts.map(forecast => {
                             return <tr key={forecast.name}>
