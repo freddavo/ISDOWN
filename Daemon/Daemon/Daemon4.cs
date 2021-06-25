@@ -35,14 +35,9 @@ namespace Daemon
 
                 List<string> namesUnique = new List<string>();
 
-
-
-
                 foreach (var x in dadosAPI)
                 {
-                    Console.WriteLine(x);
-
-
+                    //Console.WriteLine(x);
                     var cut = x.Remove(x.Length - 1, 1);
                     var servico = cut.Split(',');
                     if (servico.Length > 1)
@@ -50,44 +45,37 @@ namespace Daemon
                         var tuploName = servico[1].Replace("\"", "").Replace("}", "").Replace("]", "");
                         var tuploTempo = servico[2].Replace("\"", "").Replace("}", "").Replace("]", "");
 
+                        var time = tuploTempo.Split("tempo:")[1]; //60 min //dd:00
+
+                        //var name = time.Replace(":", "");
+                        //int number = Int32.Parse(name);
+                        //Console.WriteLine(number);
+                        Console.WriteLine(time);
+                        Console.WriteLine();
+                        Console.WriteLine();
+
+                        /*number--;
+                        Console.WriteLine(number);
+                        if (number < 0)
+                        {
+                            number = 0;
+                            Console.WriteLine(number);
+                        }*/
+
+
+
                         if (tuploName.Contains("name:") & tuploTempo.Contains("tempo:"))
                         {
                             if (!namesUnique.Contains(tuploName.Split("name:")[1].ToUpper()))
                             {
                                 namesUnique.Add(tuploName.Split("name:")[1].ToUpper());
+
                                 Servico2 s = new Servico2(tuploName.Split("name:")[1], tuploTempo.Split("tempo:")[1]);
-                                servicos.Add(s);
-                            }
-
-                            else if (tuploTempo.Split("tempo:")[1].Equals("Success")) //TODO: susbstituir o success por?
-                            {
-                                //Console.WriteLine(tuploName.Split("name:")[1].ToUpper());
-
-                                foreach (var s in servicos)
-                                {
-                                    if (s.Name.ToUpper().Equals(tuploName.Split("name:")[1].ToUpper()))
-                                    {
-                                        //Console.WriteLine(tuploName.Split("name:")[1].ToUpper());
-
-                                        s.Tempo = tuploTempo.Split("tempo:")[1];
-                                        //s.Path = tuploPath.Split("Path:")[1];
-
-
-                                    }
-                                }
+                                servicos.Add(s); 
                             }
                         }
-
                     }
                 }
-                //Console.WriteLine("- Contagem -");
-                //Console.WriteLine(servicos.Count());
-                //Console.WriteLine("-");
-                //Console.WriteLine(result);
-                //Console.WriteLine(dadosAPI);
-
-
-
             }
 
             //-----------------------------------------------------------------------------------------------------//
@@ -161,10 +149,10 @@ namespace Daemon
                         using (HttpContent content = response.Content)
                         {
                             string mycontent = await content.ReadAsStringAsync();
-                            Console.WriteLine(mycontent);
-                            Console.WriteLine();
-                            Console.WriteLine();
-                            Console.WriteLine();
+                            //Console.WriteLine(mycontent);
+                            //Console.WriteLine();
+                            //Console.WriteLine();
+                            //Console.WriteLine();
                         }
                     }
                 }

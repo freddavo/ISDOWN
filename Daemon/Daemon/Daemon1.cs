@@ -110,7 +110,7 @@ namespace Daemon
                         }
                     }
                     //Console.WriteLine("-");
-                    Console.WriteLine(result);
+                    //Console.WriteLine(result);
                     //Console.WriteLine(dnss.Count());
                     //Console.WriteLine("-");    
                 }

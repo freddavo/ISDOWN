@@ -9,12 +9,12 @@ namespace RestWithASPNETUdemy.Controllers
     [ApiVersion("1")]
     [ApiController]
     [Route("api/[controller]/v{version:apiVersion}")]
-    public class MaintenanceController : ControllerBase
+    public class ServiceController : ControllerBase
     {
-        private readonly ILogger<MaintenanceController> _logger;
+        private readonly ILogger<ServiceController> _logger;
         private IServiceBusiness _serviceBusiness;
 
-        public MaintenanceController(ILogger<MaintenanceController> logger, IServiceBusiness serviceBusiness)
+        public ServiceController(ILogger<ServiceController> logger, IServiceBusiness serviceBusiness)
         {
             _logger = logger;
             _serviceBusiness = serviceBusiness;

@@ -39,7 +39,7 @@ namespace Daemon
 
                 foreach (var x in dadosAPI)
                 {
-                    Console.WriteLine(x);
+                    //Console.WriteLine(x);
 
 
                     var cut = x.Remove(x.Length - 1, 1);
@@ -57,26 +57,7 @@ namespace Daemon
                                 Servico1 s = new Servico1(tuploName.Split("name:")[1], tuploMaintenance.Split("maintenance:")[1]);
                                 servicos.Add(s);
                             }
-
-                            else if (tuploMaintenance.Split("maintenance:")[1].Equals("Success")) //TODO: susbstituir o success por?
-                            {
-                                Console.WriteLine(tuploName.Split("name:")[1].ToUpper());
-
-                                foreach (var s in servicos)
-                                {
-                                    if (s.Name.ToUpper().Equals(tuploName.Split("name:")[1].ToUpper()))
-                                    {
-                                        Console.WriteLine(tuploName.Split("name:")[1].ToUpper());
-
-                                        s.Maintenance = tuploMaintenance.Split("maintenance:")[1];
-                                        //s.Path = tuploPath.Split("Path:")[1];
-
-
-                                    }
-                                }
-                            }
                         }
-
                     }
                 }
                 //Console.WriteLine("- Contagem -");
@@ -100,7 +81,7 @@ namespace Daemon
                     // Opening a connection
                     connection.Open();
 
-                    var query1 = $"SELECT [Name], [Maintenance] FROM [id].[Servico]";
+                    var query1 = $"SELECT [ServiceName], [Data_Manutencao] FROM [id].[Manutencao]";
                     SqlCommand command1 = new SqlCommand(query1, connection);
                     var reader = command1.ExecuteReader();
                     var namesUnique = new ArrayList();
@@ -109,7 +90,7 @@ namespace Daemon
                     {
                         while (reader.Read())
                         {
-                            namesUnique.Add(reader["Name"].ToString().ToUpper());
+                            namesUnique.Add(reader["ServiceName"].ToString().ToUpper());
                         }
                     }
                     reader.Close();
@@ -123,7 +104,7 @@ namespace Daemon
                         if (!namesUnique.Contains(servico.Name.ToUpper()))
                         {
                             namesUnique.Add(servico.Name.ToUpper());
-                            var query = $"INSERT INTO [id].[Servico] ([Name],[Maintenance]) VALUES('{servico.Name}', '{servico.Maintenance}')";
+                            var query = $"INSERT INTO [id].[Manutencao] ([ServiceName],[Data_Manutencao]) VALUES('{servico.Name}', '{servico.Maintenance}')";
                             SqlCommand command2 = new SqlCommand(query, connection);
                             if (command2.Connection.State == System.Data.ConnectionState.Open)
                             {
@@ -134,7 +115,7 @@ namespace Daemon
                         }
                         else
                         {
-                            var query3 = $"UPDATE [id].[Servico] SET [Maintenance] = '{servico.Maintenance}' WHERE Name = '{servico.Name}' ";
+                            var query3 = $"UPDATE [id].[Manutencao] SET [Data_Manutencao] = '{servico.Maintenance}' WHERE ServiceName = '{servico.Name}' ";
                             SqlCommand command3 = new SqlCommand(query3, connection);
                             if (command3.Connection.State == System.Data.ConnectionState.Open)
                             {
@@ -160,10 +141,10 @@ namespace Daemon
                         using (HttpContent content = response.Content)
                         {
                             string mycontent = await content.ReadAsStringAsync();
-                            Console.WriteLine(mycontent);
-                            Console.WriteLine();
-                            Console.WriteLine();
-                            Console.WriteLine();
+                            //Console.WriteLine(mycontent);
+                            //Console.WriteLine();
+                            //Console.WriteLine();
+                            //Console.WriteLine();
                         }
                     }
                 }
