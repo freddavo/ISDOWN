@@ -34,7 +34,7 @@ export class Scheduled extends Component {
         fetch('Manutencao/Index')
             .then(response => response.json())
             .then(data => {
-                this.setState({ forecasts: data, loading: false });
+                this.setState({ forecasts: data, loading: false, nomeServico: props.location.props.state[0]  });
             });
         console.log(this.state.forecasts);
     }
@@ -107,16 +107,18 @@ export class Scheduled extends Component {
                     <TableBody>
                         {this.state.forecasts.map(forecast => {
                             console.log(forecast);
-                            return <tr key={forecast.serviceName}>
-                                <TableCell>
-                                    <Typography>
-                                        {forecast.serviceName}
-                                    </Typography>
-                                </TableCell>
-                                <TableCell>
-                                    {forecast.dataManutencao}
-                                </TableCell>
-                            </tr>
+                            if (this.state.nomeServico == forecast.serviceName) {
+                                return <tr key={forecast.serviceName}>
+                                    <TableCell>
+                                        <Typography>
+                                            {forecast.serviceName}
+                                        </Typography>
+                                    </TableCell>
+                                    <TableCell>
+                                        {forecast.dataManutencao}
+                                    </TableCell>
+                                </tr>
+                            }
                         })}
                     </TableBody>
                 </Table>

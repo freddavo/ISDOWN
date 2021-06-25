@@ -179,7 +179,7 @@ export class Services extends Component {
                                                     pathname: "/Scheduled",
                                                     props: {
                                                         state: [
-                                                            forecast.serviceName]
+                                                            forecast.name]
                                                     }
                                                 }}
                                                 style={{
