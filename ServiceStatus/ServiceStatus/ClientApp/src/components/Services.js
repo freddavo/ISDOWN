@@ -70,7 +70,7 @@ export class Services extends Component {
                 }
 
                 this.setState({ forecasts: this.state.forecasts, loading: false });
-                this.searchArray = data;
+                this.searchArray = this.state.forecasts;
             });
     }
     
