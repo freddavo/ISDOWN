@@ -79,10 +79,12 @@ export class Services extends Component {
 
     }
 
+    changeHandler = e => {
+        this.setState({ [e.target.name]: e.target.value })
+    }
+
     onChangeHandler(e) {
-        console.log(e.target.value);
         let newArray = this.searchArray.filter((d) => {
-            console.log(d);
             let searchValue = d.name.toLowerCase();
             return searchValue.indexOf(e.target.value) !== -1;
         });

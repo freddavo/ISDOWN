@@ -100,7 +100,7 @@ export class Scheduled extends Component {
                             <TableCell className={useStyles.tableHeaderCell}
                                 style={{
                                     fontWeight: 'bold'
-                                }}>Scheduled Maintanances </TableCell>
+                                }}>Scheduled Maintenances </TableCell>
 
                         </TableRow>
                     </TableHead>

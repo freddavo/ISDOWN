@@ -45,24 +45,18 @@ namespace Daemon
                         var tuploName = servico[1].Replace("\"", "").Replace("}", "").Replace("]", "");
                         var tuploTempo = servico[2].Replace("\"", "").Replace("}", "").Replace("]", "");
 
-                        var time = tuploTempo.Split("tempo:")[1]; //60 min //dd:00
+                        var time = tuploTempo.Split("tempo:")[1]; //01:40
 
-                        //var name = time.Replace(":", "");
-                        //int number = Int32.Parse(name);
-                        //Console.WriteLine(number);
-                        Console.WriteLine(time);
+                        
+                        var dataAPIToTime = TimeSpan.Parse(time); //01:40:00
+                        Console.WriteLine(dataAPIToTime);
+                        
+                        var timeDecrement = dataAPIToTime - TimeSpan.FromMinutes(30); //01:39:00
+                        Console.WriteLine(timeDecrement);
+
+                       
                         Console.WriteLine();
                         Console.WriteLine();
-
-                        /*number--;
-                        Console.WriteLine(number);
-                        if (number < 0)
-                        {
-                            number = 0;
-                            Console.WriteLine(number);
-                        }*/
-
-
 
                         if (tuploName.Contains("name:") & tuploTempo.Contains("tempo:"))
                         {
