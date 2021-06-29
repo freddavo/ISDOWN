@@ -8,7 +8,7 @@ namespace RestWithASPNETUdemy.Controllers
 {
     [ApiVersion("1")]
     [ApiController]
-    [Route("api/person/v{version:apiVersion}")]
+    [Route("api/time/v{version:apiVersion}")]
     public class TimeController : ControllerBase
     {
         private readonly ILogger<TimeController> _logger;

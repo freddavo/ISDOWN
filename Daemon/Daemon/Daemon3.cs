@@ -54,7 +54,7 @@ namespace Daemon
                             if (!namesUnique.Contains(tuploName.Split("name:")[1].ToUpper()))
                             {
                                 namesUnique.Add(tuploName.Split("name:")[1].ToUpper());
-                                Servico1 s = new Servico1(tuploName.Split("name:")[1], tuploMaintenance.Split("maintenance:")[1]);
+                                Servico1 s = new Servico1(tuploName.Split("name:")[1], tuploMaintenance.Split("maintenance:")[1], "");
                                 servicos.Add(s);
                             }
                         }
@@ -85,12 +85,14 @@ namespace Daemon
                     SqlCommand command1 = new SqlCommand(query1, connection);
                     var reader = command1.ExecuteReader();
                     var namesUnique = new ArrayList();
+                    
 
                     if (reader.HasRows)
                     {
                         while (reader.Read())
                         {
                             namesUnique.Add(reader["ServiceName"].ToString().ToUpper());
+
                         }
                     }
                     reader.Close();
@@ -101,8 +103,6 @@ namespace Daemon
                     {
                         Servico1 servico = servicos[i];
 
-                        if (!namesUnique.Contains(servico.Name.ToUpper()))
-                        {
                             namesUnique.Add(servico.Name.ToUpper());
                             var query = $"INSERT INTO [id].[Manutencao] ([ServiceName],[Data_Manutencao]) VALUES('{servico.Name}', '{servico.Maintenance}')";
                             SqlCommand command2 = new SqlCommand(query, connection);
@@ -112,18 +112,8 @@ namespace Daemon
                             }
                             command2.Connection.Open();
                             command2.ExecuteNonQuery();
-                        }
-                        else
-                        {
-                            var query3 = $"UPDATE [id].[Manutencao] SET [Data_Manutencao] = '{servico.Maintenance}' WHERE ServiceName = '{servico.Name}' ";
-                            SqlCommand command3 = new SqlCommand(query3, connection);
-                            if (command3.Connection.State == System.Data.ConnectionState.Open)
-                            {
-                                command3.Connection.Close();
-                            }
-                            command3.Connection.Open();
-                            command3.ExecuteNonQuery();
-                        }
+                        
+                  
                     }
                 }
             }
@@ -141,7 +131,7 @@ namespace Daemon
                         using (HttpContent content = response.Content)
                         {
                             string mycontent = await content.ReadAsStringAsync();
-                            //Console.WriteLine(mycontent);
+                            Console.WriteLine(mycontent);
                             //Console.WriteLine();
                             //Console.WriteLine();
                             //Console.WriteLine();

@@ -19,11 +19,11 @@ namespace Daemon
         public static void Run([TimerTrigger("0 */1 * * * *")] TimerInfo myTimer, ILogger log)
         {
             
-            GetRequest1("https://localhost:6001/api/person/v1");
+            GetRequest1("https://localhost:6001/api/time/v1");
 
             List<Servico2> servicos = new List<Servico2>();
 
-            var url1 = "https://localhost:6001/api/person/v1";
+            var url1 = "https://localhost:6001/api/time/v1";
             var httpRequest1 = (HttpWebRequest)WebRequest.Create(url1);
             var httpResponse1 = (HttpWebResponse)httpRequest1.GetResponse();
 

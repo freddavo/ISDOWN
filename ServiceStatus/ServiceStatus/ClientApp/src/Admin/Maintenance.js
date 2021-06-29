@@ -7,6 +7,7 @@ import 'react-notifications-component/dist/theme.css';
 import 'animate.css';
 import { makeStyles } from '@material-ui/core/styles';
 import axios from 'axios';
+import { Row } from 'reactstrap';
 import {
     Table,
     TableBody,
@@ -33,6 +34,7 @@ export class Maintenance extends Component {
         super(props);
         this.state = {
             forecasts: [],
+            delete: '',
             loading: true,
             value: "None",
             name: '',
@@ -72,15 +74,18 @@ export class Maintenance extends Component {
             })
     }
 
-    element = (idName) => {
-        console.log(idName);
-        var idd = document.getElementById(idName);
-
-        if (idd !== null) {
-            var text = idd.value;
-            console.log(text);
-        }
+    deleteHandler = (service) => {
+        this.setState({ delete: service })
+        console.log(this.state)
+        axios.post('https://localhost:6001/api/service/v1', this.state)
+            .then(response => {
+                console.log(response)
+            })
+            .catch(error => {
+                console.log(error)
+            })
     }
+
 
     render() {
 
@@ -137,7 +142,8 @@ export class Maintenance extends Component {
                         </TableHead>
 
                             <TableBody>
-                                <TableCell>
+                            <TableCell>
+                                
                                     <form onSubmit={this.submitHandler}>
                                     
                                     <input type="text" name="name" value={name}
@@ -165,12 +171,90 @@ export class Maintenance extends Component {
                                             </button>
                                     
                                     </form>
+
+
+                               
+
+                                
                                 </TableCell>
                       
                             </TableBody>
                 </Table>
                 </TableContainer>
-                                        
+
+
+                 <TableContainer style={{
+                    borderRadius: 15,
+                    margin: '10px 10px',
+                    maxWidth: 1300,
+                    backgroundColor:'#EBECEC'
+                }}>
+                    <Table aria-label="simple table"
+                        style={{ minWidth: 20 }}
+                    >
+                        <TableHead>
+                           
+                                <TableCell
+                                      
+                                >
+                                <Typography style={{
+                                    fontWeight: 'bold'
+                                }}>
+                                    Name      &nbsp;&nbsp; &nbsp;&nbsp;
+                                    &nbsp;&nbsp; &nbsp; &nbsp;
+                                    &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp;
+                                    &nbsp; &nbsp; &nbsp; &nbsp;
+                                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                    &nbsp; &nbsp; &nbsp; &nbsp;
+                                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                    &nbsp; &nbsp; &nbsp; &nbsp;
+                                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                    &nbsp; &nbsp; &nbsp; &nbsp;
+                                     &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                    
+                                    Maintenance                                           
+                                </Typography>
+                                </TableCell>
+                                    <TableCell></TableCell>
+                                  
+                        </TableHead>
+
+                            <TableBody>
+                            <TableCell>
+                                
+                                <form onSubmit={this.deleteHandler}>
+
+                                    <input type="text" name="name" value={name}
+                                        onChange={this.deleteHandler}
+                                        style={{ minWidth: 400, borderRadius: 5 }} />
+
+                                    <input type="text" name="maintenance" value={maintenance}
+                                        onChange={this.deleteHandler}
+                                        style={{ minWidth: 400, borderRadius: 5, marginLeft: '5rem' }} />
+
+
+                                    <button type="submit"
+                                        style={{
+                                            fontWeight: 'bold',
+                                            fontSize: '0.75rem',
+                                            color: 'white',
+                                            backgroundColor: 'grey',
+                                            borderRadius: 8,
+                                            padding: '3px 10px',
+                                            display: 'inline-block',
+                                            backgroundColor: 'black',
+                                            marginLeft: '15rem'
+                                        }}> Delete
+                                            </button>
+
+                                </form> 
+                                </TableCell>
+                      
+                            </TableBody>
+                </Table>
+                </TableContainer>
+
+              
                
             <TableContainer component={Paper} 
                 style={{
@@ -222,7 +306,7 @@ export class Maintenance extends Component {
                                     }}
                                 >{forecast.healthState}</Typography>
                                 </TableCell>
-                     
+
                             </tr>
                         })}
                     </TableBody>
