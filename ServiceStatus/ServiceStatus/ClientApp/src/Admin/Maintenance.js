@@ -65,7 +65,7 @@ export class Maintenance extends Component {
     submitHandler = e => {
         e.preventDefault()
         console.log(this.state)
-        axios.post('https://localhost:6001/api/service/v1', this.state)
+        axios.post('https://servicestatus-api.azurewebsites.net/api/service', this.state)
             .then(response => {
                 console.log(response)
             })
@@ -77,7 +77,7 @@ export class Maintenance extends Component {
     deleteHandler = (service) => {
         this.setState({ delete: service })
         console.log(this.state)
-        axios.post('https://localhost:6001/api/service/v1', this.state)
+        axios.post('https://servicestatus-api.azurewebsites.net/api/service', this.state)
             .then(response => {
                 console.log(response)
             })

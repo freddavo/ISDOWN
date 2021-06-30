@@ -1,0 +1,34 @@
+﻿<Properties StartupConfiguration="{88F3CD81-514A-476A-BC68-149F63DBB4D8}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="SSUAAPI/Model/Time.cs">
+    <Files>
+      <File FileName="SSUAAPI/Model/Time.cs" Line="5" Column="2" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="SSUAAPI" expanded="True">
+            <Node name="SSUAAPI" expanded="True">
+              <Node name="Business" expanded="True">
+                <Node name="Implementations" expanded="True" />
+              </Node>
+              <Node name="Controllers" expanded="True" />
+              <Node name="Model" expanded="True">
+                <Node name="Time.cs" selected="True" />
+              </Node>
+              <Node name="Repository" expanded="True">
+                <Node name="Implementations" expanded="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.SSUAAPI PreferredExecutionTarget="/Applications/Firefox.app" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
