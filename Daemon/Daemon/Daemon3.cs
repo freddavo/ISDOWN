@@ -17,12 +17,12 @@ namespace Daemon
         [FunctionName("Daemon3")]
         public static void Run([TimerTrigger("0 */1 * * * *")] TimerInfo myTimer, ILogger log)
         {
-            GetRequest("https://localhost:6001/api/service/v1");
-            //GetRequest1("https://localhost:6001/api/person/v1");
+            GetRequest("https://servicestatus-api.azurewebsites.net/api/service");
+            
 
             List<Servico1> servicos = new List<Servico1>();
 
-            var url1 = "https://localhost:6001/api/service/v1";
+            var url1 = "https://servicestatus-api.azurewebsites.net/api/service";
             var httpRequest1 = (HttpWebRequest)WebRequest.Create(url1);
             var httpResponse1 = (HttpWebResponse)httpRequest1.GetResponse();
 
@@ -91,7 +91,11 @@ namespace Daemon
                     {
                         while (reader.Read())
                         {
-                            namesUnique.Add(reader["ServiceName"].ToString().ToUpper());
+                            
+                            var nome = reader["ServiceName"].ToString().ToUpper();
+                            var data = reader["Data_Manutencao"].ToString().ToUpper();
+                            Servico1 s = new Servico1(nome, data, "");
+                            namesUnique.Add(s);
 
                         }
                     }
@@ -101,9 +105,23 @@ namespace Daemon
                     //Se estiver vazio, insere! Se não, continua!
                     for (int i = 0; i < servicos.Count(); i++)
                     {
+                         
                         Servico1 servico = servicos[i];
 
-                            namesUnique.Add(servico.Name.ToUpper());
+                        bool add = true;
+
+                        foreach(Servico1 s1 in namesUnique) {
+                            Console.WriteLine(s1.Name + " " + s1.Maintenance);
+                            if (s1.Name.ToLower().Equals(servico.Name.ToLower()) && s1.Maintenance.Equals(servico.Maintenance))
+                            {
+                                add = false;
+                            }
+
+                        }
+
+                        if (add)
+                        {
+                            namesUnique.Add(servico);
                             var query = $"INSERT INTO [id].[Manutencao] ([ServiceName],[Data_Manutencao]) VALUES('{servico.Name}', '{servico.Maintenance}')";
                             SqlCommand command2 = new SqlCommand(query, connection);
                             if (command2.Connection.State == System.Data.ConnectionState.Open)
@@ -112,8 +130,8 @@ namespace Daemon
                             }
                             command2.Connection.Open();
                             command2.ExecuteNonQuery();
-                        
-                  
+                        }
+
                     }
                 }
             }
@@ -131,7 +149,7 @@ namespace Daemon
                         using (HttpContent content = response.Content)
                         {
                             string mycontent = await content.ReadAsStringAsync();
-                            Console.WriteLine(mycontent);
+                            //Console.WriteLine(mycontent);
                             //Console.WriteLine();
                             //Console.WriteLine();
                             //Console.WriteLine();

@@ -19,11 +19,11 @@ namespace Daemon
         public static void Run([TimerTrigger("0 */1 * * * *")] TimerInfo myTimer, ILogger log)
         {
             
-            GetRequest1("https://localhost:6001/api/time/v1");
+            GetRequest1("https://servicestatus-api.azurewebsites.net/api/time");
 
             List<Servico2> servicos = new List<Servico2>();
 
-            var url1 = "https://localhost:6001/api/time/v1";
+            var url1 = "https://servicestatus-api.azurewebsites.net/api/time";
             var httpRequest1 = (HttpWebRequest)WebRequest.Create(url1);
             var httpResponse1 = (HttpWebResponse)httpRequest1.GetResponse();
 
@@ -49,10 +49,10 @@ namespace Daemon
 
                         
                         var dataAPIToTime = TimeSpan.Parse(time); //01:40:00
-                        Console.WriteLine(dataAPIToTime);
+                        //Console.WriteLine(dataAPIToTime);
                         
                         var timeDecrement = dataAPIToTime - TimeSpan.FromMinutes(30); //01:39:00
-                        Console.WriteLine(timeDecrement);
+                        //Console.WriteLine(timeDecrement);
 
                        
                         Console.WriteLine();
