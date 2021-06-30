@@ -19,7 +19,6 @@ namespace Daemon
         public static void Run([TimerTrigger("0 */2 * * * *")] TimerInfo myTimer, ILogger log)
         {
             List<DNS> dnss = new List<DNS>();
-            //Console.WriteLine("-------");
 
             //ACCESS TOKEN (POST)
             var url = "https://wso2-gw.ua.pt/token?grant_type=client_credentials&state=1234567890&scope=openid";
@@ -38,8 +37,6 @@ namespace Daemon
                 var result = streamReader.ReadToEnd();
                 char[] chars = result.ToCharArray();
 
-                //for (int i = 17; i < 53; i++)
-                //    Console.Write(chars[i]);
                 myfunc(chars);
             }
 
@@ -50,10 +47,6 @@ namespace Daemon
                 var url1 = "https://wso2-gw.ua.pt/scom/v1.0/DNS";
 
                 var httpRequest1 = (HttpWebRequest)WebRequest.Create(url1);
-
-                //Console.WriteLine();
-                //Console.WriteLine();
-                //Console.WriteLine();
 
                 string resultado0 = "Bearer ";
                 char resultado = chars[17];
@@ -109,14 +102,9 @@ namespace Daemon
                             }
                         }
                     }
-                    //Console.WriteLine("-");
-                    //Console.WriteLine(result);
-                    //Console.WriteLine(dnss.Count());
-                    //Console.WriteLine("-");    
                 }
             }
             
-            //-----------------------------------------------------------------------------------------------------//
             // Adding custom code to log messages to the Azure SQL Database  
             string connectionString = "Server=tcp:isdown.database.windows.net,1433;Initial Catalog=isdown;Persist Security Info=False;User ID=isdown;Password=projeto.1;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
             // Using the connection string to open a connection

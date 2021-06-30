@@ -40,5 +40,10 @@ namespace SSUAAPI.Business.Implementations
         {
             _repository.Delete(id);
         }
+
+        public void DeleteMaintenance(String name)
+        {
+            _repository.DeleteMaintenance(name);
+        }
     }
 }

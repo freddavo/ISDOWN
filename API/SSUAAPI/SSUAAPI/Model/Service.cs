@@ -12,6 +12,13 @@ namespace SSUAAPI.Model
         public string Name { get; set; }
         [Column("maintenance")]
         public string Maintenance { get; set; }
+        [Column("maintenanceDelete")]
+        public string MaintenanceDelete { get; set; }
+        [Column("nameDelete")]
+        public string NameDelete { get; set; }
+        [Column("Delete")]
+        public string Delete { get; set; }
+
     }
   
 }

@@ -44,7 +44,7 @@ namespace SSUAAPI
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "SSUAAPI", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "SSUA API", Version = "v1" });
             });
         }
 
@@ -55,7 +55,11 @@ namespace SSUAAPI
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "SSUAAPI v1"));
+                app.UseSwaggerUI(c => {
+                    c.SwaggerEndpoint("/swagger/v1/swagger.json", "SSUAAPI v1");
+                }
+
+                );
             }
 
             app.UseHttpsRedirection();

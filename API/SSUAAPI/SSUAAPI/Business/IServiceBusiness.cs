@@ -11,5 +11,6 @@ namespace SSUAAPI.Business
         List<Service> FindAll();
         Service Update(Service service);
         void Delete(int id);
+        void DeleteMaintenance(String name);
     }
 }

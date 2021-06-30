@@ -79,6 +79,23 @@ namespace SSUAAPI.Repository.Implementations
             }
         }
 
+        public void DeleteMaintenance(String name)
+        {
+            var result = _context.Services.SingleOrDefault(s => s.Name.Equals(name));
+            if (result != null)
+            {
+                try
+                {
+                    _context.Services.Remove(result);
+                    _context.SaveChanges();
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+            }
+        }
+
         public bool Exists(int id)
         {
             return _context.Services.Any(s => s.Id.Equals(id));

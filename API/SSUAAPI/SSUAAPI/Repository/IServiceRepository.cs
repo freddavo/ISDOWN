@@ -12,5 +12,6 @@ namespace SSUAAPI.Repository
         Service Update(Service service);
         void Delete(int id);
         bool Exists(int id);
+        void DeleteMaintenance(String name);
     }
 }

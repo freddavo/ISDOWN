@@ -19,7 +19,6 @@ namespace Daemon
         {
             List<Servico> servicos = new List<Servico>();
             List<Historico> historicos = new List<Historico>();
-            //Console.WriteLine("-------");
 
             //ACCESS TOKEN (POST)
             var url = "https://wso2-gw.ua.pt/token?grant_type=client_credentials&state=1234567890&scope=openid";
@@ -39,11 +38,8 @@ namespace Daemon
                 var result = streamReader.ReadToEnd();
                 char[] chars = result.ToCharArray();
 
-                //for (int i = 17; i < 53; i++)
-                //    Console.Write(chars[i]);
                 myfunc(chars);
             }
-
 
             //GET WEBSITES
             void myfunc(char[] chars)
@@ -51,10 +47,6 @@ namespace Daemon
                 var url1 = "https://wso2-gw.ua.pt/scom/v1.0/WebSites";
 
                 var httpRequest1 = (HttpWebRequest)WebRequest.Create(url1);
-
-               // Console.WriteLine();
-               // Console.WriteLine();
-               // Console.WriteLine();
 
                 string resultado0 = "Bearer ";
                 char resultado = chars[17];
@@ -116,14 +108,10 @@ namespace Daemon
 
                         }
                     }
-                    //Console.WriteLine("-");
-                    //Console.WriteLine(servicos.Count());
-                    //Console.WriteLine("-");
-                    //Console.WriteLine(result);    
                 }
             }
 
-            //-----------------------------------------------------------------------------------------------------//
+   
             // Adding custom code to log messages to the Azure SQL Database  
             string connectionString = "Server=tcp:isdown.database.windows.net,1433;Initial Catalog=isdown;Persist Security Info=False;User ID=isdown;Password=projeto.1;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
             // Using the connection string to open a connection
@@ -148,21 +136,6 @@ namespace Daemon
                     }
                     reader.Close();
 
-
-                    /*var query4 = $"SELECT * FROM [id].[Historico]";
-                    SqlCommand command4 = new SqlCommand(query4, connection);
-                    var reader4 = command4.ExecuteReader();
-                    var namesUnique4 = new ArrayList();
-
-                    if (reader4.HasRows)
-                    {
-                        while (reader4.Read())
-                        {
-                            namesUnique4.Add(reader4["NomeServico"].ToString().ToUpper());
-                        }
-                    }
-
-                    reader4.Close();*/
 
                     for (int i = 0; i < servicos.Count(); i++)
                     {
@@ -192,46 +165,6 @@ namespace Daemon
                                 command3.Connection.Open();
                                 command3.ExecuteNonQuery();
                             }
-
-                            /*if (servico.HealthState.Equals("Error"))
-                            {
-                                var query5 = $"SELECT * FROM [id].[Historico]";
-                                SqlCommand command5 = new SqlCommand(query5, connection);
-                                var reader5 = command5.ExecuteReader();
-                                var namesError = new ArrayList();
-
-
-                                if (reader5.HasRows)
-                                {
-                                    while (reader5.Read())
-                                    {
-                                        if ((reader5["Resolvido"].Equals("N") || reader5["Falha"].ToString().ToUpper().Contains("PERMANENTE")) & !namesError.Contains(reader5["NomeServico"].ToString().ToUpper()))
-                                        {
-                                            namesError.Add(reader5["NomeServico"].ToString().ToUpper());
-                                        }
-                                    }
-                                }
-
-                                reader5.Close();
-
-
-                                if (!namesError.Contains(servico.Name.ToUpper()))
-                                {
-                                    DateTime time = DateTime.Now;
-                                    string format = "yyyy-MM-dd HH:mm:ss";
-
-                                    namesError.Add(servico.Name.ToUpper());
-                                    var query = $"INSERT INTO [id].[Historico] ([NomeServico],[DataFalha], [Resolvido]) VALUES('{servico.Name}', '{time.ToString(format)}', '{'N'}')";
-                                    SqlCommand command2 = new SqlCommand(query, connection);
-                                    if (command2.Connection.State == System.Data.ConnectionState.Open)
-                                    {
-                                        command2.Connection.Close();
-                                    }
-                                    command2.Connection.Open();
-                                    command2.ExecuteNonQuery();
-
-                                }*/
-
                         }
                     }
                 }

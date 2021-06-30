@@ -21,7 +21,6 @@ namespace Daemon
         {
             List<Servico> servicos = new List<Servico>();
             List<Historico> historicos = new List<Historico>();
-            //Console.WriteLine("-------");
 
             //ACCESS TOKEN (POST)
             var url = "https://wso2-gw.ua.pt/token?grant_type=client_credentials&state=1234567890&scope=openid";
@@ -42,8 +41,6 @@ namespace Daemon
                 var result = streamReader.ReadToEnd();
                 char[] chars = result.ToCharArray();
 
-                //for (int i = 17; i < 53; i++)
-                //    Console.Write(chars[i]);
                 myfunc(chars);
             }
 
@@ -54,10 +51,6 @@ namespace Daemon
                 var url1 = "https://wso2-gw.ua.pt/scom/v1.0/WebSites";
 
                 var httpRequest1 = (HttpWebRequest)WebRequest.Create(url1);
-
-                //Console.WriteLine();
-                //Console.WriteLine();
-                //Console.WriteLine();
 
                 string resultado0 = "Bearer ";
                 char resultado = chars[17];
@@ -116,17 +109,14 @@ namespace Daemon
                                 }
                                 else if (tuploState.Split("HealthState:")[1].Equals("Success"))
                                 {
-                                    //Console.WriteLine(tuploName.Split("Name:")[1].ToUpper());
                                     
                                     foreach (var s in servicos)
                                     {
                                         if (s.Name.ToUpper().Equals(tuploName.Split("Name:")[1].ToUpper()))
                                         {
-                                            //Console.WriteLine(tuploName.Split("Name:")[1].ToUpper());
 
                                             s.HealthState = tuploState.Split("HealthState:")[1];
                                             s.Path = tuploPath.Split("Path:")[1];
-
                                             
                                         }
                                     } 
@@ -135,14 +125,9 @@ namespace Daemon
 
                         }
                     } 
-                    //Console.WriteLine("-");
-                    //Console.WriteLine(servicos.Count());
-                    //Console.WriteLine("-");
-                    //Console.WriteLine(result);    
                 }
             }
 
-            //-----------------------------------------------------------------------------------------------------//
             // Adding custom code to log messages to the Azure SQL Database  
             string connectionString = "Server=tcp:isdown.database.windows.net,1433;Initial Catalog=isdown;Persist Security Info=False;User ID=isdown;Password=projeto.1;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
             // Using the connection string to open a connection

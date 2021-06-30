@@ -35,13 +35,8 @@ namespace Daemon
                 List<string> namesUnique = new List<string>();
 
 
-                
-
                 foreach (var x in dadosAPI)
                 {
-                    //Console.WriteLine(x);
-
-
                     var cut = x.Remove(x.Length - 1, 1);
                     var servico = cut.Split(',');
                     if (servico.Length > 1)
@@ -60,17 +55,8 @@ namespace Daemon
                         }
                     }
                 }
-                //Console.WriteLine("- Contagem -");
-                //Console.WriteLine(servicos.Count());
-                //Console.WriteLine("-");
-                //Console.WriteLine(result);
-                //Console.WriteLine(dadosAPI);
-
-
-
             }
 
-            //-----------------------------------------------------------------------------------------------------//
             // Adding custom code to log messages to the Azure SQL Database  
             string connectionString = "Server=tcp:isdown.database.windows.net,1433;Initial Catalog=isdown;Persist Security Info=False;User ID=isdown;Password=projeto.1;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
             // Using the connection string to open a connection
@@ -111,7 +97,7 @@ namespace Daemon
                         bool add = true;
 
                         foreach(Servico1 s1 in namesUnique) {
-                            Console.WriteLine(s1.Name + " " + s1.Maintenance);
+                           //Console.WriteLine(s1.Name + " " + s1.Maintenance);
                             if (s1.Name.ToLower().Equals(servico.Name.ToLower()) && s1.Maintenance.Equals(servico.Maintenance))
                             {
                                 add = false;
@@ -149,10 +135,7 @@ namespace Daemon
                         using (HttpContent content = response.Content)
                         {
                             string mycontent = await content.ReadAsStringAsync();
-                            //Console.WriteLine(mycontent);
-                            //Console.WriteLine();
-                            //Console.WriteLine();
-                            //Console.WriteLine();
+                            Console.WriteLine(mycontent);
                         }
                     }
                 }

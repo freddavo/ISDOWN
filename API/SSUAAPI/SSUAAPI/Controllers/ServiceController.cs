@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using SSUAAPI.Business;
@@ -41,7 +43,29 @@ namespace SSUAAPI.Controllers
         {
 
             if (service == null) return BadRequest();
+
+            if (service.Delete.Equals("s"))
+            {
+                List<Service> s = _serviceBusiness.FindAll();
+
+                foreach (Service s1 in s)
+                {
+                    if (String.IsNullOrEmpty(s1.Name) && String.IsNullOrEmpty(s1.NameDelete)) {
+                        Delete(s1.Id);
+
+                    }
+
+                    if (s1.Name.ToLower().Equals(service.Name.ToLower()))
+                    {
+                        Delete(s1.Id);
+                        Delete(service.Id);
+                        return NoContent();
+                    }
+                }
+            }
+
             return Ok(_serviceBusiness.Create(service));
+
         }
 
         //Update
@@ -58,6 +82,14 @@ namespace SSUAAPI.Controllers
         public IActionResult Delete(int id)
         {
             _serviceBusiness.Delete(id);
+            return NoContent();
+        }
+
+        //Delete
+        [HttpDelete("{name}")]
+        public IActionResult DeleteMaintenance(String name)
+        {
+            _serviceBusiness.DeleteMaintenance(name);
             return NoContent();
         }
 

@@ -72,7 +72,6 @@ namespace Daemon
                 }
             }
 
-            //-----------------------------------------------------------------------------------------------------//
             // Adding custom code to log messages to the Azure SQL Database  
             string connectionString = "Server=tcp:isdown.database.windows.net,1433;Initial Catalog=isdown;Persist Security Info=False;User ID=isdown;Password=projeto.1;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
             // Using the connection string to open a connection
@@ -143,10 +142,6 @@ namespace Daemon
                         using (HttpContent content = response.Content)
                         {
                             string mycontent = await content.ReadAsStringAsync();
-                            //Console.WriteLine(mycontent);
-                            //Console.WriteLine();
-                            //Console.WriteLine();
-                            //Console.WriteLine();
                         }
                     }
                 }

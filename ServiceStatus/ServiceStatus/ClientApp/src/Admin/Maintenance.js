@@ -34,11 +34,13 @@ export class Maintenance extends Component {
         super(props);
         this.state = {
             forecasts: [],
-            delete: '',
             loading: true,
             value: "None",
             name: '',
             maintenance: '',
+            nameDelete: '',
+            maintenanceDelete: '',
+            delete: ''
         };
      
 
@@ -64,6 +66,7 @@ export class Maintenance extends Component {
 
     submitHandler = e => {
         e.preventDefault()
+        this.setState({ delete : "" })
         console.log(this.state)
         axios.post('https://servicestatus-api.azurewebsites.net/api/service', this.state)
             .then(response => {
@@ -74,8 +77,9 @@ export class Maintenance extends Component {
             })
     }
 
-    deleteHandler = (service) => {
-        this.setState({ delete: service })
+    /*deleteHandler = e => {
+        e.preventDefault()
+        this.state.delete = "s"
         console.log(this.state)
         axios.post('https://servicestatus-api.azurewebsites.net/api/service', this.state)
             .then(response => {
@@ -84,14 +88,30 @@ export class Maintenance extends Component {
             .catch(error => {
                 console.log(error)
             })
+    }*/
+
+    deleteHandler = e => {
+        e.preventDefault()
+        this.setState({ delete: "" })
+        console.log(this.state)
+        axios.delete('https://servicestatus-api.azurewebsites.net/api/service/' + this.state.nameDelete.toLowerCase)
+            .then(response => {
+                console.log(response)
+            })
+            .catch(error => {
+                console.log(error)
+            })
     }
+
+
+
 
 
     render() {
 
         //let contents = this.renderForecastsTable(this.state.forecasts);
 
-        const { name, maintenance } = this.state
+        const { name, maintenance, nameDelete, maintenanceDelete } = this.state
 
         return (
             <>
@@ -224,13 +244,11 @@ export class Maintenance extends Component {
                                 
                                 <form onSubmit={this.deleteHandler}>
 
-                                    <input type="text" name="name" value={name}
-                                        onChange={this.deleteHandler}
+                                    <input type="text" name="nameDelete" value={nameDelete}
+                                        onChange={this.changeHandler}
                                         style={{ minWidth: 400, borderRadius: 5 }} />
 
-                                    <input type="text" name="maintenance" value={maintenance}
-                                        onChange={this.deleteHandler}
-                                        style={{ minWidth: 400, borderRadius: 5, marginLeft: '5rem' }} />
+                                   
 
 
                                     <button type="submit"
@@ -281,7 +299,7 @@ export class Maintenance extends Component {
                     
                     <TableBody>
                         {this.state.forecasts.map(forecast => {
-                            console.log(forecast);
+                           // console.log(forecast);
                             return <tr key={forecast.name}>
                                 <TableCell>
                                     <Typography>
