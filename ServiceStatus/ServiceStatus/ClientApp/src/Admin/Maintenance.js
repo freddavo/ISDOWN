@@ -248,7 +248,9 @@ export class Maintenance extends Component {
                                         onChange={this.changeHandler}
                                         style={{ minWidth: 400, borderRadius: 5 }} />
 
-                                   
+                                    <input type="text" name="maintenanceDelete" value={maintenanceDelete}
+                                        onChange={this.changeHandler}
+                                        style={{ minWidth: 400, borderRadius: 5 }} />
 
 
                                     <button type="submit"
@@ -299,7 +301,7 @@ export class Maintenance extends Component {
                     
                     <TableBody>
                         {this.state.forecasts.map(forecast => {
-                           // console.log(forecast);
+                           
                             return <tr key={forecast.name}>
                                 <TableCell>
                                     <Typography>
