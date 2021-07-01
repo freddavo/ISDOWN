@@ -2,7 +2,8 @@
 
 ## Project Abstract
 
-O nosso sistema contém uma API e uma Web App, Delivery Guys e Farmacy Web App respetivamente, onde a Farmacy Web App simula o comportamento de negócio de uma farmacia e a API possibilita o serviço de entregas multiplataforma aos utilizadores.
+Aplicação web, eficiente e disponível a toda a comunidade acadêmica que indica os períodos de manutenção de sistemas e/ou equipamentos, bem como de indisponibilidades de serviços momentâneas, de forma a otimizar a interação do utilizador com os serviços.
+
 
 ## Project Team
 
