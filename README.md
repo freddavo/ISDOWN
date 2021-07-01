@@ -1,4 +1,4 @@
-# Service Status UAs
+# Service Status UA
 
 ## Project Abstract
 
