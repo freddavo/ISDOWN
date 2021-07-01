@@ -10,7 +10,7 @@ O nosso sistema contém uma API e uma Web App, Delivery Guys e Farmacy Web App r
 
 **DevOps Master**: [José Filho - 87456](https://github.com/josecarlos55)
 
-**QA Engineer**: [Frederico Avó - 79900](https://github.com/freddavo)
+**Product Owner**: [Frederico Avó - 79900](https://github.com/freddavo)
 
 **Lead Developer**: [Gonçalo Pereira - 93310](https://github.com/pereira-goncalo)
 
