@@ -19,5 +19,5 @@ O nosso sistema contém uma API e uma Web App, Delivery Guys e Farmacy Web App r
 ....
 
 ## Links
-- [Service Status UA](https://www.pivotaltracker.com/n/projects/2500853)
+- [Service Status UA](https://servicestatus-ua.azurewebsites.net/)
 - [Repositorio Antigo](https://github.com/EleandroG/ServiceStatus)
