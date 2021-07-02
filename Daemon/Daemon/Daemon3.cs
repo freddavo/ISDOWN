@@ -97,7 +97,7 @@ namespace Daemon
 
                         bool add = true;
 
-                        Console.WriteLine(servico.Name + " " + servico.Maintenance);
+                        //Console.WriteLine(servico.Name + " " + servico.Maintenance);
                         foreach (Servico1 s1 in namesUnique) {
                             
                             if (s1.Name.ToLower().Equals(servico.Name.ToLower()) && s1.Maintenance.Equals(servico.Maintenance))
@@ -136,7 +136,7 @@ namespace Daemon
                         using (HttpContent content = response.Content)
                         {
                             string mycontent = await content.ReadAsStringAsync();
-                            Console.WriteLine(mycontent);
+                            //Console.WriteLine(mycontent);
                         }
                     }
                 }

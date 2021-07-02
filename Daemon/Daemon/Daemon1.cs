@@ -91,15 +91,17 @@ namespace Daemon
                         {
                             var tuploName = dns[0].Replace("\"", "").Replace("}", "");
                             var tuploState = dns[1].Replace("\"", "").Replace("}", "");
+                            Console.WriteLine(tuploName);
 
-                            if (tuploName.Contains("Name:\":\"DNS:") & tuploState.Contains("Status:"))
+                            if (tuploName.Contains("Name:DNS:") & tuploState.Contains("Status:"))
                             {
                                 if (!namesUnique.Contains(tuploName.Split("Name:")[1].ToUpper()))
                                 {
-                                    namesUnique.Add(tuploName.Split("Name:\":\"DNS:")[1].ToUpper());
-                                    DNS d = new DNS(tuploName.Split("Name:\":\"DNS:")[1], tuploState.Split("Status:")[1]);
-                                    dnss.Add(d);
+                                    namesUnique.Add(tuploName.Split("Name:DNS:")[1].ToUpper());
                                 }
+                                DNS d = new DNS(tuploName.Split("Name:DNS:")[1], tuploState.Split("Status:")[1]);
+                                dnss.Add(d);
+                                Console.WriteLine(tuploName.Split("Name:DNS:")[1]);
                             }
                         }
                     }
@@ -128,6 +130,7 @@ namespace Daemon
 
                         if (reader.HasRows)
                         {
+                            Console.WriteLine("1");
                             while (reader.Read())
                             {
                                 namesUnique.Add(reader["Name"].ToString().ToUpper());
@@ -137,6 +140,7 @@ namespace Daemon
 
                         if (!namesUnique.Contains(dns.Name.ToUpper()))
                         {
+                            Console.WriteLine("2");
                             namesUnique.Add(dns.Name.ToUpper());
                             var query = $"INSERT INTO [dbo].[DNS] ([Name],[Status]) VALUES('{dns.Name}', '{dns.Status}')";
                             SqlCommand command2 = new SqlCommand(query, connection);
@@ -149,6 +153,7 @@ namespace Daemon
                         }
                         else
                         {
+                            Console.WriteLine("3");
                             var query3 = $"UPDATE [dbo].[DNS] SET [Status] = '{dns.Status}' WHERE Name = '{dns.Name}' ";
                             SqlCommand command3 = new SqlCommand(query3, connection);
                             if (command3.Connection.State == System.Data.ConnectionState.Open)
