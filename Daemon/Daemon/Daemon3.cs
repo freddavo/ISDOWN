@@ -49,9 +49,10 @@ namespace Daemon
                             if (!namesUnique.Contains(tuploName.Split("name:")[1].ToUpper()))
                             {
                                 namesUnique.Add(tuploName.Split("name:")[1].ToUpper());
-                                Servico1 s = new Servico1(tuploName.Split("name:")[1], tuploMaintenance.Split("maintenance:")[1], "");
-                                servicos.Add(s);
+                                
                             }
+                            Servico1 s = new Servico1(tuploName.Split("name:")[1], tuploMaintenance.Split("maintenance:")[1], "");
+                            servicos.Add(s);
                         }
                     }
                 }
@@ -96,8 +97,9 @@ namespace Daemon
 
                         bool add = true;
 
-                        foreach(Servico1 s1 in namesUnique) {
-                           //Console.WriteLine(s1.Name + " " + s1.Maintenance);
+                        Console.WriteLine(servico.Name + " " + servico.Maintenance);
+                        foreach (Servico1 s1 in namesUnique) {
+                            
                             if (s1.Name.ToLower().Equals(servico.Name.ToLower()) && s1.Maintenance.Equals(servico.Maintenance))
                             {
                                 add = false;
@@ -117,7 +119,6 @@ namespace Daemon
                             command2.Connection.Open();
                             command2.ExecuteNonQuery();
                         }
-
                     }
                 }
             }

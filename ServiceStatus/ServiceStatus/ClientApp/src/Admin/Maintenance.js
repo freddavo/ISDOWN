@@ -68,7 +68,7 @@ export class Maintenance extends Component {
         e.preventDefault()
         this.setState({ delete : "" })
         console.log(this.state)
-        axios.post('https://servicestatus-api.azurewebsites.net/api/service', this.state)
+        axios.post('https://localhost:7001/api/service', this.state)
             .then(response => {
                 console.log(response)
             })
