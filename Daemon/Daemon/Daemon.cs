@@ -129,7 +129,7 @@ namespace Daemon
             }
 
             // Adding custom code to log messages to the Azure SQL Database  
-            string connectionString = "Server=tcp:isdown.database.windows.net,1433;Initial Catalog=isdown;Persist Security Info=False;User ID=isdown;Password=projeto.1;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+            string connectionString = "Server=tcp:isdown1.database.windows.net,1433;Initial Catalog=isdown;Persist Security Info=False;User ID=isdown1;Password=projeto.1;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
             // Using the connection string to open a connection
             try
             {
@@ -138,7 +138,7 @@ namespace Daemon
                     // Opening a connection
                     connection.Open();
 
-                    var query1 = $"SELECT [Name], [Health_State], [Path] FROM [id].[Servico]";
+                    var query1 = $"SELECT [Name], [Health_State], [Path] FROM [dbo].[Servico]";
                     SqlCommand command1 = new SqlCommand(query1, connection);
                     var reader = command1.ExecuteReader();
                     var namesUnique = new ArrayList();
@@ -153,7 +153,7 @@ namespace Daemon
                     reader.Close();
 
 
-                    var query4 = $"SELECT * FROM [id].[Historico]";
+                    var query4 = $"SELECT * FROM [dbo].[Historico]";
                     SqlCommand command4 = new SqlCommand(query4, connection);
                     var reader4 = command4.ExecuteReader();
                     var namesUnique4 = new ArrayList();
@@ -175,7 +175,7 @@ namespace Daemon
                         if (!namesUnique.Contains(servico.Name.ToUpper()))
                         {
                             namesUnique.Add(servico.Name.ToUpper());
-                            var query = $"INSERT INTO [id].[Servico] ([Name],[Health_State], [Path]) VALUES('{servico.Name}', '{servico.HealthState}', '{servico.Path}')";
+                            var query = $"INSERT INTO [dbo].[Servico] ([Name],[Health_State], [Path]) VALUES('{servico.Name}', '{servico.HealthState}', '{servico.Path}')";
                             SqlCommand command2 = new SqlCommand(query, connection);
                             if (command2.Connection.State == System.Data.ConnectionState.Open)
                             {
@@ -186,7 +186,7 @@ namespace Daemon
                         }
                         else
                         {
-                            var query3 = $"UPDATE [id].[Servico] SET [Health_State] = '{servico.HealthState}', [Path] = '{servico.Path}' WHERE Name = '{servico.Name}' ";
+                            var query3 = $"UPDATE [dbo].[Servico] SET [Health_State] = '{servico.HealthState}', [Path] = '{servico.Path}' WHERE Name = '{servico.Name}' ";
                             SqlCommand command3 = new SqlCommand(query3, connection);
                             if (command3.Connection.State == System.Data.ConnectionState.Open)
                             {
@@ -198,7 +198,7 @@ namespace Daemon
 
                         if(servico.HealthState.Equals("Error"))
                         {
-                            var query5 = $"SELECT * FROM [id].[Historico]";
+                            var query5 = $"SELECT * FROM [dbo].[Historico]";
                             SqlCommand command5 = new SqlCommand(query5, connection);
                             var reader5 = command5.ExecuteReader();
                             var namesError = new ArrayList();
@@ -214,7 +214,7 @@ namespace Daemon
                                     }
                                 }
                             }
-
+                           
                             reader5.Close();
                             
 
@@ -224,7 +224,7 @@ namespace Daemon
                                 string format = "yyyy-MM-dd HH:mm:ss";
 
                                 namesError.Add(servico.Name.ToUpper());
-                                var query = $"INSERT INTO [id].[Historico] ([NomeServico],[DataFalha], [Resolvido]) VALUES('{servico.Name}', '{time.ToString(format)}', '{'N'}')";
+                                var query = $"INSERT INTO [dbo].[Historico] ([NomeServico],[DataFalha], [Resolvido]) VALUES('{servico.Name}', '{time.ToString(format)}', '{'N'}')";
                                 SqlCommand command2 = new SqlCommand(query, connection);
                                 if (command2.Connection.State == System.Data.ConnectionState.Open)
                                 {

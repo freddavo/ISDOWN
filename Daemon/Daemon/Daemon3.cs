@@ -17,12 +17,12 @@ namespace Daemon
         [FunctionName("Daemon3")]
         public static void Run([TimerTrigger("0 */1 * * * *")] TimerInfo myTimer, ILogger log)
         {
-            GetRequest("https://servicestatus-api.azurewebsites.net/api/service");
+            GetRequest("https://localhost:7001/api/service");
             
 
             List<Servico1> servicos = new List<Servico1>();
 
-            var url1 = "https://servicestatus-api.azurewebsites.net/api/service";
+            var url1 = "https://localhost:7001/api/service";
             var httpRequest1 = (HttpWebRequest)WebRequest.Create(url1);
             var httpResponse1 = (HttpWebResponse)httpRequest1.GetResponse();
 
@@ -58,7 +58,7 @@ namespace Daemon
             }
 
             // Adding custom code to log messages to the Azure SQL Database  
-            string connectionString = "Server=tcp:isdown.database.windows.net,1433;Initial Catalog=isdown;Persist Security Info=False;User ID=isdown;Password=projeto.1;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+            string connectionString = "Server=tcp:isdown1.database.windows.net,1433;Initial Catalog=isdown;Persist Security Info=False;User ID=isdown1;Password=projeto.1;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
             // Using the connection string to open a connection
             try
             {
@@ -67,7 +67,7 @@ namespace Daemon
                     // Opening a connection
                     connection.Open();
 
-                    var query1 = $"SELECT [ServiceName], [Data_Manutencao] FROM [id].[Manutencao]";
+                    var query1 = $"SELECT [ServiceName], [DataManutencao] FROM [dbo].[Manutencao]";
                     SqlCommand command1 = new SqlCommand(query1, connection);
                     var reader = command1.ExecuteReader();
                     var namesUnique = new ArrayList();
@@ -79,7 +79,7 @@ namespace Daemon
                         {
                             
                             var nome = reader["ServiceName"].ToString().ToUpper();
-                            var data = reader["Data_Manutencao"].ToString().ToUpper();
+                            var data = reader["DataManutencao"].ToString().ToUpper();
                             Servico1 s = new Servico1(nome, data, "");
                             namesUnique.Add(s);
 
@@ -108,7 +108,7 @@ namespace Daemon
                         if (add)
                         {
                             namesUnique.Add(servico);
-                            var query = $"INSERT INTO [id].[Manutencao] ([ServiceName],[Data_Manutencao]) VALUES('{servico.Name}', '{servico.Maintenance}')";
+                            var query = $"INSERT INTO [dbo].[Manutencao] ([ServiceName],[DataManutencao]) VALUES('{servico.Name}', '{servico.Maintenance}')";
                             SqlCommand command2 = new SqlCommand(query, connection);
                             if (command2.Connection.State == System.Data.ConnectionState.Open)
                             {

@@ -19,11 +19,11 @@ namespace Daemon
         public static void Run([TimerTrigger("0 */1 * * * *")] TimerInfo myTimer, ILogger log)
         {
             
-            GetRequest1("https://servicestatus-api.azurewebsites.net/api/time");
+            GetRequest1("https://localhost:7001/api/time");
 
             List<Servico2> servicos = new List<Servico2>();
 
-            var url1 = "https://servicestatus-api.azurewebsites.net/api/time";
+            var url1 = "https://localhost:7001/api/time";
             var httpRequest1 = (HttpWebRequest)WebRequest.Create(url1);
             var httpResponse1 = (HttpWebResponse)httpRequest1.GetResponse();
 
@@ -73,7 +73,7 @@ namespace Daemon
             }
 
             // Adding custom code to log messages to the Azure SQL Database  
-            string connectionString = "Server=tcp:isdown.database.windows.net,1433;Initial Catalog=isdown;Persist Security Info=False;User ID=isdown;Password=projeto.1;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+            string connectionString = "Server=tcp:isdown1.database.windows.net,1433;Initial Catalog=isdown;Persist Security Info=False;User ID=isdown1;Password=projeto.1;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
             // Using the connection string to open a connection
             try
             {
@@ -82,7 +82,7 @@ namespace Daemon
                     // Opening a connection
                     connection.Open();
 
-                    var query1 = $"SELECT [Name], [Tempo] FROM [id].[Servico]";
+                    var query1 = $"SELECT [Name], [Tempo] FROM [dbo].[Servico]";
                     SqlCommand command1 = new SqlCommand(query1, connection);
                     var reader = command1.ExecuteReader();
                     var namesUnique = new ArrayList();
@@ -105,7 +105,7 @@ namespace Daemon
                         if (!namesUnique.Contains(servico.Name.ToUpper()))
                         {
                             namesUnique.Add(servico.Name.ToUpper());
-                            var query = $"INSERT INTO [id].[Servico] ([Name],[Tempo]) VALUES('{servico.Name}', '{servico.Tempo}')";
+                            var query = $"INSERT INTO [dbo].[Servico] ([Name],[Tempo]) VALUES('{servico.Name}', '{servico.Tempo}')";
                             SqlCommand command2 = new SqlCommand(query, connection);
                             if (command2.Connection.State == System.Data.ConnectionState.Open)
                             {
@@ -116,7 +116,7 @@ namespace Daemon
                         }
                         else
                         {
-                            var query3 = $"UPDATE [id].[Servico] SET [Tempo] = '{servico.Tempo}' WHERE Name = '{servico.Name}' ";
+                            var query3 = $"UPDATE [dbo].[Servico] SET [Tempo] = '{servico.Tempo}' WHERE Name = '{servico.Name}' ";
                             SqlCommand command3 = new SqlCommand(query3, connection);
                             if (command3.Connection.State == System.Data.ConnectionState.Open)
                             {

@@ -111,9 +111,9 @@ namespace Daemon
                 }
             }
 
-   
+
             // Adding custom code to log messages to the Azure SQL Database  
-            string connectionString = "Server=tcp:isdown.database.windows.net,1433;Initial Catalog=isdown;Persist Security Info=False;User ID=isdown;Password=projeto.1;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+            string connectionString = "Server=tcp:isdown1.database.windows.net,1433;Initial Catalog=isdown;Persist Security Info=False;User ID=isdown1;Password=projeto.1;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
             // Using the connection string to open a connection
             try
             {
@@ -122,7 +122,7 @@ namespace Daemon
                     // Opening a connection
                     connection.Open();
 
-                    var query1 = $"SELECT [Name], [Health_State] FROM [id].[Admin]";
+                    var query1 = $"SELECT [Name], [Health_State] FROM [dbo].[Admin]";
                     SqlCommand command1 = new SqlCommand(query1, connection);
                     var reader = command1.ExecuteReader();
                     var namesUnique = new ArrayList();
@@ -145,7 +145,7 @@ namespace Daemon
                             if (!namesUnique.Contains(servico.Name.ToUpper()))
                             {
                                 namesUnique.Add(servico.Name.ToUpper());
-                                var query = $"INSERT INTO [id].[Admin] ([Name],[Health_State]) VALUES('{servico.Name}', '{servico.HealthState}')";
+                                var query = $"INSERT INTO [dbo].[Admin] ([Name],[Health_State]) VALUES('{servico.Name}', '{servico.HealthState}')";
                                 SqlCommand command2 = new SqlCommand(query, connection);
                                 if (command2.Connection.State == System.Data.ConnectionState.Open)
                                 {
@@ -156,7 +156,7 @@ namespace Daemon
                             }
                             else
                             {
-                                var query3 = $"UPDATE [id].[Admin] SET [Health_State] = '{servico.HealthState}' WHERE Name = '{servico.Name}' ";
+                                var query3 = $"UPDATE [dbo].[Admin] SET [Health_State] = '{servico.HealthState}' WHERE Name = '{servico.Name}' ";
                                 SqlCommand command3 = new SqlCommand(query3, connection);
                                 if (command3.Connection.State == System.Data.ConnectionState.Open)
                                 {
