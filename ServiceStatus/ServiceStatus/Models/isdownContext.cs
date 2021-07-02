@@ -27,7 +27,7 @@ namespace ServiceStatus.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
-                //#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
+#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
                 optionsBuilder.UseSqlServer("Server=isdown1.database.windows.net;Database=isdown;user id=isdown1;password=projeto.1");
             }
         }
@@ -48,13 +48,11 @@ namespace ServiceStatus.Models
                     .IsUnicode(false);
 
                 entity.Property(e => e.HealthState)
-                    .IsRequired()
                     .HasMaxLength(50)
                     .IsUnicode(false)
                     .HasColumnName("Health_State");
 
                 entity.Property(e => e.Tempo)
-                    .IsRequired()
                     .HasMaxLength(255)
                     .IsUnicode(false);
             });
@@ -62,7 +60,7 @@ namespace ServiceStatus.Models
             modelBuilder.Entity<Dns>(entity =>
             {
                 entity.HasKey(e => e.Name)
-                    .HasName("PK__DNS__737584F7E3C04679");
+                    .HasName("PK__DNS__737584F7FAD23D35");
 
                 entity.ToTable("DNS");
 
@@ -71,15 +69,14 @@ namespace ServiceStatus.Models
                     .IsUnicode(false);
 
                 entity.Property(e => e.Status)
-                    .IsRequired()
                     .HasMaxLength(50)
                     .IsUnicode(false);
             });
 
             modelBuilder.Entity<Historico>(entity =>
             {
-                entity.HasKey(e => e.NomeServico)
-                    .HasName("PK__Historic__EF139A622161A8F9");
+                entity.HasKey(e => new { e.NomeServico, e.DataFalha })
+                    .HasName("PK__tmp_ms_x__067525E0F063EBC5");
 
                 entity.ToTable("Historico");
 
@@ -88,7 +85,10 @@ namespace ServiceStatus.Models
                     .IsUnicode(false);
 
                 entity.Property(e => e.DataFalha)
-                    .IsRequired()
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Resolvido)
                     .HasMaxLength(50)
                     .IsUnicode(false);
             });
@@ -121,18 +121,15 @@ namespace ServiceStatus.Models
                     .IsUnicode(false);
 
                 entity.Property(e => e.HealthState)
-                    .IsRequired()
                     .HasMaxLength(50)
                     .IsUnicode(false)
                     .HasColumnName("Health_State");
 
                 entity.Property(e => e.Path)
-                    .IsRequired()
                     .HasMaxLength(50)
                     .IsUnicode(false);
 
                 entity.Property(e => e.Tempo)
-                    .IsRequired()
                     .HasMaxLength(50)
                     .IsUnicode(false);
             });
