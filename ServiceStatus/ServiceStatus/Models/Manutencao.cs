@@ -9,7 +9,5 @@ namespace ServiceStatus.Models
     {
         public string ServiceName { get; set; }
         public string DataManutencao { get; set; }
-
-        public virtual Servico ServiceNameNavigation { get; set; }
     }
 }

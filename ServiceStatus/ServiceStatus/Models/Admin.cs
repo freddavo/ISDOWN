@@ -9,7 +9,6 @@ namespace ServiceStatus.Models
     {
         public string Name { get; set; }
         public string HealthState { get; set; }
-        public string Resolvido { get; set; }
         public string Tempo { get; set; }
     }
 }

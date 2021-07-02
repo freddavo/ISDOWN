@@ -28,7 +28,7 @@ namespace ServiceStatus.Models
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                optionsBuilder.UseSqlServer("Server=isdown.database.windows.net;Database=isdown;user id=isdown;password=projeto.1");
+                optionsBuilder.UseSqlServer("Server=isdown1.database.windows.net;Database=isdown;user id=isdown1;password=projeto.1");
             }
         }
 
@@ -39,24 +39,22 @@ namespace ServiceStatus.Models
             modelBuilder.Entity<Admin>(entity =>
             {
                 entity.HasKey(e => e.Name)
-                    .HasName("PK__Admin__737584F7E6D82542");
+                    .HasName("PK__Admin__737584F7B0280F0A");
 
-                entity.ToTable("Admin", "id");
+                entity.ToTable("Admin");
 
                 entity.Property(e => e.Name)
                     .HasMaxLength(50)
                     .IsUnicode(false);
 
                 entity.Property(e => e.HealthState)
+                    .IsRequired()
                     .HasMaxLength(50)
                     .IsUnicode(false)
                     .HasColumnName("Health_State");
 
-                entity.Property(e => e.Resolvido)
-                    .HasMaxLength(1)
-                    .IsUnicode(false);
-
                 entity.Property(e => e.Tempo)
+                    .IsRequired()
                     .HasMaxLength(255)
                     .IsUnicode(false);
             });
@@ -64,50 +62,43 @@ namespace ServiceStatus.Models
             modelBuilder.Entity<Dns>(entity =>
             {
                 entity.HasKey(e => e.Name)
-                    .HasName("PK__DNS__737584F741538A6E");
+                    .HasName("PK__DNS__737584F7E3C04679");
 
-                entity.ToTable("DNS", "id");
+                entity.ToTable("DNS");
 
                 entity.Property(e => e.Name)
                     .HasMaxLength(50)
                     .IsUnicode(false);
 
                 entity.Property(e => e.Status)
+                    .IsRequired()
                     .HasMaxLength(50)
                     .IsUnicode(false);
             });
 
-
             modelBuilder.Entity<Historico>(entity =>
             {
-                entity.HasKey(e => new { e.NomeServico, e.DataFalha })
-                    .HasName("PK__Historic__067525E019F5FAD4");
+                entity.HasKey(e => e.NomeServico)
+                    .HasName("PK__Historic__EF139A622161A8F9");
 
-                entity.ToTable("Historico", "id");
+                entity.ToTable("Historico");
 
                 entity.Property(e => e.NomeServico)
                     .HasMaxLength(50)
                     .IsUnicode(false);
 
                 entity.Property(e => e.DataFalha)
+                    .IsRequired()
                     .HasMaxLength(50)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.Falha)
-                    .HasMaxLength(50)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.Resolvido)
-                    .HasMaxLength(1)
                     .IsUnicode(false);
             });
 
             modelBuilder.Entity<Manutencao>(entity =>
             {
                 entity.HasKey(e => new { e.ServiceName, e.DataManutencao })
-                    .HasName("PK__Manutenc__D612055A60EE76CC");
+                    .HasName("PK__Manutenc__9D580686FD63F82E");
 
-                entity.ToTable("Manutencao", "id");
+                entity.ToTable("Manutencao");
 
                 entity.Property(e => e.ServiceName)
                     .HasMaxLength(50)
@@ -115,42 +106,36 @@ namespace ServiceStatus.Models
 
                 entity.Property(e => e.DataManutencao)
                     .HasMaxLength(10)
-                    .IsUnicode(false)
-                    .HasColumnName("Data_Manutencao");
-
-                entity.HasOne(d => d.ServiceNameNavigation)
-                    .WithMany(p => p.Manutencaos)
-                    .HasForeignKey(d => d.ServiceName)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Manutenca__Servi__7CD98669");
+                    .IsUnicode(false);
             });
 
             modelBuilder.Entity<Servico>(entity =>
             {
                 entity.HasKey(e => e.Name)
-                    .HasName("PK__Servico__737584F79ED727A6");
+                    .HasName("PK__Servico__737584F77E4CB655");
 
-                entity.ToTable("Servico", "id");
+                entity.ToTable("Servico");
 
                 entity.Property(e => e.Name)
                     .HasMaxLength(50)
                     .IsUnicode(false);
 
                 entity.Property(e => e.HealthState)
+                    .IsRequired()
                     .HasMaxLength(50)
                     .IsUnicode(false)
                     .HasColumnName("Health_State");
 
                 entity.Property(e => e.Path)
+                    .IsRequired()
                     .HasMaxLength(50)
                     .IsUnicode(false);
 
                 entity.Property(e => e.Tempo)
+                    .IsRequired()
                     .HasMaxLength(50)
                     .IsUnicode(false);
             });
-
-            modelBuilder.HasSequence<int>("SalesOrderNumber", "SalesLT");
 
             OnModelCreatingPartial(modelBuilder);
         }

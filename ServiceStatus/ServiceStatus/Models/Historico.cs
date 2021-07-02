@@ -9,7 +9,5 @@ namespace ServiceStatus.Models
     {
         public string NomeServico { get; set; }
         public string DataFalha { get; set; }
-        public string Falha { get; set; }
-        public string Resolvido { get; set; }
     }
 }
