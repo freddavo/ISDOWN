@@ -26,4 +26,3 @@ Para correr o projeto em localhost, é necessário correr:
 ## Links
 - [Service Status UA](https://servicestatus-ua.azurewebsites.net/)
 - [Repositorio Antigo](https://github.com/EleandroG/ServiceStatus)
-- .[]Swagger
