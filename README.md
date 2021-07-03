@@ -19,8 +19,8 @@ Aplicação web, eficiente e disponível a toda a comunidade acadêmica que indi
 
 Para correr o projeto em localhost, é necessário correr: 
 
-- [API] - [Documentação Swagger](https://localhost:7001/swagger/index.html)
-- [Daemon]
+- API - [Documentação Swagger](https://localhost:7001/swagger/index.html)
+- Daemon
 - Aplicação Web (Service Status UA)
 
 ## Links
