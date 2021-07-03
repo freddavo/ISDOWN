@@ -17,8 +17,13 @@ Aplicação web, eficiente e disponível a toda a comunidade acadêmica que indi
 
 ## Setup
 
-....
+Para correr o projeto em localhost, é necessário correr: 
+
+1º - API - [Documentação Swagger](https://localhost:7001/swagger/index.html)
+2ª - Daemon 
+3ª - Aplicação Web (Service Status UA)
 
 ## Links
 - [Service Status UA](https://servicestatus-ua.azurewebsites.net/)
 - [Repositorio Antigo](https://github.com/EleandroG/ServiceStatus)
+- .[]Swagger
